@@ -1,44 +1,70 @@
 {
-  "ACTIVISM Accepts Bitcoin": "Yes",
-  "ACTIVISM Anonymous Payment Method": "Email",
-  "ACTIVISM Meets PrivacyTools IO Criteria": "No",
-  "AFFILIATES Give Full Disclosure": "",
-  "AFFILIATES Practice Ethical Copy": "",
-  "AVAILABILITY # of Connections": "1",
-  "AVAILABILITY # of Countries": "4",
-  "AVAILABILITY # of Servers": "",
-  "ETHICS Contradictory Logging Policies": "",
-  "ETHICS Falsely Claims 100% Effective": "",
-  "ETHICS Incentivizes Social Media Spam": "",
-  "JURISDICTION Based In (Country)": "Denmark",
-  "JURISDICTION Fourteen Eyes?": "Nine",
-  "JURISDICTION Freedom Status": "Free",
-  "LEAK PROTECTION 1st Party DNS Servers": "No",
-  "LEAK PROTECTION IPv6 Supported / Blocked": "No",
-  "LEAK PROTECTION Kill Switch": "No",
-  "LOGGING Logs Bandwidth": "",
-  "LOGGING Logs DNS Requests": "",
-  "LOGGING Logs IP Address": "",
-  "LOGGING Logs Timestamps": "",
-  "LOGGING Logs Traffic": "",
-  "POLICIES Forbids Spam": "",
-  "POLICIES Requires Ethical Copy": "",
-  "POLICIES Requires Full Disclosure": "",
-  "PORT BLOCKING Auth SMTP": "",
-  "PORT BLOCKING P2P": "No",
-  "PRICING $ / Connection / Month": "7.17",
-  "PRICING $ / Month (Annual Pricing)": "7.17",
-  "PRICING Free Trial": "No",
-  "PRICING Refund Period (Days)": "0",
-  "PROTOCOLS Offers OpenVPN": "No",
-  "SECURITY Strongest Data Encryption": "AES-256",
-  "SECURITY Strongest Handshake Encryption": "",
-  "SECURITY Weakest Data Encryption": "",
-  "SECURITY Weakest Handshake Encryption": "",
+  "ACTIVISM": {
+    "Accepts Bitcoin": "Yes",
+    "Anonymous Payment Method": "Email",
+    "Meets PrivacyTools IO Criteria": "No"
+  },
+  "AFFILIATES": {
+    "Give Full Disclosure": "",
+    "Practice Ethical Copy": ""
+  },
+  "AVAILABILITY": {
+    "# of Connections": "1",
+    "# of Countries": "4",
+    "# of Servers": ""
+  },
+  "ETHICS": {
+    "Contradictory Logging Policies": "",
+    "Falsely Claims 100% Effective": "",
+    "Incentivizes Social Media Spam": ""
+  },
+  "JURISDICTION": {
+    "Based In (Country)": "Denmark",
+    "Fourteen Eyes?": "Nine",
+    "Freedom Status": "Free"
+  },
+  "LEAK PROTECTION": {
+    "1st Party DNS Servers": "No",
+    "IPv6 Supported / Blocked": "No",
+    "Kill Switch": "No"
+  },
+  "LOGGING": {
+    "Logs Bandwidth": "",
+    "Logs DNS Requests": "",
+    "Logs IP Address": "",
+    "Logs Timestamps": "",
+    "Logs Traffic": ""
+  },
+  "POLICIES": {
+    "Forbids Spam": "",
+    "Requires Ethical Copy": "",
+    "Requires Full Disclosure": ""
+  },
+  "PORT BLOCKING": {
+    "Auth SMTP": "",
+    "P2P": "No"
+  },
+  "PRICING": {
+    "$ / Connection / Month": "7.17",
+    "$ / Month (Annual Pricing)": "7.17",
+    "Free Trial": "No",
+    "Refund Period (Days)": "0"
+  },
+  "PROTOCOLS": {
+    "Offers OpenVPN": "No"
+  },
+  "SECURITY": {
+    "Strongest Data Encryption": "AES-256",
+    "Strongest Handshake Encryption": "",
+    "Weakest Data Encryption": "",
+    "Weakest Handshake Encryption": ""
+  },
   "VPN SERVICE": "BeeVPN",
-  "WEBSITE # of External Trackers": "1",
-  "WEBSITE # of Persistent Cookies": "4",
-  "WEBSITE # of Proprietary APIs": "12",
-  "WEBSITE SSL Cert issued to": "Self",
-  "WEBSITE Server SSL Rating": "C"
+  "WEBSITE": {
+    "# of External Trackers": "1",
+    "# of Persistent Cookies": "4",
+    "# of Proprietary APIs": "12",
+    "SSL Cert issued to": "Self",
+    "Server SSL Rating": "C"
+  }
 }

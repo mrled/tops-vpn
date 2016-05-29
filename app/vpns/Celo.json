@@ -1,44 +1,70 @@
 {
-  "ACTIVISM Accepts Bitcoin": "Yes",
-  "ACTIVISM Anonymous Payment Method": "No",
-  "ACTIVISM Meets PrivacyTools IO Criteria": "No",
-  "AFFILIATES Give Full Disclosure": "",
-  "AFFILIATES Practice Ethical Copy": "",
-  "AVAILABILITY # of Connections": "5",
-  "AVAILABILITY # of Countries": "5",
-  "AVAILABILITY # of Servers": "6",
-  "ETHICS Contradictory Logging Policies": "Yes",
-  "ETHICS Falsely Claims 100% Effective": "",
-  "ETHICS Incentivizes Social Media Spam": "",
-  "JURISDICTION Based In (Country)": "Australia",
-  "JURISDICTION Fourteen Eyes?": "Five",
-  "JURISDICTION Freedom Status": "Free",
-  "LEAK PROTECTION 1st Party DNS Servers": "No",
-  "LEAK PROTECTION IPv6 Supported / Blocked": "No",
-  "LEAK PROTECTION Kill Switch": "No",
-  "LOGGING Logs Bandwidth": "",
-  "LOGGING Logs DNS Requests": "",
-  "LOGGING Logs IP Address": "Yes",
-  "LOGGING Logs Timestamps": "Yes",
-  "LOGGING Logs Traffic": "No",
-  "POLICIES Forbids Spam": "",
-  "POLICIES Requires Ethical Copy": "",
-  "POLICIES Requires Full Disclosure": "",
-  "PORT BLOCKING Auth SMTP": "",
-  "PORT BLOCKING P2P": "No",
-  "PRICING $ / Connection / Month": "1.10",
-  "PRICING $ / Month (Annual Pricing)": "5.50",
-  "PRICING Free Trial": "Yes",
-  "PRICING Refund Period (Days)": "10",
-  "PROTOCOLS Offers OpenVPN": "Yes",
-  "SECURITY Strongest Data Encryption": "AES-256",
-  "SECURITY Strongest Handshake Encryption": "",
-  "SECURITY Weakest Data Encryption": "AES-256",
-  "SECURITY Weakest Handshake Encryption": "",
+  "ACTIVISM": {
+    "Accepts Bitcoin": "Yes",
+    "Anonymous Payment Method": "No",
+    "Meets PrivacyTools IO Criteria": "No"
+  },
+  "AFFILIATES": {
+    "Give Full Disclosure": "",
+    "Practice Ethical Copy": ""
+  },
+  "AVAILABILITY": {
+    "# of Connections": "5",
+    "# of Countries": "5",
+    "# of Servers": "6"
+  },
+  "ETHICS": {
+    "Contradictory Logging Policies": "Yes",
+    "Falsely Claims 100% Effective": "",
+    "Incentivizes Social Media Spam": ""
+  },
+  "JURISDICTION": {
+    "Based In (Country)": "Australia",
+    "Fourteen Eyes?": "Five",
+    "Freedom Status": "Free"
+  },
+  "LEAK PROTECTION": {
+    "1st Party DNS Servers": "No",
+    "IPv6 Supported / Blocked": "No",
+    "Kill Switch": "No"
+  },
+  "LOGGING": {
+    "Logs Bandwidth": "",
+    "Logs DNS Requests": "",
+    "Logs IP Address": "Yes",
+    "Logs Timestamps": "Yes",
+    "Logs Traffic": "No"
+  },
+  "POLICIES": {
+    "Forbids Spam": "",
+    "Requires Ethical Copy": "",
+    "Requires Full Disclosure": ""
+  },
+  "PORT BLOCKING": {
+    "Auth SMTP": "",
+    "P2P": "No"
+  },
+  "PRICING": {
+    "$ / Connection / Month": "1.10",
+    "$ / Month (Annual Pricing)": "5.50",
+    "Free Trial": "Yes",
+    "Refund Period (Days)": "10"
+  },
+  "PROTOCOLS": {
+    "Offers OpenVPN": "Yes"
+  },
+  "SECURITY": {
+    "Strongest Data Encryption": "AES-256",
+    "Strongest Handshake Encryption": "",
+    "Weakest Data Encryption": "AES-256",
+    "Weakest Handshake Encryption": ""
+  },
   "VPN SERVICE": "Celo",
-  "WEBSITE # of External Trackers": "2",
-  "WEBSITE # of Persistent Cookies": "2",
-  "WEBSITE # of Proprietary APIs": "6",
-  "WEBSITE SSL Cert issued to": "Self",
-  "WEBSITE Server SSL Rating": "B"
+  "WEBSITE": {
+    "# of External Trackers": "2",
+    "# of Persistent Cookies": "2",
+    "# of Proprietary APIs": "6",
+    "SSL Cert issued to": "Self",
+    "Server SSL Rating": "B"
+  }
 }

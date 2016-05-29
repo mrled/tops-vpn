@@ -1,44 +1,70 @@
 {
-  "ACTIVISM Accepts Bitcoin": "No",
-  "ACTIVISM Anonymous Payment Method": "Yes",
-  "ACTIVISM Meets PrivacyTools IO Criteria": "No",
-  "AFFILIATES Give Full Disclosure": "",
-  "AFFILIATES Practice Ethical Copy": "",
-  "AVAILABILITY # of Connections": "25",
-  "AVAILABILITY # of Countries": "24",
-  "AVAILABILITY # of Servers": "7,670",
-  "ETHICS Contradictory Logging Policies": "",
-  "ETHICS Falsely Claims 100% Effective": "",
-  "ETHICS Incentivizes Social Media Spam": "",
-  "JURISDICTION Based In (Country)": "Japan",
-  "JURISDICTION Fourteen Eyes?": "No",
-  "JURISDICTION Freedom Status": "Free",
-  "LEAK PROTECTION 1st Party DNS Servers": "No",
-  "LEAK PROTECTION IPv6 Supported / Blocked": "No",
-  "LEAK PROTECTION Kill Switch": "No",
-  "LOGGING Logs Bandwidth": "Yes",
-  "LOGGING Logs DNS Requests": "Yes",
-  "LOGGING Logs IP Address": "Yes",
-  "LOGGING Logs Timestamps": "Yes",
-  "LOGGING Logs Traffic": "Yes",
-  "POLICIES Forbids Spam": "",
-  "POLICIES Requires Ethical Copy": "",
-  "POLICIES Requires Full Disclosure": "",
-  "PORT BLOCKING Auth SMTP": "",
-  "PORT BLOCKING P2P": "Some",
-  "PRICING $ / Connection / Month": "0.00",
-  "PRICING $ / Month (Annual Pricing)": "0.00",
-  "PRICING Free Trial": "Yes",
-  "PRICING Refund Period (Days)": "0",
-  "PROTOCOLS Offers OpenVPN": "Yes",
-  "SECURITY Strongest Data Encryption": "AES-256",
-  "SECURITY Strongest Handshake Encryption": "",
-  "SECURITY Weakest Data Encryption": "AES-128",
-  "SECURITY Weakest Handshake Encryption": "",
+  "ACTIVISM": {
+    "Accepts Bitcoin": "No",
+    "Anonymous Payment Method": "Yes",
+    "Meets PrivacyTools IO Criteria": "No"
+  },
+  "AFFILIATES": {
+    "Give Full Disclosure": "",
+    "Practice Ethical Copy": ""
+  },
+  "AVAILABILITY": {
+    "# of Connections": "25",
+    "# of Countries": "24",
+    "# of Servers": "7,670"
+  },
+  "ETHICS": {
+    "Contradictory Logging Policies": "",
+    "Falsely Claims 100% Effective": "",
+    "Incentivizes Social Media Spam": ""
+  },
+  "JURISDICTION": {
+    "Based In (Country)": "Japan",
+    "Fourteen Eyes?": "No",
+    "Freedom Status": "Free"
+  },
+  "LEAK PROTECTION": {
+    "1st Party DNS Servers": "No",
+    "IPv6 Supported / Blocked": "No",
+    "Kill Switch": "No"
+  },
+  "LOGGING": {
+    "Logs Bandwidth": "Yes",
+    "Logs DNS Requests": "Yes",
+    "Logs IP Address": "Yes",
+    "Logs Timestamps": "Yes",
+    "Logs Traffic": "Yes"
+  },
+  "POLICIES": {
+    "Forbids Spam": "",
+    "Requires Ethical Copy": "",
+    "Requires Full Disclosure": ""
+  },
+  "PORT BLOCKING": {
+    "Auth SMTP": "",
+    "P2P": "Some"
+  },
+  "PRICING": {
+    "$ / Connection / Month": "0.00",
+    "$ / Month (Annual Pricing)": "0.00",
+    "Free Trial": "Yes",
+    "Refund Period (Days)": "0"
+  },
+  "PROTOCOLS": {
+    "Offers OpenVPN": "Yes"
+  },
+  "SECURITY": {
+    "Strongest Data Encryption": "AES-256",
+    "Strongest Handshake Encryption": "",
+    "Weakest Data Encryption": "AES-128",
+    "Weakest Handshake Encryption": ""
+  },
   "VPN SERVICE": "VPN Gate",
-  "WEBSITE # of External Trackers": "2",
-  "WEBSITE # of Persistent Cookies": "3",
-  "WEBSITE # of Proprietary APIs": "1",
-  "WEBSITE SSL Cert issued to": "No SSL Cert",
-  "WEBSITE Server SSL Rating": ""
+  "WEBSITE": {
+    "# of External Trackers": "2",
+    "# of Persistent Cookies": "3",
+    "# of Proprietary APIs": "1",
+    "SSL Cert issued to": "No SSL Cert",
+    "Server SSL Rating": ""
+  }
 }

@@ -1,44 +1,70 @@
 {
-  "ACTIVISM Accepts Bitcoin": "No",
-  "ACTIVISM Anonymous Payment Method": "No",
-  "ACTIVISM Meets PrivacyTools IO Criteria": "No",
-  "AFFILIATES Give Full Disclosure": "No",
-  "AFFILIATES Practice Ethical Copy": "No",
-  "AVAILABILITY # of Connections": "3",
-  "AVAILABILITY # of Countries": "4",
-  "AVAILABILITY # of Servers": "16",
-  "ETHICS Contradictory Logging Policies": "",
-  "ETHICS Falsely Claims 100% Effective": "",
-  "ETHICS Incentivizes Social Media Spam": "",
-  "JURISDICTION Based In (Country)": "Moldova",
-  "JURISDICTION Fourteen Eyes?": "No",
-  "JURISDICTION Freedom Status": "Partly Free",
-  "LEAK PROTECTION 1st Party DNS Servers": "No",
-  "LEAK PROTECTION IPv6 Supported / Blocked": "No",
-  "LEAK PROTECTION Kill Switch": "Yes",
-  "LOGGING Logs Bandwidth": "No",
-  "LOGGING Logs DNS Requests": "No",
-  "LOGGING Logs IP Address": "No",
-  "LOGGING Logs Timestamps": "No",
-  "LOGGING Logs Traffic": "No",
-  "POLICIES Forbids Spam": "No",
-  "POLICIES Requires Ethical Copy": "No",
-  "POLICIES Requires Full Disclosure": "No",
-  "PORT BLOCKING Auth SMTP": "No",
-  "PORT BLOCKING P2P": "Some",
-  "PRICING $ / Connection / Month": "1.53",
-  "PRICING $ / Month (Annual Pricing)": "4.59",
-  "PRICING Free Trial": "Yes",
-  "PRICING Refund Period (Days)": "30",
-  "PROTOCOLS Offers OpenVPN": "Yes",
-  "SECURITY Strongest Data Encryption": "AES-256",
-  "SECURITY Strongest Handshake Encryption": "RSA-4096",
-  "SECURITY Weakest Data Encryption": "MPPE-128",
-  "SECURITY Weakest Handshake Encryption": "RSA-2048",
+  "ACTIVISM": {
+    "Accepts Bitcoin": "No",
+    "Anonymous Payment Method": "No",
+    "Meets PrivacyTools IO Criteria": "No"
+  },
+  "AFFILIATES": {
+    "Give Full Disclosure": "No",
+    "Practice Ethical Copy": "No"
+  },
+  "AVAILABILITY": {
+    "# of Connections": "3",
+    "# of Countries": "4",
+    "# of Servers": "16"
+  },
+  "ETHICS": {
+    "Contradictory Logging Policies": "",
+    "Falsely Claims 100% Effective": "",
+    "Incentivizes Social Media Spam": ""
+  },
+  "JURISDICTION": {
+    "Based In (Country)": "Moldova",
+    "Fourteen Eyes?": "No",
+    "Freedom Status": "Partly Free"
+  },
+  "LEAK PROTECTION": {
+    "1st Party DNS Servers": "No",
+    "IPv6 Supported / Blocked": "No",
+    "Kill Switch": "Yes"
+  },
+  "LOGGING": {
+    "Logs Bandwidth": "No",
+    "Logs DNS Requests": "No",
+    "Logs IP Address": "No",
+    "Logs Timestamps": "No",
+    "Logs Traffic": "No"
+  },
+  "POLICIES": {
+    "Forbids Spam": "No",
+    "Requires Ethical Copy": "No",
+    "Requires Full Disclosure": "No"
+  },
+  "PORT BLOCKING": {
+    "Auth SMTP": "No",
+    "P2P": "Some"
+  },
+  "PRICING": {
+    "$ / Connection / Month": "1.53",
+    "$ / Month (Annual Pricing)": "4.59",
+    "Free Trial": "Yes",
+    "Refund Period (Days)": "30"
+  },
+  "PROTOCOLS": {
+    "Offers OpenVPN": "Yes"
+  },
+  "SECURITY": {
+    "Strongest Data Encryption": "AES-256",
+    "Strongest Handshake Encryption": "RSA-4096",
+    "Weakest Data Encryption": "MPPE-128",
+    "Weakest Handshake Encryption": "RSA-2048"
+  },
   "VPN SERVICE": "CactusVPN",
-  "WEBSITE # of External Trackers": "1",
-  "WEBSITE # of Persistent Cookies": "2",
-  "WEBSITE # of Proprietary APIs": "6",
-  "WEBSITE SSL Cert issued to": "Self",
-  "WEBSITE Server SSL Rating": "A+"
+  "WEBSITE": {
+    "# of External Trackers": "1",
+    "# of Persistent Cookies": "2",
+    "# of Proprietary APIs": "6",
+    "SSL Cert issued to": "Self",
+    "Server SSL Rating": "A+"
+  }
 }

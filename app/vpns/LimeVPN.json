@@ -1,44 +1,70 @@
 {
-  "ACTIVISM Accepts Bitcoin": "Yes",
-  "ACTIVISM Anonymous Payment Method": "No",
-  "ACTIVISM Meets PrivacyTools IO Criteria": "No",
-  "AFFILIATES Give Full Disclosure": "",
-  "AFFILIATES Practice Ethical Copy": "",
-  "AVAILABILITY # of Connections": "20",
-  "AVAILABILITY # of Countries": "10",
-  "AVAILABILITY # of Servers": "19",
-  "ETHICS Contradictory Logging Policies": "Yes",
-  "ETHICS Falsely Claims 100% Effective": "",
-  "ETHICS Incentivizes Social Media Spam": "",
-  "JURISDICTION Based In (Country)": "Hong Kong",
-  "JURISDICTION Fourteen Eyes?": "No",
-  "JURISDICTION Freedom Status": "Partly Free",
-  "LEAK PROTECTION 1st Party DNS Servers": "No",
-  "LEAK PROTECTION IPv6 Supported / Blocked": "No",
-  "LEAK PROTECTION Kill Switch": "Yes",
-  "LOGGING Logs Bandwidth": "Yes",
-  "LOGGING Logs DNS Requests": "",
-  "LOGGING Logs IP Address": "",
-  "LOGGING Logs Timestamps": "Yes",
-  "LOGGING Logs Traffic": "No",
-  "POLICIES Forbids Spam": "No",
-  "POLICIES Requires Ethical Copy": "No",
-  "POLICIES Requires Full Disclosure": "No",
-  "PORT BLOCKING Auth SMTP": "Some",
-  "PORT BLOCKING P2P": "Some",
-  "PRICING $ / Connection / Month": "0.57",
-  "PRICING $ / Month (Annual Pricing)": "11.49",
-  "PRICING Free Trial": "No",
-  "PRICING Refund Period (Days)": "7",
-  "PROTOCOLS Offers OpenVPN": "Yes",
-  "SECURITY Strongest Data Encryption": "AES-256",
-  "SECURITY Strongest Handshake Encryption": "RSA-2048",
-  "SECURITY Weakest Data Encryption": "MPPE-128",
-  "SECURITY Weakest Handshake Encryption": "MS-CHAPv2",
+  "ACTIVISM": {
+    "Accepts Bitcoin": "Yes",
+    "Anonymous Payment Method": "No",
+    "Meets PrivacyTools IO Criteria": "No"
+  },
+  "AFFILIATES": {
+    "Give Full Disclosure": "",
+    "Practice Ethical Copy": ""
+  },
+  "AVAILABILITY": {
+    "# of Connections": "20",
+    "# of Countries": "10",
+    "# of Servers": "19"
+  },
+  "ETHICS": {
+    "Contradictory Logging Policies": "Yes",
+    "Falsely Claims 100% Effective": "",
+    "Incentivizes Social Media Spam": ""
+  },
+  "JURISDICTION": {
+    "Based In (Country)": "Hong Kong",
+    "Fourteen Eyes?": "No",
+    "Freedom Status": "Partly Free"
+  },
+  "LEAK PROTECTION": {
+    "1st Party DNS Servers": "No",
+    "IPv6 Supported / Blocked": "No",
+    "Kill Switch": "Yes"
+  },
+  "LOGGING": {
+    "Logs Bandwidth": "Yes",
+    "Logs DNS Requests": "",
+    "Logs IP Address": "",
+    "Logs Timestamps": "Yes",
+    "Logs Traffic": "No"
+  },
+  "POLICIES": {
+    "Forbids Spam": "No",
+    "Requires Ethical Copy": "No",
+    "Requires Full Disclosure": "No"
+  },
+  "PORT BLOCKING": {
+    "Auth SMTP": "Some",
+    "P2P": "Some"
+  },
+  "PRICING": {
+    "$ / Connection / Month": "0.57",
+    "$ / Month (Annual Pricing)": "11.49",
+    "Free Trial": "No",
+    "Refund Period (Days)": "7"
+  },
+  "PROTOCOLS": {
+    "Offers OpenVPN": "Yes"
+  },
+  "SECURITY": {
+    "Strongest Data Encryption": "AES-256",
+    "Strongest Handshake Encryption": "RSA-2048",
+    "Weakest Data Encryption": "MPPE-128",
+    "Weakest Handshake Encryption": "MS-CHAPv2"
+  },
   "VPN SERVICE": "LimeVPN",
-  "WEBSITE # of External Trackers": "11",
-  "WEBSITE # of Persistent Cookies": "23",
-  "WEBSITE # of Proprietary APIs": "29",
-  "WEBSITE SSL Cert issued to": "No SSL Cert",
-  "WEBSITE Server SSL Rating": "C"
+  "WEBSITE": {
+    "# of External Trackers": "11",
+    "# of Persistent Cookies": "23",
+    "# of Proprietary APIs": "29",
+    "SSL Cert issued to": "No SSL Cert",
+    "Server SSL Rating": "C"
+  }
 }

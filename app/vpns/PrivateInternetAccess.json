@@ -1,44 +1,70 @@
 {
-  "ACTIVISM Accepts Bitcoin": "Yes",
-  "ACTIVISM Anonymous Payment Method": "Email",
-  "ACTIVISM Meets PrivacyTools IO Criteria": "No",
-  "AFFILIATES Give Full Disclosure": "No",
-  "AFFILIATES Practice Ethical Copy": "No",
-  "AVAILABILITY # of Connections": "5",
-  "AVAILABILITY # of Countries": "24",
-  "AVAILABILITY # of Servers": "3,094",
-  "ETHICS Contradictory Logging Policies": "",
-  "ETHICS Falsely Claims 100% Effective": "",
-  "ETHICS Incentivizes Social Media Spam": "Yes",
-  "JURISDICTION Based In (Country)": "USA",
-  "JURISDICTION Fourteen Eyes?": "Five",
-  "JURISDICTION Freedom Status": "Free",
-  "LEAK PROTECTION 1st Party DNS Servers": "Yes",
-  "LEAK PROTECTION IPv6 Supported / Blocked": "Yes",
-  "LEAK PROTECTION Kill Switch": "Yes",
-  "LOGGING Logs Bandwidth": "",
-  "LOGGING Logs DNS Requests": "No",
-  "LOGGING Logs IP Address": "No",
-  "LOGGING Logs Timestamps": "No",
-  "LOGGING Logs Traffic": "No",
-  "POLICIES Forbids Spam": "Some",
-  "POLICIES Requires Ethical Copy": "Yes",
-  "POLICIES Requires Full Disclosure": "Yes",
-  "PORT BLOCKING Auth SMTP": "Some",
-  "PORT BLOCKING P2P": "No",
-  "PRICING $ / Connection / Month": "0.67",
-  "PRICING $ / Month (Annual Pricing)": "3.33",
-  "PRICING Free Trial": "No",
-  "PRICING Refund Period (Days)": "7",
-  "PROTOCOLS Offers OpenVPN": "Yes",
-  "SECURITY Strongest Data Encryption": "",
-  "SECURITY Strongest Handshake Encryption": "RSA-4096",
-  "SECURITY Weakest Data Encryption": "AES-128",
-  "SECURITY Weakest Handshake Encryption": "RSA-2048",
+  "ACTIVISM": {
+    "Accepts Bitcoin": "Yes",
+    "Anonymous Payment Method": "Email",
+    "Meets PrivacyTools IO Criteria": "No"
+  },
+  "AFFILIATES": {
+    "Give Full Disclosure": "No",
+    "Practice Ethical Copy": "No"
+  },
+  "AVAILABILITY": {
+    "# of Connections": "5",
+    "# of Countries": "24",
+    "# of Servers": "3,094"
+  },
+  "ETHICS": {
+    "Contradictory Logging Policies": "",
+    "Falsely Claims 100% Effective": "",
+    "Incentivizes Social Media Spam": "Yes"
+  },
+  "JURISDICTION": {
+    "Based In (Country)": "USA",
+    "Fourteen Eyes?": "Five",
+    "Freedom Status": "Free"
+  },
+  "LEAK PROTECTION": {
+    "1st Party DNS Servers": "Yes",
+    "IPv6 Supported / Blocked": "Yes",
+    "Kill Switch": "Yes"
+  },
+  "LOGGING": {
+    "Logs Bandwidth": "",
+    "Logs DNS Requests": "No",
+    "Logs IP Address": "No",
+    "Logs Timestamps": "No",
+    "Logs Traffic": "No"
+  },
+  "POLICIES": {
+    "Forbids Spam": "Some",
+    "Requires Ethical Copy": "Yes",
+    "Requires Full Disclosure": "Yes"
+  },
+  "PORT BLOCKING": {
+    "Auth SMTP": "Some",
+    "P2P": "No"
+  },
+  "PRICING": {
+    "$ / Connection / Month": "0.67",
+    "$ / Month (Annual Pricing)": "3.33",
+    "Free Trial": "No",
+    "Refund Period (Days)": "7"
+  },
+  "PROTOCOLS": {
+    "Offers OpenVPN": "Yes"
+  },
+  "SECURITY": {
+    "Strongest Data Encryption": "",
+    "Strongest Handshake Encryption": "RSA-4096",
+    "Weakest Data Encryption": "AES-128",
+    "Weakest Handshake Encryption": "RSA-2048"
+  },
   "VPN SERVICE": "Private Internet Access",
-  "WEBSITE # of External Trackers": "1",
-  "WEBSITE # of Persistent Cookies": "2",
-  "WEBSITE # of Proprietary APIs": "7",
-  "WEBSITE SSL Cert issued to": "Self",
-  "WEBSITE Server SSL Rating": "A"
+  "WEBSITE": {
+    "# of External Trackers": "1",
+    "# of Persistent Cookies": "2",
+    "# of Proprietary APIs": "7",
+    "SSL Cert issued to": "Self",
+    "Server SSL Rating": "A"
+  }
 }

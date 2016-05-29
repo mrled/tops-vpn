@@ -1,44 +1,70 @@
 {
-  "ACTIVISM Accepts Bitcoin": "Yes",
-  "ACTIVISM Anonymous Payment Method": "Email",
-  "ACTIVISM Meets PrivacyTools IO Criteria": "No",
-  "AFFILIATES Give Full Disclosure": "",
-  "AFFILIATES Practice Ethical Copy": "",
-  "AVAILABILITY # of Connections": "5",
-  "AVAILABILITY # of Countries": "22",
-  "AVAILABILITY # of Servers": "80",
-  "ETHICS Contradictory Logging Policies": "Yes",
-  "ETHICS Falsely Claims 100% Effective": "",
-  "ETHICS Incentivizes Social Media Spam": "",
-  "JURISDICTION Based In (Country)": "UK",
-  "JURISDICTION Fourteen Eyes?": "Five",
-  "JURISDICTION Freedom Status": "Free",
-  "LEAK PROTECTION 1st Party DNS Servers": "No",
-  "LEAK PROTECTION IPv6 Supported / Blocked": "No",
-  "LEAK PROTECTION Kill Switch": "No",
-  "LOGGING Logs Bandwidth": "",
-  "LOGGING Logs DNS Requests": "",
-  "LOGGING Logs IP Address": "Yes",
-  "LOGGING Logs Timestamps": "Yes",
-  "LOGGING Logs Traffic": "No",
-  "POLICIES Forbids Spam": "",
-  "POLICIES Requires Ethical Copy": "",
-  "POLICIES Requires Full Disclosure": "",
-  "PORT BLOCKING Auth SMTP": "",
-  "PORT BLOCKING P2P": "",
-  "PRICING $ / Connection / Month": "0.80",
-  "PRICING $ / Month (Annual Pricing)": "3.99",
-  "PRICING Free Trial": "No",
-  "PRICING Refund Period (Days)": "0",
-  "PROTOCOLS Offers OpenVPN": "Yes",
-  "SECURITY Strongest Data Encryption": "",
-  "SECURITY Strongest Handshake Encryption": "",
-  "SECURITY Weakest Data Encryption": "",
-  "SECURITY Weakest Handshake Encryption": "",
+  "ACTIVISM": {
+    "Accepts Bitcoin": "Yes",
+    "Anonymous Payment Method": "Email",
+    "Meets PrivacyTools IO Criteria": "No"
+  },
+  "AFFILIATES": {
+    "Give Full Disclosure": "",
+    "Practice Ethical Copy": ""
+  },
+  "AVAILABILITY": {
+    "# of Connections": "5",
+    "# of Countries": "22",
+    "# of Servers": "80"
+  },
+  "ETHICS": {
+    "Contradictory Logging Policies": "Yes",
+    "Falsely Claims 100% Effective": "",
+    "Incentivizes Social Media Spam": ""
+  },
+  "JURISDICTION": {
+    "Based In (Country)": "UK",
+    "Fourteen Eyes?": "Five",
+    "Freedom Status": "Free"
+  },
+  "LEAK PROTECTION": {
+    "1st Party DNS Servers": "No",
+    "IPv6 Supported / Blocked": "No",
+    "Kill Switch": "No"
+  },
+  "LOGGING": {
+    "Logs Bandwidth": "",
+    "Logs DNS Requests": "",
+    "Logs IP Address": "Yes",
+    "Logs Timestamps": "Yes",
+    "Logs Traffic": "No"
+  },
+  "POLICIES": {
+    "Forbids Spam": "",
+    "Requires Ethical Copy": "",
+    "Requires Full Disclosure": ""
+  },
+  "PORT BLOCKING": {
+    "Auth SMTP": "",
+    "P2P": ""
+  },
+  "PRICING": {
+    "$ / Connection / Month": "0.80",
+    "$ / Month (Annual Pricing)": "3.99",
+    "Free Trial": "No",
+    "Refund Period (Days)": "0"
+  },
+  "PROTOCOLS": {
+    "Offers OpenVPN": "Yes"
+  },
+  "SECURITY": {
+    "Strongest Data Encryption": "",
+    "Strongest Handshake Encryption": "",
+    "Weakest Data Encryption": "",
+    "Weakest Handshake Encryption": ""
+  },
   "VPN SERVICE": "Anonine",
-  "WEBSITE # of External Trackers": "2",
-  "WEBSITE # of Persistent Cookies": "6",
-  "WEBSITE # of Proprietary APIs": "29",
-  "WEBSITE SSL Cert issued to": "Self",
-  "WEBSITE Server SSL Rating": "C"
+  "WEBSITE": {
+    "# of External Trackers": "2",
+    "# of Persistent Cookies": "6",
+    "# of Proprietary APIs": "29",
+    "SSL Cert issued to": "Self",
+    "Server SSL Rating": "C"
+  }
 }

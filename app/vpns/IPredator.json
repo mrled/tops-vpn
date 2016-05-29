@@ -1,44 +1,70 @@
 {
-  "ACTIVISM Accepts Bitcoin": "Yes",
-  "ACTIVISM Anonymous Payment Method": "Email",
-  "ACTIVISM Meets PrivacyTools IO Criteria": "No",
-  "AFFILIATES Give Full Disclosure": "",
-  "AFFILIATES Practice Ethical Copy": "",
-  "AVAILABILITY # of Connections": "2",
-  "AVAILABILITY # of Countries": "1",
-  "AVAILABILITY # of Servers": "50",
-  "ETHICS Contradictory Logging Policies": "",
-  "ETHICS Falsely Claims 100% Effective": "",
-  "ETHICS Incentivizes Social Media Spam": "",
-  "JURISDICTION Based In (Country)": "Sweden",
-  "JURISDICTION Fourteen Eyes?": "Fourteen",
-  "JURISDICTION Freedom Status": "Free",
-  "LEAK PROTECTION 1st Party DNS Servers": "Yes",
-  "LEAK PROTECTION IPv6 Supported / Blocked": "Yes",
-  "LEAK PROTECTION Kill Switch": "No",
-  "LOGGING Logs Bandwidth": "",
-  "LOGGING Logs DNS Requests": "",
-  "LOGGING Logs IP Address": "Yes",
-  "LOGGING Logs Timestamps": "Yes",
-  "LOGGING Logs Traffic": "",
-  "POLICIES Forbids Spam": "",
-  "POLICIES Requires Ethical Copy": "",
-  "POLICIES Requires Full Disclosure": "",
-  "PORT BLOCKING Auth SMTP": "Some",
-  "PORT BLOCKING P2P": "No",
-  "PRICING $ / Connection / Month": "3.28",
-  "PRICING $ / Month (Annual Pricing)": "6.56",
-  "PRICING Free Trial": "Yes",
-  "PRICING Refund Period (Days)": "0",
-  "PROTOCOLS Offers OpenVPN": "Yes",
-  "SECURITY Strongest Data Encryption": "",
-  "SECURITY Strongest Handshake Encryption": "",
-  "SECURITY Weakest Data Encryption": "",
-  "SECURITY Weakest Handshake Encryption": "",
+  "ACTIVISM": {
+    "Accepts Bitcoin": "Yes",
+    "Anonymous Payment Method": "Email",
+    "Meets PrivacyTools IO Criteria": "No"
+  },
+  "AFFILIATES": {
+    "Give Full Disclosure": "",
+    "Practice Ethical Copy": ""
+  },
+  "AVAILABILITY": {
+    "# of Connections": "2",
+    "# of Countries": "1",
+    "# of Servers": "50"
+  },
+  "ETHICS": {
+    "Contradictory Logging Policies": "",
+    "Falsely Claims 100% Effective": "",
+    "Incentivizes Social Media Spam": ""
+  },
+  "JURISDICTION": {
+    "Based In (Country)": "Sweden",
+    "Fourteen Eyes?": "Fourteen",
+    "Freedom Status": "Free"
+  },
+  "LEAK PROTECTION": {
+    "1st Party DNS Servers": "Yes",
+    "IPv6 Supported / Blocked": "Yes",
+    "Kill Switch": "No"
+  },
+  "LOGGING": {
+    "Logs Bandwidth": "",
+    "Logs DNS Requests": "",
+    "Logs IP Address": "Yes",
+    "Logs Timestamps": "Yes",
+    "Logs Traffic": ""
+  },
+  "POLICIES": {
+    "Forbids Spam": "",
+    "Requires Ethical Copy": "",
+    "Requires Full Disclosure": ""
+  },
+  "PORT BLOCKING": {
+    "Auth SMTP": "Some",
+    "P2P": "No"
+  },
+  "PRICING": {
+    "$ / Connection / Month": "3.28",
+    "$ / Month (Annual Pricing)": "6.56",
+    "Free Trial": "Yes",
+    "Refund Period (Days)": "0"
+  },
+  "PROTOCOLS": {
+    "Offers OpenVPN": "Yes"
+  },
+  "SECURITY": {
+    "Strongest Data Encryption": "",
+    "Strongest Handshake Encryption": "",
+    "Weakest Data Encryption": "",
+    "Weakest Handshake Encryption": ""
+  },
   "VPN SERVICE": "IPredator",
-  "WEBSITE # of External Trackers": "0",
-  "WEBSITE # of Persistent Cookies": "0",
-  "WEBSITE # of Proprietary APIs": "0",
-  "WEBSITE SSL Cert issued to": "Self",
-  "WEBSITE Server SSL Rating": "A+"
+  "WEBSITE": {
+    "# of External Trackers": "0",
+    "# of Persistent Cookies": "0",
+    "# of Proprietary APIs": "0",
+    "SSL Cert issued to": "Self",
+    "Server SSL Rating": "A+"
+  }
 }

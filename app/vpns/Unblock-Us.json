@@ -1,44 +1,70 @@
 {
-  "ACTIVISM Accepts Bitcoin": "No",
-  "ACTIVISM Anonymous Payment Method": "No",
-  "ACTIVISM Meets PrivacyTools IO Criteria": "No",
-  "AFFILIATES Give Full Disclosure": "",
-  "AFFILIATES Practice Ethical Copy": "",
-  "AVAILABILITY # of Connections": "1",
-  "AVAILABILITY # of Countries": "0",
-  "AVAILABILITY # of Servers": "0",
-  "ETHICS Contradictory Logging Policies": "",
-  "ETHICS Falsely Claims 100% Effective": "Yes",
-  "ETHICS Incentivizes Social Media Spam": "",
-  "JURISDICTION Based In (Country)": "Barbados",
-  "JURISDICTION Fourteen Eyes?": "Owned",
-  "JURISDICTION Freedom Status": "Free",
-  "LEAK PROTECTION 1st Party DNS Servers": "Yes",
-  "LEAK PROTECTION IPv6 Supported / Blocked": "No",
-  "LEAK PROTECTION Kill Switch": "No",
-  "LOGGING Logs Bandwidth": "",
-  "LOGGING Logs DNS Requests": "",
-  "LOGGING Logs IP Address": "",
-  "LOGGING Logs Timestamps": "",
-  "LOGGING Logs Traffic": "",
-  "POLICIES Forbids Spam": "No",
-  "POLICIES Requires Ethical Copy": "Some",
-  "POLICIES Requires Full Disclosure": "No",
-  "PORT BLOCKING Auth SMTP": "",
-  "PORT BLOCKING P2P": "",
-  "PRICING $ / Connection / Month": "4.16",
-  "PRICING $ / Month (Annual Pricing)": "4.16",
-  "PRICING Free Trial": "No",
-  "PRICING Refund Period (Days)": "0",
-  "PROTOCOLS Offers OpenVPN": "No",
-  "SECURITY Strongest Data Encryption": "",
-  "SECURITY Strongest Handshake Encryption": "",
-  "SECURITY Weakest Data Encryption": "",
-  "SECURITY Weakest Handshake Encryption": "",
+  "ACTIVISM": {
+    "Accepts Bitcoin": "No",
+    "Anonymous Payment Method": "No",
+    "Meets PrivacyTools IO Criteria": "No"
+  },
+  "AFFILIATES": {
+    "Give Full Disclosure": "",
+    "Practice Ethical Copy": ""
+  },
+  "AVAILABILITY": {
+    "# of Connections": "1",
+    "# of Countries": "0",
+    "# of Servers": "0"
+  },
+  "ETHICS": {
+    "Contradictory Logging Policies": "",
+    "Falsely Claims 100% Effective": "Yes",
+    "Incentivizes Social Media Spam": ""
+  },
+  "JURISDICTION": {
+    "Based In (Country)": "Barbados",
+    "Fourteen Eyes?": "Owned",
+    "Freedom Status": "Free"
+  },
+  "LEAK PROTECTION": {
+    "1st Party DNS Servers": "Yes",
+    "IPv6 Supported / Blocked": "No",
+    "Kill Switch": "No"
+  },
+  "LOGGING": {
+    "Logs Bandwidth": "",
+    "Logs DNS Requests": "",
+    "Logs IP Address": "",
+    "Logs Timestamps": "",
+    "Logs Traffic": ""
+  },
+  "POLICIES": {
+    "Forbids Spam": "No",
+    "Requires Ethical Copy": "Some",
+    "Requires Full Disclosure": "No"
+  },
+  "PORT BLOCKING": {
+    "Auth SMTP": "",
+    "P2P": ""
+  },
+  "PRICING": {
+    "$ / Connection / Month": "4.16",
+    "$ / Month (Annual Pricing)": "4.16",
+    "Free Trial": "No",
+    "Refund Period (Days)": "0"
+  },
+  "PROTOCOLS": {
+    "Offers OpenVPN": "No"
+  },
+  "SECURITY": {
+    "Strongest Data Encryption": "",
+    "Strongest Handshake Encryption": "",
+    "Weakest Data Encryption": "",
+    "Weakest Handshake Encryption": ""
+  },
   "VPN SERVICE": "Unblock-Us",
-  "WEBSITE # of External Trackers": "13",
-  "WEBSITE # of Persistent Cookies": "34",
-  "WEBSITE # of Proprietary APIs": "35",
-  "WEBSITE SSL Cert issued to": "Self",
-  "WEBSITE Server SSL Rating": "B"
+  "WEBSITE": {
+    "# of External Trackers": "13",
+    "# of Persistent Cookies": "34",
+    "# of Proprietary APIs": "35",
+    "SSL Cert issued to": "Self",
+    "Server SSL Rating": "B"
+  }
 }

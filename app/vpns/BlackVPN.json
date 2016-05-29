@@ -1,44 +1,70 @@
 {
-  "ACTIVISM Accepts Bitcoin": "Yes",
-  "ACTIVISM Anonymous Payment Method": "Email",
-  "ACTIVISM Meets PrivacyTools IO Criteria": "Yes",
-  "AFFILIATES Give Full Disclosure": "",
-  "AFFILIATES Practice Ethical Copy": "",
-  "AVAILABILITY # of Connections": "3",
-  "AVAILABILITY # of Countries": "14",
-  "AVAILABILITY # of Servers": "27",
-  "ETHICS Contradictory Logging Policies": "",
-  "ETHICS Falsely Claims 100% Effective": "",
-  "ETHICS Incentivizes Social Media Spam": "",
-  "JURISDICTION Based In (Country)": "Hong Kong",
-  "JURISDICTION Fourteen Eyes?": "No",
-  "JURISDICTION Freedom Status": "Partly Free",
-  "LEAK PROTECTION 1st Party DNS Servers": "Yes",
-  "LEAK PROTECTION IPv6 Supported / Blocked": "No",
-  "LEAK PROTECTION Kill Switch": "Yes",
-  "LOGGING Logs Bandwidth": "",
-  "LOGGING Logs DNS Requests": "No",
-  "LOGGING Logs IP Address": "No",
-  "LOGGING Logs Timestamps": "No",
-  "LOGGING Logs Traffic": "No",
-  "POLICIES Forbids Spam": "",
-  "POLICIES Requires Ethical Copy": "",
-  "POLICIES Requires Full Disclosure": "",
-  "PORT BLOCKING Auth SMTP": "Yes",
-  "PORT BLOCKING P2P": "Some",
-  "PRICING $ / Connection / Month": "3.01",
-  "PRICING $ / Month (Annual Pricing)": "9.03",
-  "PRICING Free Trial": "No",
-  "PRICING Refund Period (Days)": "14",
-  "PROTOCOLS Offers OpenVPN": "Yes",
-  "SECURITY Strongest Data Encryption": "AES-256",
-  "SECURITY Strongest Handshake Encryption": "RSA-4096",
-  "SECURITY Weakest Data Encryption": "AES-256",
-  "SECURITY Weakest Handshake Encryption": "RSA-4096",
+  "ACTIVISM": {
+    "Accepts Bitcoin": "Yes",
+    "Anonymous Payment Method": "Email",
+    "Meets PrivacyTools IO Criteria": "Yes"
+  },
+  "AFFILIATES": {
+    "Give Full Disclosure": "",
+    "Practice Ethical Copy": ""
+  },
+  "AVAILABILITY": {
+    "# of Connections": "3",
+    "# of Countries": "14",
+    "# of Servers": "27"
+  },
+  "ETHICS": {
+    "Contradictory Logging Policies": "",
+    "Falsely Claims 100% Effective": "",
+    "Incentivizes Social Media Spam": ""
+  },
+  "JURISDICTION": {
+    "Based In (Country)": "Hong Kong",
+    "Fourteen Eyes?": "No",
+    "Freedom Status": "Partly Free"
+  },
+  "LEAK PROTECTION": {
+    "1st Party DNS Servers": "Yes",
+    "IPv6 Supported / Blocked": "No",
+    "Kill Switch": "Yes"
+  },
+  "LOGGING": {
+    "Logs Bandwidth": "",
+    "Logs DNS Requests": "No",
+    "Logs IP Address": "No",
+    "Logs Timestamps": "No",
+    "Logs Traffic": "No"
+  },
+  "POLICIES": {
+    "Forbids Spam": "",
+    "Requires Ethical Copy": "",
+    "Requires Full Disclosure": ""
+  },
+  "PORT BLOCKING": {
+    "Auth SMTP": "Yes",
+    "P2P": "Some"
+  },
+  "PRICING": {
+    "$ / Connection / Month": "3.01",
+    "$ / Month (Annual Pricing)": "9.03",
+    "Free Trial": "No",
+    "Refund Period (Days)": "14"
+  },
+  "PROTOCOLS": {
+    "Offers OpenVPN": "Yes"
+  },
+  "SECURITY": {
+    "Strongest Data Encryption": "AES-256",
+    "Strongest Handshake Encryption": "RSA-4096",
+    "Weakest Data Encryption": "AES-256",
+    "Weakest Handshake Encryption": "RSA-4096"
+  },
   "VPN SERVICE": "BlackVPN",
-  "WEBSITE # of External Trackers": "1",
-  "WEBSITE # of Persistent Cookies": "4",
-  "WEBSITE # of Proprietary APIs": "8",
-  "WEBSITE SSL Cert issued to": "CloudFlare",
-  "WEBSITE Server SSL Rating": "A"
+  "WEBSITE": {
+    "# of External Trackers": "1",
+    "# of Persistent Cookies": "4",
+    "# of Proprietary APIs": "8",
+    "SSL Cert issued to": "CloudFlare",
+    "Server SSL Rating": "A"
+  }
 }

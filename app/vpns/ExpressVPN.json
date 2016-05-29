@@ -1,44 +1,70 @@
 {
-  "ACTIVISM Accepts Bitcoin": "Yes",
-  "ACTIVISM Anonymous Payment Method": "Email",
-  "ACTIVISM Meets PrivacyTools IO Criteria": "No",
-  "AFFILIATES Give Full Disclosure": "No",
-  "AFFILIATES Practice Ethical Copy": "No",
-  "AVAILABILITY # of Connections": "1",
-  "AVAILABILITY # of Countries": "78",
-  "AVAILABILITY # of Servers": "500",
-  "ETHICS Contradictory Logging Policies": "",
-  "ETHICS Falsely Claims 100% Effective": "",
-  "ETHICS Incentivizes Social Media Spam": "",
-  "JURISDICTION Based In (Country)": "British Virgin Islands",
-  "JURISDICTION Fourteen Eyes?": "Owned",
-  "JURISDICTION Freedom Status": "Free",
-  "LEAK PROTECTION 1st Party DNS Servers": "Yes",
-  "LEAK PROTECTION IPv6 Supported / Blocked": "No",
-  "LEAK PROTECTION Kill Switch": "Yes",
-  "LOGGING Logs Bandwidth": "Yes",
-  "LOGGING Logs DNS Requests": "",
-  "LOGGING Logs IP Address": "No",
-  "LOGGING Logs Timestamps": "Yes",
-  "LOGGING Logs Traffic": "",
-  "POLICIES Forbids Spam": "Yes",
-  "POLICIES Requires Ethical Copy": "Some",
-  "POLICIES Requires Full Disclosure": "Some",
-  "PORT BLOCKING Auth SMTP": "",
-  "PORT BLOCKING P2P": "No",
-  "PRICING $ / Connection / Month": "8.32",
-  "PRICING $ / Month (Annual Pricing)": "8.32",
-  "PRICING Free Trial": "No",
-  "PRICING Refund Period (Days)": "30",
-  "PROTOCOLS Offers OpenVPN": "Yes",
-  "SECURITY Strongest Data Encryption": "AES-256",
-  "SECURITY Strongest Handshake Encryption": "CA-4096",
-  "SECURITY Weakest Data Encryption": "",
-  "SECURITY Weakest Handshake Encryption": "",
+  "ACTIVISM": {
+    "Accepts Bitcoin": "Yes",
+    "Anonymous Payment Method": "Email",
+    "Meets PrivacyTools IO Criteria": "No"
+  },
+  "AFFILIATES": {
+    "Give Full Disclosure": "No",
+    "Practice Ethical Copy": "No"
+  },
+  "AVAILABILITY": {
+    "# of Connections": "1",
+    "# of Countries": "78",
+    "# of Servers": "500"
+  },
+  "ETHICS": {
+    "Contradictory Logging Policies": "",
+    "Falsely Claims 100% Effective": "",
+    "Incentivizes Social Media Spam": ""
+  },
+  "JURISDICTION": {
+    "Based In (Country)": "British Virgin Islands",
+    "Fourteen Eyes?": "Owned",
+    "Freedom Status": "Free"
+  },
+  "LEAK PROTECTION": {
+    "1st Party DNS Servers": "Yes",
+    "IPv6 Supported / Blocked": "No",
+    "Kill Switch": "Yes"
+  },
+  "LOGGING": {
+    "Logs Bandwidth": "Yes",
+    "Logs DNS Requests": "",
+    "Logs IP Address": "No",
+    "Logs Timestamps": "Yes",
+    "Logs Traffic": ""
+  },
+  "POLICIES": {
+    "Forbids Spam": "Yes",
+    "Requires Ethical Copy": "Some",
+    "Requires Full Disclosure": "Some"
+  },
+  "PORT BLOCKING": {
+    "Auth SMTP": "",
+    "P2P": "No"
+  },
+  "PRICING": {
+    "$ / Connection / Month": "8.32",
+    "$ / Month (Annual Pricing)": "8.32",
+    "Free Trial": "No",
+    "Refund Period (Days)": "30"
+  },
+  "PROTOCOLS": {
+    "Offers OpenVPN": "Yes"
+  },
+  "SECURITY": {
+    "Strongest Data Encryption": "AES-256",
+    "Strongest Handshake Encryption": "CA-4096",
+    "Weakest Data Encryption": "",
+    "Weakest Handshake Encryption": ""
+  },
   "VPN SERVICE": "ExpressVPN",
-  "WEBSITE # of External Trackers": "3",
-  "WEBSITE # of Persistent Cookies": "13",
-  "WEBSITE # of Proprietary APIs": "21",
-  "WEBSITE SSL Cert issued to": "Self",
-  "WEBSITE Server SSL Rating": "A+"
+  "WEBSITE": {
+    "# of External Trackers": "3",
+    "# of Persistent Cookies": "13",
+    "# of Proprietary APIs": "21",
+    "SSL Cert issued to": "Self",
+    "Server SSL Rating": "A+"
+  }
 }

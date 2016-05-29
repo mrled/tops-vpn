@@ -1,44 +1,70 @@
 {
-  "ACTIVISM Accepts Bitcoin": "Yes",
-  "ACTIVISM Anonymous Payment Method": "Yes",
-  "ACTIVISM Meets PrivacyTools IO Criteria": "No",
-  "AFFILIATES Give Full Disclosure": "",
-  "AFFILIATES Practice Ethical Copy": "",
-  "AVAILABILITY # of Connections": "25",
-  "AVAILABILITY # of Countries": "19",
-  "AVAILABILITY # of Servers": "20",
-  "ETHICS Contradictory Logging Policies": "",
-  "ETHICS Falsely Claims 100% Effective": "",
-  "ETHICS Incentivizes Social Media Spam": "",
-  "JURISDICTION Based In (Country)": "Canada",
-  "JURISDICTION Fourteen Eyes?": "Five",
-  "JURISDICTION Freedom Status": "Free",
-  "LEAK PROTECTION 1st Party DNS Servers": "Yes",
-  "LEAK PROTECTION IPv6 Supported / Blocked": "Yes",
-  "LEAK PROTECTION Kill Switch": "No",
-  "LOGGING Logs Bandwidth": "Yes",
-  "LOGGING Logs DNS Requests": "No",
-  "LOGGING Logs IP Address": "No",
-  "LOGGING Logs Timestamps": "No",
-  "LOGGING Logs Traffic": "No",
-  "POLICIES Forbids Spam": "No",
-  "POLICIES Requires Ethical Copy": "No",
-  "POLICIES Requires Full Disclosure": "No",
-  "PORT BLOCKING Auth SMTP": "",
-  "PORT BLOCKING P2P": "",
-  "PRICING $ / Connection / Month": "0.30",
-  "PRICING $ / Month (Annual Pricing)": "7.50",
-  "PRICING Free Trial": "Yes",
-  "PRICING Refund Period (Days)": "3",
-  "PROTOCOLS Offers OpenVPN": "Yes",
-  "SECURITY Strongest Data Encryption": "AES-256",
-  "SECURITY Strongest Handshake Encryption": "RSA-4096",
-  "SECURITY Weakest Data Encryption": "AES-256",
-  "SECURITY Weakest Handshake Encryption": "RSA-4096",
+  "ACTIVISM": {
+    "Accepts Bitcoin": "Yes",
+    "Anonymous Payment Method": "Yes",
+    "Meets PrivacyTools IO Criteria": "No"
+  },
+  "AFFILIATES": {
+    "Give Full Disclosure": "",
+    "Practice Ethical Copy": ""
+  },
+  "AVAILABILITY": {
+    "# of Connections": "25",
+    "# of Countries": "19",
+    "# of Servers": "20"
+  },
+  "ETHICS": {
+    "Contradictory Logging Policies": "",
+    "Falsely Claims 100% Effective": "",
+    "Incentivizes Social Media Spam": ""
+  },
+  "JURISDICTION": {
+    "Based In (Country)": "Canada",
+    "Fourteen Eyes?": "Five",
+    "Freedom Status": "Free"
+  },
+  "LEAK PROTECTION": {
+    "1st Party DNS Servers": "Yes",
+    "IPv6 Supported / Blocked": "Yes",
+    "Kill Switch": "No"
+  },
+  "LOGGING": {
+    "Logs Bandwidth": "Yes",
+    "Logs DNS Requests": "No",
+    "Logs IP Address": "No",
+    "Logs Timestamps": "No",
+    "Logs Traffic": "No"
+  },
+  "POLICIES": {
+    "Forbids Spam": "No",
+    "Requires Ethical Copy": "No",
+    "Requires Full Disclosure": "No"
+  },
+  "PORT BLOCKING": {
+    "Auth SMTP": "",
+    "P2P": ""
+  },
+  "PRICING": {
+    "$ / Connection / Month": "0.30",
+    "$ / Month (Annual Pricing)": "7.50",
+    "Free Trial": "Yes",
+    "Refund Period (Days)": "3"
+  },
+  "PROTOCOLS": {
+    "Offers OpenVPN": "Yes"
+  },
+  "SECURITY": {
+    "Strongest Data Encryption": "AES-256",
+    "Strongest Handshake Encryption": "RSA-4096",
+    "Weakest Data Encryption": "AES-256",
+    "Weakest Handshake Encryption": "RSA-4096"
+  },
   "VPN SERVICE": "WindScribe",
-  "WEBSITE # of External Trackers": "0",
-  "WEBSITE # of Persistent Cookies": "0",
-  "WEBSITE # of Proprietary APIs": "1",
-  "WEBSITE SSL Cert issued to": "Self",
-  "WEBSITE Server SSL Rating": "A+"
+  "WEBSITE": {
+    "# of External Trackers": "0",
+    "# of Persistent Cookies": "0",
+    "# of Proprietary APIs": "1",
+    "SSL Cert issued to": "Self",
+    "Server SSL Rating": "A+"
+  }
 }

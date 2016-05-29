@@ -1,44 +1,70 @@
 {
-  "ACTIVISM Accepts Bitcoin": "Yes",
-  "ACTIVISM Anonymous Payment Method": "Yes",
-  "ACTIVISM Meets PrivacyTools IO Criteria": "Yes",
-  "AFFILIATES Give Full Disclosure": "",
-  "AFFILIATES Practice Ethical Copy": "",
-  "AVAILABILITY # of Connections": "1",
-  "AVAILABILITY # of Countries": "10",
-  "AVAILABILITY # of Servers": "",
-  "ETHICS Contradictory Logging Policies": "",
-  "ETHICS Falsely Claims 100% Effective": "",
-  "ETHICS Incentivizes Social Media Spam": "",
-  "JURISDICTION Based In (Country)": "Iceland",
-  "JURISDICTION Fourteen Eyes?": "No",
-  "JURISDICTION Freedom Status": "Free",
-  "LEAK PROTECTION 1st Party DNS Servers": "Yes",
-  "LEAK PROTECTION IPv6 Supported / Blocked": "No",
-  "LEAK PROTECTION Kill Switch": "No",
-  "LOGGING Logs Bandwidth": "",
-  "LOGGING Logs DNS Requests": "",
-  "LOGGING Logs IP Address": "No",
-  "LOGGING Logs Timestamps": "",
-  "LOGGING Logs Traffic": "No",
-  "POLICIES Forbids Spam": "",
-  "POLICIES Requires Ethical Copy": "",
-  "POLICIES Requires Full Disclosure": "",
-  "PORT BLOCKING Auth SMTP": "No",
-  "PORT BLOCKING P2P": "No",
-  "PRICING $ / Connection / Month": "3.92",
-  "PRICING $ / Month (Annual Pricing)": "3.92",
-  "PRICING Free Trial": "Yes",
-  "PRICING Refund Period (Days)": "0",
-  "PROTOCOLS Offers OpenVPN": "Yes",
-  "SECURITY Strongest Data Encryption": "AES-256",
-  "SECURITY Strongest Handshake Encryption": "",
-  "SECURITY Weakest Data Encryption": "AES-256",
-  "SECURITY Weakest Handshake Encryption": "",
+  "ACTIVISM": {
+    "Accepts Bitcoin": "Yes",
+    "Anonymous Payment Method": "Yes",
+    "Meets PrivacyTools IO Criteria": "Yes"
+  },
+  "AFFILIATES": {
+    "Give Full Disclosure": "",
+    "Practice Ethical Copy": ""
+  },
+  "AVAILABILITY": {
+    "# of Connections": "1",
+    "# of Countries": "10",
+    "# of Servers": ""
+  },
+  "ETHICS": {
+    "Contradictory Logging Policies": "",
+    "Falsely Claims 100% Effective": "",
+    "Incentivizes Social Media Spam": ""
+  },
+  "JURISDICTION": {
+    "Based In (Country)": "Iceland",
+    "Fourteen Eyes?": "No",
+    "Freedom Status": "Free"
+  },
+  "LEAK PROTECTION": {
+    "1st Party DNS Servers": "Yes",
+    "IPv6 Supported / Blocked": "No",
+    "Kill Switch": "No"
+  },
+  "LOGGING": {
+    "Logs Bandwidth": "",
+    "Logs DNS Requests": "",
+    "Logs IP Address": "No",
+    "Logs Timestamps": "",
+    "Logs Traffic": "No"
+  },
+  "POLICIES": {
+    "Forbids Spam": "",
+    "Requires Ethical Copy": "",
+    "Requires Full Disclosure": ""
+  },
+  "PORT BLOCKING": {
+    "Auth SMTP": "No",
+    "P2P": "No"
+  },
+  "PRICING": {
+    "$ / Connection / Month": "3.92",
+    "$ / Month (Annual Pricing)": "3.92",
+    "Free Trial": "Yes",
+    "Refund Period (Days)": "0"
+  },
+  "PROTOCOLS": {
+    "Offers OpenVPN": "Yes"
+  },
+  "SECURITY": {
+    "Strongest Data Encryption": "AES-256",
+    "Strongest Handshake Encryption": "",
+    "Weakest Data Encryption": "AES-256",
+    "Weakest Handshake Encryption": ""
+  },
   "VPN SERVICE": "CryptoStorm",
-  "WEBSITE # of External Trackers": "3",
-  "WEBSITE # of Persistent Cookies": "2",
-  "WEBSITE # of Proprietary APIs": "2",
-  "WEBSITE SSL Cert issued to": "Self",
-  "WEBSITE Server SSL Rating": "A"
+  "WEBSITE": {
+    "# of External Trackers": "3",
+    "# of Persistent Cookies": "2",
+    "# of Proprietary APIs": "2",
+    "SSL Cert issued to": "Self",
+    "Server SSL Rating": "A"
+  }
 }

@@ -1,44 +1,70 @@
 {
-  "ACTIVISM Accepts Bitcoin": "Yes",
-  "ACTIVISM Anonymous Payment Method": "Email",
-  "ACTIVISM Meets PrivacyTools IO Criteria": "No",
-  "AFFILIATES Give Full Disclosure": "No",
-  "AFFILIATES Practice Ethical Copy": "",
-  "AVAILABILITY # of Connections": "3",
-  "AVAILABILITY # of Countries": "22",
-  "AVAILABILITY # of Servers": "80",
-  "ETHICS Contradictory Logging Policies": "",
-  "ETHICS Falsely Claims 100% Effective": "",
-  "ETHICS Incentivizes Social Media Spam": "",
-  "JURISDICTION Based In (Country)": "Seychelles",
-  "JURISDICTION Fourteen Eyes?": "No",
-  "JURISDICTION Freedom Status": "Partly Free",
-  "LEAK PROTECTION 1st Party DNS Servers": "No",
-  "LEAK PROTECTION IPv6 Supported / Blocked": "No",
-  "LEAK PROTECTION Kill Switch": "No",
-  "LOGGING Logs Bandwidth": "",
-  "LOGGING Logs DNS Requests": "",
-  "LOGGING Logs IP Address": "",
-  "LOGGING Logs Timestamps": "",
-  "LOGGING Logs Traffic": "",
-  "POLICIES Forbids Spam": "No",
-  "POLICIES Requires Ethical Copy": "No",
-  "POLICIES Requires Full Disclosure": "No",
-  "PORT BLOCKING Auth SMTP": "",
-  "PORT BLOCKING P2P": "No",
-  "PRICING $ / Connection / Month": "1.00",
-  "PRICING $ / Month (Annual Pricing)": "2.99",
-  "PRICING Free Trial": "No",
-  "PRICING Refund Period (Days)": "0",
-  "PROTOCOLS Offers OpenVPN": "Yes",
-  "SECURITY Strongest Data Encryption": "Blowfish-128",
-  "SECURITY Strongest Handshake Encryption": "",
-  "SECURITY Weakest Data Encryption": "MPPE-128",
-  "SECURITY Weakest Handshake Encryption": "",
+  "ACTIVISM": {
+    "Accepts Bitcoin": "Yes",
+    "Anonymous Payment Method": "Email",
+    "Meets PrivacyTools IO Criteria": "No"
+  },
+  "AFFILIATES": {
+    "Give Full Disclosure": "No",
+    "Practice Ethical Copy": ""
+  },
+  "AVAILABILITY": {
+    "# of Connections": "3",
+    "# of Countries": "22",
+    "# of Servers": "80"
+  },
+  "ETHICS": {
+    "Contradictory Logging Policies": "",
+    "Falsely Claims 100% Effective": "",
+    "Incentivizes Social Media Spam": ""
+  },
+  "JURISDICTION": {
+    "Based In (Country)": "Seychelles",
+    "Fourteen Eyes?": "No",
+    "Freedom Status": "Partly Free"
+  },
+  "LEAK PROTECTION": {
+    "1st Party DNS Servers": "No",
+    "IPv6 Supported / Blocked": "No",
+    "Kill Switch": "No"
+  },
+  "LOGGING": {
+    "Logs Bandwidth": "",
+    "Logs DNS Requests": "",
+    "Logs IP Address": "",
+    "Logs Timestamps": "",
+    "Logs Traffic": ""
+  },
+  "POLICIES": {
+    "Forbids Spam": "No",
+    "Requires Ethical Copy": "No",
+    "Requires Full Disclosure": "No"
+  },
+  "PORT BLOCKING": {
+    "Auth SMTP": "",
+    "P2P": "No"
+  },
+  "PRICING": {
+    "$ / Connection / Month": "1.00",
+    "$ / Month (Annual Pricing)": "2.99",
+    "Free Trial": "No",
+    "Refund Period (Days)": "0"
+  },
+  "PROTOCOLS": {
+    "Offers OpenVPN": "Yes"
+  },
+  "SECURITY": {
+    "Strongest Data Encryption": "Blowfish-128",
+    "Strongest Handshake Encryption": "",
+    "Weakest Data Encryption": "MPPE-128",
+    "Weakest Handshake Encryption": ""
+  },
   "VPN SERVICE": "Boxpn",
-  "WEBSITE # of External Trackers": "12",
-  "WEBSITE # of Persistent Cookies": "23",
-  "WEBSITE # of Proprietary APIs": "25",
-  "WEBSITE SSL Cert issued to": "CloudFlare",
-  "WEBSITE Server SSL Rating": "A"
+  "WEBSITE": {
+    "# of External Trackers": "12",
+    "# of Persistent Cookies": "23",
+    "# of Proprietary APIs": "25",
+    "SSL Cert issued to": "CloudFlare",
+    "Server SSL Rating": "A"
+  }
 }
