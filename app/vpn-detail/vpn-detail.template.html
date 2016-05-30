@@ -1,0 +1,13 @@
+<p>Here's the vpn detail template!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</p>
+<h1><a href="#!/vpns/{{vpn.id}}">{{$ctrl.vpn['VPN SERVICE']}}</a></h1>
+
+<ul>
+  <li ng-repeat="(category, fields) in $ctrl.vpn">
+    {{category}}:
+    <ul>
+      <li ng-repeat="(field, value) in fields">
+        {{field}} = {{value ? value : "unknown"}}
+      </li>
+    </ul>
+  </li>
+</ul>

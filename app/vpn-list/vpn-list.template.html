@@ -1,6 +1,8 @@
 <div>
   <p>Here's the vpn-list template lol</p>
   <ul class="vpns">
-    <li ng-repeat="vpn in $ctrl.vpns" class="vpn-item">{{vpn.id}}</li>
+    <li ng-repeat="vpn in $ctrl.vpns" class="vpn-item">
+      <a href="#!/vpns/{{vpn.id}}">{{vpn['VPN SERVICE']}}</a>
+    </li>
   </ul>
 </div>

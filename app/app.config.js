@@ -3,7 +3,7 @@
 angular.
   module('topsVpnApp').
   config(['$locationProvider', '$routeProvider',
-    function($locationProvider, $routeProvider) {
+    function config($locationProvider, $routeProvider) {
       $locationProvider.hashPrefix('!');
 
       $routeProvider.
