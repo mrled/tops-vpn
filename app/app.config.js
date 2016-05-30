@@ -6,6 +6,13 @@ angular.
     function($locationProvider, $routeProvider) {
       $locationProvider.hashPrefix('!');
 
-      // $routeProvider.otherwise({redirectTo: '/'});
+      $routeProvider.
+        when('/vpns', {
+          template: '<vpn-list></vpn-list>'
+        }).
+        when('/vpns/:vpnId', {
+          template: '<vpn-detail></vpn-detail>'
+        }).
+        otherwise('/vpns');
     }
   ]);

@@ -3,8 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "description": "That One Privacy Site - VPN List - Angular App",
-  "repository": "https://github.com/angular/angular-seed",
-  "license": "MIT",
+  "homepage": "https://github.com/mrled/tops-vpn",
+  "license": "CC BY-NC-SA 4.0",
   "devDependencies": {
     "bower": "^1.7.7",
     "http-server": "^0.9.0",
