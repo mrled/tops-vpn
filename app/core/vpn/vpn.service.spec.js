@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Vpn', function() {
+describe('VPN', function() {
   var $httpBackend;
   var Vpn;
   var rootScope;
@@ -13,10 +13,6 @@ describe('Vpn', function() {
     '"ActiVPN","France","Nine","Free","","","","","","Email","Yes","No","No","No","No","Yes","","","","","","","5","13","20","0","0","0","A+","Self","3.34","0.67","No","","","","","No","No","No","",""\r\n' +
     '"AirVPN","Italy","Fourteen","Free","No","","","","","Email","Yes","Yes","Yes","No","Yes","Yes","No","No","AES-256","AES-256","RSA-4096","RSA-4096","3","16","138","3","0","0","A+","Self","4.93","1.64","Yes","3","","","","No","No","No","No","No"\r\n';
 
-  beforeEach(function() {
-    jasmine.addCustomEqualityTester(angular.equals);
-  });
-
   beforeEach(module('core.vpn'));
 
   beforeEach(inject(function(_$httpBackend_, _Vpn_) {
@@ -25,7 +21,13 @@ describe('Vpn', function() {
     $httpBackend.expectGET('/vpns/tops.vpns.csv').respond(vpnsCsvMock);
   }));
 
-  it("Should get raw JSON data", function() {
+  // Verify that there are no outstanding expectations or requests after each test
+  afterEach(function () {
+    $httpBackend.verifyNoOutstandingExpectation();
+    $httpBackend.verifyNoOutstandingRequest();
+  });
+
+  it("should get raw CSV data", function() {
     var rawCsvString;
     Vpn.queryRawCsv().then(function(data) {rawCsvString = data;});
     expect(rawCsvString).toEqual(undefined);
@@ -33,32 +35,34 @@ describe('Vpn', function() {
     expect(rawCsvString.substring(0,100)).toEqual(vpnsCsvMock.substring(0,100));
   });
 
-  it("Should convert the raw CSV data to a JSON string", function() {
-    var rawJsonString;
-    Vpn.queryRawJsonString().then(function(response) {rawJsonString = response;});
-    expect(rawJsonString).toEqual(undefined);
-    $httpBackend.flush();
-    expect(rawJsonString.substring(0,34)).toEqual('[{"\\"VPN SERVICE\\"":"\\"3Monkey\\"",');
-  });
-
-  it("Should convert the JSON string into a JS object", function() {
+  it("should convert the CSV string into JS objects", function() {
     var rawCsvObj;
-    Vpn.queryRawJsonCache().then(function(data) {rawCsvObj = data;});
+    Vpn.queryRawVpnObjs().then(function(data) {rawCsvObj = data;});
     expect(rawCsvObj).toEqual(undefined);
     $httpBackend.flush();
-    expect(rawCsvObj[0]['"VPN SERVICE"']).toEqual('"3Monkey"');
+    expect(rawCsvObj[0]['VPN SERVICE']).toEqual('3Monkey');
   });
 
-  // it("Should fetch VPN data", function() {
-  //   var vpns = Vpn.query();
-  //   expect(vpns).toEqual([]);
-  //   $httpBackend.flush();
-  //   expect(vpns).toEqual([
-  //     {name: '3Monkey'},
-  //     {name: 'AceVPN'},
-  //     {name: 'ActiVPN'},
-  //     {name: 'AirVPN'}
-  //   ]);
-  // });
+  it("should get a single VPN by id", function() {
+    var vpn;
+    Vpn.get("3Monkey").then(function(data) {vpn = data;});
+    expect(vpn).toEqual(undefined);
+    $httpBackend.flush();
+    expect(vpn.id).toEqual("3Monkey");
+    expect(vpn.jurisdiction.basedin).toEqual("Switzerland");
+  });
+
+  it("should query all VPN data", function() {
+    var vpns;
+    Vpn.query().then(function(data) {vpns = data;});
+    expect(vpns).toEqual(undefined);
+    $httpBackend.flush();
+    expect(vpns).toEqual([
+      {name: '3Monkey'},
+      {name: 'AceVPN'},
+      {name: 'ActiVPN'},
+      {name: 'AirVPN'}
+    ]);
+  });
 
 });

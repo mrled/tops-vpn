@@ -1,71 +1,110 @@
 'use strict';
 
+function convertTopsVpnObjsToVpnObjs(objects) {
+  var vpnList = [];
+  objects.forEach(function(vpnRow, index, array) {
+
+    // Normalize the VPN name so it can be easily used in a URL
+    var vpnId = vpnRow['VPN SERVICE'].replace(/ /g, '').replace(/\//g, '');
+
+    vpnList.push({
+      'id': vpnId,
+      'name': vpnRow['VPN SERVICE'],
+      'activism': {
+        'bitcoin': vpnRow['ACTIVISM Accepts Bitcoin'],
+        'anonymous_payment': vpnRow['ACTIVISM Anonymous Payment Method'],
+        'privacytoolsio': vpnRow['ACTIVISM Meets PrivacyTools IO Criteria']
+      },
+      'affiliates': {
+        'fulldisclosure': vpnRow['AFFILIATES Give Full Disclosure'],
+        'ethicalcopy': vpnRow['AFFILIATES Practice Ethical Copy']
+      },
+      'jurisdiction': {
+        'basedin': vpnRow['JURISDICTION Based In (Country)'],
+        'fourteeneyes': vpnRow["JURISDICTION Fourteen Eyes?"],
+        'freedomstatus': vpnRow["JURISDICTION Freedom Status"]
+      }
+    });
+  });
+  return vpnList;
+}
+
+
 angular.
   module('core.vpn').
   factory('Vpn', ['$http', '$q', 'fCsv',
     function($http, $q, fCsv) {
 
       var deferredRawCsvString = $q.defer(),
-          deferredRawJsonString = $q.defer(),
-          deferredRawJsonCache = $q.defer(),
+          deferredRawVpnObjs = $q.defer(),
           deferredVpnList = $q.defer();
 
+      function parseTopsCsv(csvText) {
+
+        // This will have double quotes surrounding keys and values
+        // For instance: {'"VPN SERVICE"': '"3Monkey"'}
+        var naiveObjs = angular.fromJson(fCsv.toJson(csvText));
+
+        // If a string's first and last characters are a single or double quote, remove them
+        // Otherwise, return the input
+        // Very naive way to unquote something, but for the TOPS VPN CSV this is OK
+        function unquoteString(string) {
+          if (typeof(string) != "string") {
+            return string;
+          }
+          else if ((string[0] == '"' && string.slice(-1) == '"') || (string[0] == "'" && string.slice(-1) == "'")) {
+            return string.substring(1, (string.length -1));
+          }
+          else {
+            return string;
+          }
+        }
+
+        var parsedObjs = [];
+        naiveObjs.forEach(function(obj, index, array) {
+          var parsedObj = {};
+          for (var prop in obj) {
+            var unquotedKey = unquoteString(prop),
+                unquotedValue = unquoteString(obj[prop]);
+            parsedObj[unquotedKey] = unquotedValue;
+          }
+          parsedObjs.push(parsedObj);
+        });
+
+        return parsedObjs;
+      }
+
       $http.get('/vpns/tops.vpns.csv').then(function(response) {
-        deferredRawCsvString.resolve(response.data);
-        // deferredRawJsonString.resolve(fCsv.toJson(response.data));
-        // deferredRawJsonCache.resolve(angular.fromJson(deferredRawJsonString));
+        var rawCsvText = response.data;
+        var rawVpnObjs = parseTopsCsv(rawCsvText);
+        var vpnList = convertTopsVpnObjsToVpnObjs(rawVpnObjs);
+        deferredRawCsvString.resolve(rawCsvText);
+        deferredRawVpnObjs.resolve(rawVpnObjs);
+        deferredVpnList.resolve(vpnList);
       });
-      deferredRawCsvString.promise.then(function(value) {
-        deferredRawJsonString.resolve(fCsv.toJson(value));
-      });
-      deferredRawJsonString.promise.then(function(value) {
-        deferredRawJsonCache.resolve(angular.fromJson(value));
-      });
-
-      // $http.get('/vpns/tops.vpns.csv').then(function(resp) {
-
-        // self.rawCsvStringCache = resp.data;
-        // self.rawJsonStringCache = fCsv.toJson(self.rawCsvStringCache);
-        // self.rawJsonCache = angular.fromJson(self.rawJsonStringCache);
-
-        // for (var csvRow in self.rawJsonCache) {
-        //
-        //    // Normalize the VPN name so it can be easily used in a URL
-        //    //var vpnId = csvRow['VPN SERVICE'].replace(/ /g, '').replace(/\//g, '');
-        //
-        //    self.vpnCache += [{
-        //      // Normalize the VPN name so it can be easily used in a URL
-        //      //'id': vpnId,
-        //      'name': csvRow['VPN SERVICE'],
-        //      'activism': {
-        //        'bitcoin': csvRow['ACTIVISM Accepts Bitcoin'],
-        //        'anonymous_payment': csvRow['ACTIVISM Anonymous Payment Method'],
-        //        'privacytoolsio': csvRow['ACTIVISM Meets PrivacyTools IO Criteria']
-        //      },
-        //      'affiliates': {
-        //        'fulldisclosure': csvRow['AFFILIATES Give Full Disclosure'],
-        //        'ethicalcopy': csvRow['AFFILIATES Practice Ethical Copy']
-        //      }
-        //    }];
-        //  }
-
-      // });
 
       return {
+
         'get': function(vpnId) {
-          // function vpnFilterById(vpnEntry) {
-          //   if (vpnEntry.id == vpnId) {return true;} else {return false;}
-          // }
-          // var foundVpn = (self.vpnCache.filter(vpnFilterById))[0];
-          // return foundVpn;
-          return null;
+          var deferredVpn = $q.defer();
+          deferredVpnList.promise.then(function(data) {
+            function vpnFilterById(vpnEntry) {
+              if (vpnEntry.id == vpnId) {return true;} else {return false;}
+            }
+            var foundVpn = data.filter(vpnFilterById)[0];
+            if (foundVpn) {
+              deferredVpn.resolve(foundVpn);
+            }
+            else {
+              deferredVpn.reject("No such VPN ID");
+            }
+          });
+          return deferredVpn.promise;
         },
+
         'queryRawCsv': function() {return deferredRawCsvString.promise;},
-        'queryRawJsonString': function() {return deferredRawJsonString.promise;},
-        'queryRawJsonCache': function() {return deferredRawJsonCache.promise;}
-        // 'query': function() {
-        //   return self.vpnCache;
-        // }
+        'queryRawVpnObjs': function() {return deferredRawVpnObjs.promise;},
+        'query': function() {return deferredVpnList.promise;}
       };
     }
   ]);
