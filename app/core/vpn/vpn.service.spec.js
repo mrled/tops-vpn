@@ -19,56 +19,34 @@ describe('Vpn', function() {
 
   beforeEach(module('core.vpn'));
 
-  beforeEach(inject(function(_$httpBackend_, _Vpn_, _$q_, _$rootScope_) {
-    deferred = _$q_.defer();
+  beforeEach(inject(function(_$httpBackend_, _Vpn_) {
     $httpBackend = _$httpBackend_;
-    rootScope = _$rootScope_;
     Vpn = _Vpn_;
-
-    deferred.resolve();
     $httpBackend.expectGET('/vpns/tops.vpns.csv').respond(vpnsCsvMock);
-    spyOn(Vpn, 'queryRawCsv').and.returnValue(deferred.promise);
   }));
 
   it("Should get raw JSON data", function() {
-    var rawJson = Vpn.queryRawCsv();
-    rootScope.$apply();
-    expect(rawJson).toEqual("");
+    var rawCsvString;
+    Vpn.queryRawCsv().then(function(data) {rawCsvString = data;});
+    expect(rawCsvString).toEqual(undefined);
     $httpBackend.flush();
-    expect(rawJson).toEqual("something lol");
-  });
-
-  it("Should get raw JSON data 2.0", function() {
-
-    var testScope = {};
-    var wtf = Vpn.queryRawCsv().then(
-      function(response) {
-        console.log(`SUCCESS: ${response}`);
-        testScope.rawCsv = response;
-      },
-      function(error) {console.log(`ERROR: ${error}`);},
-      function(notification) {console.log(`NOTIFICATION: ${notification}`);}
-    );
-
-    expect(testScope.rawCsv).toEqual(undefined);
-
-    console.log(`testScope.rawCsv is of type ${typeof(testScope.rawCsv)}`);
-    $httpBackend.flush();
-    console.log(`testScope.rawCsv is of type ${typeof(testScope.rawCsv)}`);
-
-    expect(testScope.rawCsv).toEqual("something lol");
+    expect(rawCsvString.substring(0,100)).toEqual(vpnsCsvMock.substring(0,100));
   });
 
   it("Should convert the raw CSV data to a JSON string", function() {
     var rawJsonString;
-    Vpn.queryRawJsonString().then(
-      function(response) {
-        rawJsonString = response;
-      }
-    );
+    Vpn.queryRawJsonString().then(function(response) {rawJsonString = response;});
     expect(rawJsonString).toEqual(undefined);
     $httpBackend.flush();
     expect(rawJsonString.substring(0,34)).toEqual('[{"\\"VPN SERVICE\\"":"\\"3Monkey\\"",');
+  });
+
+  it("Should convert the JSON string into a JS object", function() {
+    var rawCsvObj;
+    Vpn.queryRawJsonCache().then(function(data) {rawCsvObj = data;});
+    expect(rawCsvObj).toEqual(undefined);
+    $httpBackend.flush();
+    expect(rawCsvObj[0]['"VPN SERVICE"']).toEqual('"3Monkey"');
   });
 
   // it("Should fetch VPN data", function() {

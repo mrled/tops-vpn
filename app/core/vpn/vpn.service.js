@@ -12,14 +12,15 @@ angular.
 
       $http.get('/vpns/tops.vpns.csv').then(function(response) {
         deferredRawCsvString.resolve(response.data);
-        deferredRawJsonString.resolve(fCsv.toJson(response.data));
-        deferredRawJsonCache.resolve(angular.fromJson(deferredRawJsonString));
-        console.log("shit got resolved bih");
+        // deferredRawJsonString.resolve(fCsv.toJson(response.data));
+        // deferredRawJsonCache.resolve(angular.fromJson(deferredRawJsonString));
       });
-
-      deferredRawCsvString.promise.then(function(response){console.log(`drcs resolved in service w data ${response}`);});
-
-
+      deferredRawCsvString.promise.then(function(value) {
+        deferredRawJsonString.resolve(fCsv.toJson(value));
+      });
+      deferredRawJsonString.promise.then(function(value) {
+        deferredRawJsonCache.resolve(angular.fromJson(value));
+      });
 
       // $http.get('/vpns/tops.vpns.csv').then(function(resp) {
 
@@ -60,7 +61,8 @@ angular.
           return null;
         },
         'queryRawCsv': function() {return deferredRawCsvString.promise;},
-        'queryRawJsonString': function() {return deferredRawJsonString.promise;}
+        'queryRawJsonString': function() {return deferredRawJsonString.promise;},
+        'queryRawJsonCache': function() {return deferredRawJsonCache.promise;}
         // 'query': function() {
         //   return self.vpnCache;
         // }
