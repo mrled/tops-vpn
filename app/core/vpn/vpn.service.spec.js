@@ -50,19 +50,7 @@ describe('VPN', function() {
     $httpBackend.flush();
     expect(vpn.id).toEqual("3Monkey");
     expect(vpn.jurisdiction.basedin).toEqual("Switzerland");
-  });
-
-  it("should query all VPN data", function() {
-    var vpns;
-    Vpn.query().then(function(data) {vpns = data;});
-    expect(vpns).toEqual(undefined);
-    $httpBackend.flush();
-    expect(vpns).toEqual([
-      {name: '3Monkey'},
-      {name: 'AceVPN'},
-      {name: 'ActiVPN'},
-      {name: 'AirVPN'}
-    ]);
+    expect(vpn.protocols.openvpn).toBe(true);
   });
 
 });
