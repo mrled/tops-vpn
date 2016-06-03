@@ -8,20 +8,19 @@ angular.
         var self = this;
         Vpn.query().then(function(data) {
           self.vpns = data;
-          // self.categories = [];
-          // self.fields = [];
-          //
-          // for (var categoryname in self.vpns[0]) {
-          //   var category = {
-          //     'name': categoryname,
-          //     'fieldcount': 0
-          //   };
-          //   for (var fieldname in self.vpns[0][categoryname]) {
-          //     category.fieldcount += 1;
-          //     self.fields.push(fieldname);
-          //   }
-          //   self.categories.push(category);
-          // }
+
+          self.categories = [];
+          self.fields = self.vpns[0].getFeatureList();
+
+          self.vpns[0].getCategoryList().forEach(function(categoryname, index, array) {
+          // for (var categoryname in self.vpns[0].getCategoryList()) {
+            var category = {
+              'name': categoryname,
+              'fieldcount': self.vpns[0].getFeaturesForCategory(categoryname).length
+            };
+            self.categories.push(category);
+          });
+
         });
       }
     ]

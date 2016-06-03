@@ -1,20 +1,16 @@
 <div>
   <p>Here's the vpn-list template lol</p>
 
-  <!-- <table border=1 padding=3>
+  <table border=1>
+    <!-- TODO: Not sure if we can rely on the ordering of $ctrl.categories and $ctrrl.fields ?? Hmm-->
     <tr><th ng-repeat="category in $ctrl.categories" colspan="{{category.fieldcount}}">{{category.name}}</th></tr>
     <tr><th ng-repeat="field in $ctrl.fields track by $index">{{field}}</th></tr>
-    <tr ng-repeat="vpn in $ctrl.vpns"><th ng-repeat="(category, field) in vpn"></th></tr>
-  </table> -->
-
-  <ul class="vpns">
-    <li ng-repeat="vpn in $ctrl.vpns" class="vpn-item">
-      <a href="#!/vpns/{{vpn.id}}">{{vpn.getFeatureValue('company','name')}}</a>
-    </li>
-  </ul>
-    <!-- <tr>
-      <th ng-repeat="" -->
-
-
+    <tr ng-repeat="vpn in $ctrl.vpns">
+      <td ng-repeat="feature in vpn.features">
+        <a ng-if="feature.name == 'id'" href="#!/vpns/{{vpn.id}}">{{feature.value}}</a>
+        <p ng-if="feature.name != 'id'">{{feature.value}}</p>
+      </td>
+    </tr>
+  </table>
 
 </div>

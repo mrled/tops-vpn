@@ -22,6 +22,35 @@ function parseBooleanMaybe(string) {
   }
 }
 
+/* Get an integer from a string (maybe)
+ * If the string can be represented as an integer, return the integer
+ * Otherwise, return the input (which might be empty)
+ */
+function parseIntMaybe(string) {
+  var parsed = parseInt(string);
+  if (isNaN(parsed)) {
+    return string;
+  }
+  else {
+    return parsed;
+  }
+}
+
+/* Get an integer from a string (maybe)
+ * If the string can be represented as an integer, return the integer
+ * Otherwise, return the input (which might be empty)
+ */
+function parseFloatMaybe(string) {
+  var parsed = parseFloat(string);
+  if (isNaN(parsed)) {
+    return string;
+  }
+  else {
+    return parsed;
+  }
+}
+
+
 function VpnFeature(category, name, value) {
   this.category = category;
   this.name = name;
@@ -42,9 +71,9 @@ function Vpn(csvRow) {
     new VpnFeature('activism', 'privacytoolsio', parseBooleanMaybe(csvRow['ACTIVISM Meets PrivacyTools IO Criteria'])),
     new VpnFeature('affiliates', 'fulldisclosure', parseBooleanMaybe(csvRow['AFFILIATES Give Full Disclosure'])),
     new VpnFeature('affiliates', 'ethicalcopy', parseBooleanMaybe(csvRow['AFFILIATES Practice Ethical Copy'])),
-    new VpnFeature('availability', 'connections', parseInt(csvRow["AVAILABILITY # of Connections"])),
-    new VpnFeature('availability', 'countries', parseInt(csvRow["AVAILABILITY # of Countries"])),
-    new VpnFeature('availability', 'servers', parseInt(csvRow["AVAILABILITY # of Servers"])),
+    new VpnFeature('availability', 'connections', parseIntMaybe(csvRow["AVAILABILITY # of Connections"])),
+    new VpnFeature('availability', 'countries', parseIntMaybe(csvRow["AVAILABILITY # of Countries"])),
+    new VpnFeature('availability', 'servers', parseIntMaybe(csvRow["AVAILABILITY # of Servers"])),
     // NOTE: 'encryption' is called 'SECURITY' in the CSV
     new VpnFeature('encryption', 'dataweakest', csvRow["SECURITY Weakest Data Encryption"]),
     new VpnFeature('encryption', 'datastrongest', csvRow["SECURITY Strongest Data Encryption"]),
@@ -68,14 +97,14 @@ function Vpn(csvRow) {
     new VpnFeature('policies', 'ethicalcopy', parseBooleanMaybe(csvRow["POLICIES Requires Ethical Copy"])),
     new VpnFeature('policies', 'fulldisclosure', parseBooleanMaybe(csvRow["POLICIES Requires Full Disclosure"])),
     // NOTE: this is the price per month if you buy a whole year)
-    new VpnFeature('pricing', 'permonth', parseFloat(csvRow["PRICING $ / Month (Annual Pricing)"])),
-    new VpnFeature('pricing', 'perconnectionpermonth', parseFloat(csvRow["PRICING $ / Connection / Month"])),
+    new VpnFeature('pricing', 'permonth', parseFloatMaybe(csvRow["PRICING $ / Month (Annual Pricing)"])),
+    new VpnFeature('pricing', 'perconnectionpermonth', parseFloatMaybe(csvRow["PRICING $ / Connection / Month"])),
     new VpnFeature('pricing', 'freetrial', parseBooleanMaybe(csvRow["PRICING Free Trial"])),
-    new VpnFeature('pricing', 'refundperiod', parseInt(csvRow["PRICING Refund Period (Days)"])),
+    new VpnFeature('pricing', 'refundperiod', parseIntMaybe(csvRow["PRICING Refund Period (Days)"])),
     new VpnFeature('protocols', 'openvpn', parseBooleanMaybe(csvRow["PROTOCOLS Offers OpenVPN"])),
-    new VpnFeature('website', 'persistentcookies', parseInt(csvRow["WEBSITE # of Persistent Cookies"])),
-    new VpnFeature('website', 'trackers', parseInt(csvRow["WEBSITE # of External Trackers"])),
-    new VpnFeature('website', 'proprietaryapis', parseInt(csvRow["WEBSITE # of Proprietary APIs"])),
+    new VpnFeature('website', 'persistentcookies', parseIntMaybe(csvRow["WEBSITE # of Persistent Cookies"])),
+    new VpnFeature('website', 'trackers', parseIntMaybe(csvRow["WEBSITE # of External Trackers"])),
+    new VpnFeature('website', 'proprietaryapis', parseIntMaybe(csvRow["WEBSITE # of Proprietary APIs"])),
     new VpnFeature('website', 'sslrating', csvRow["WEBSITE Server SSL Rating"]),
     new VpnFeature('website', 'certcn', csvRow["WEBSITE SSL Cert issued to"])
   ];
@@ -88,6 +117,13 @@ function Vpn(csvRow) {
       }
     });
     return catList;
+  };
+  this.getFeatureList = function() {
+    var featList = [];
+    this.features.forEach(function(feat, index, array) {
+      featList.push(feat.name);
+    });
+    return featList;
   };
 
   this.getFeatureValue = function(category, feature) {
