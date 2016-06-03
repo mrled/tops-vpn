@@ -5,7 +5,7 @@ angular.
     templateUrl: 'vpn-list/vpn-list.template.html',
     controller: ['Vpn',
       function VpnListController(Vpn) {
-        this.vpns = Vpn.getAll();
+        this.vpns = Vpn.query();
       }
     ]
   });
