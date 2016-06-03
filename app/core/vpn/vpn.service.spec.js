@@ -48,9 +48,10 @@ describe('VPN', function() {
     Vpn.get("3Monkey").then(function(data) {vpn = data;});
     expect(vpn).toEqual(undefined);
     $httpBackend.flush();
-    expect(vpn.company.id).toEqual("3Monkey");
-    expect(vpn.jurisdiction.basedin).toEqual("Switzerland");
-    expect(vpn.protocols.openvpn).toBe(true);
+    expect(vpn.id).toEqual("3Monkey");
+    expect(vpn.getFeatureValue('jurisdiction', 'basedin')).toEqual("Switzerland");
+    expect(vpn.getFeatureValue('protocols', 'openvpn')).toEqual(true);
+    expect(vpn.getCategoryList().contains('website')).toBe(true);
   });
 
 });

@@ -1,5 +1,14 @@
 'use strict';
 
+Array.prototype.contains = function(object) {
+  if (this.indexOf(object) === -1) {
+    return false;
+  }
+  else {
+    return true;
+  }
+};
+
 /* Get a boolean from a string (maybe)
  * If the string is one of: true/yes/1/false/no/0, return a boolean representing it
  * Otherwise, return the input (which might be empty)
@@ -13,86 +22,96 @@ function parseBooleanMaybe(string) {
   }
 }
 
-function convertCsvObjsToVpnObjs(objects) {
-  var vpnList = [];
-  objects.forEach(function(vpnRow, index, array) {
-
-    // Normalize the VPN name so it can be easily used in a URL
-    var vpnId = vpnRow['VPN SERVICE'].replace(/ /g, '').replace(/\//g, '');
-
-    vpnList.push({
-      'company': {
-        'id': vpnId,
-        'name': vpnRow['VPN SERVICE']
-      },
-      'activism': {
-        'bitcoin': parseBooleanMaybe(vpnRow['ACTIVISM Accepts Bitcoin']),
-        'anonpayment': parseBooleanMaybe(vpnRow['ACTIVISM Anonymous Payment Method']),
-        'privacytoolsio': parseBooleanMaybe(vpnRow['ACTIVISM Meets PrivacyTools IO Criteria'])
-      },
-      'affiliates': {
-        'fulldisclosure': parseBooleanMaybe(vpnRow['AFFILIATES Give Full Disclosure']),
-        'ethicalcopy': parseBooleanMaybe(vpnRow['AFFILIATES Practice Ethical Copy'])
-      },
-      'availability': {
-        'connections': parseInt(vpnRow["AVAILABILITY # of Connections"]),
-        'countries': parseInt(vpnRow["AVAILABILITY # of Countries"]),
-        'servers': parseInt(vpnRow["AVAILABILITY # of Servers"])
-      },
-      'encryption': { // this is called 'SECURITY' in the csv
-        'dataweakest': vpnRow["SECURITY Weakest Data Encryption"],
-        'datastrongest': vpnRow["SECURITY Strongest Data Encryption"],
-        'handshakeweakest': vpnRow["SECURITY Weakest Handshake Encryption"],
-        'handshakestrongest': vpnRow["SECURITY Strongest Handshake Encryption"]
-      },
-      'ethics': {
-        'contradictorylogging': parseBooleanMaybe(vpnRow["ETHICS Contradictory Logging Policies"]),
-        'claim100effective': parseBooleanMaybe(vpnRow["ETHICS Falsely Claims 100% Effective"]),
-        'spamincentive': parseBooleanMaybe(vpnRow["ETHICS Incentivizes Social Media Spam"])
-      },
-      'jurisdiction': {
-        'basedin': vpnRow['JURISDICTION Based In (Country)'],
-        'fourteeneyes': vpnRow["JURISDICTION Fourteen Eyes?"],
-        'freedomstatus': vpnRow["JURISDICTION Freedom Status"]
-      },
-      'leakprotection': {
-        'dns': parseBooleanMaybe(vpnRow["LEAK PROTECTION 1st Party DNS Servers"]),
-        'ipv6': parseBooleanMaybe(vpnRow["LEAK PROTECTION IPv6 Supported / Blocked"]),
-        'killswitch': parseBooleanMaybe(vpnRow["LEAK PROTECTION Kill Switch"])
-      },
-      'logging': {
-        'traffic': parseBooleanMaybe(vpnRow["LOGGING Logs Traffic"]),
-        'dns': parseBooleanMaybe(vpnRow["LOGGING Logs DNS Requests"]),
-        'timestamps': parseBooleanMaybe(vpnRow["LOGGING Logs Timestamps"]),
-        'bandwidth': parseBooleanMaybe(vpnRow["LOGGING Logs Bandwidth"]),
-        'ip': parseBooleanMaybe(vpnRow["LOGGING Logs IP Address"])
-      },
-      'policies': {
-        'forbidspam': parseBooleanMaybe(vpnRow["POLICIES Forbids Spam"]),
-        'ethicalcopy': parseBooleanMaybe(vpnRow["POLICIES Requires Ethical Copy"]),
-        'fulldisclosure': parseBooleanMaybe(vpnRow["POLICIES Requires Full Disclosure"])
-      },
-      'pricing': {
-        'permonth': parseFloat(vpnRow["PRICING $ / Month (Annual Pricing)"]), // NOTE: this is the price per month if you buy a whole year
-        'perconnectionpermonth': parseFloat(vpnRow["PRICING $ / Connection / Month"]),
-        'freetrial': parseBooleanMaybe(vpnRow["PRICING Free Trial"]),
-        'refundperiod': parseInt(vpnRow["PRICING Refund Period (Days)"])
-      },
-      'protocols': {
-        'openvpn': parseBooleanMaybe(vpnRow["PROTOCOLS Offers OpenVPN"])
-      },
-      'website': {
-        'persistentcookies': parseInt(vpnRow["WEBSITE # of Persistent Cookies"]),
-        'trackers': parseInt(vpnRow["WEBSITE # of External Trackers"]),
-        'proprietaryapis': parseInt(vpnRow["WEBSITE # of Proprietary APIs"]),
-        'sslrating': vpnRow["WEBSITE Server SSL Rating"],
-        'certcn': vpnRow["WEBSITE SSL Cert issued to"]
-      }
-    });
-  });
-  return vpnList;
+function VpnFeature(category, name, value) {
+  this.category = category;
+  this.name = name;
+  this.value = value;
+  return this;
 }
 
+// function Vpn(csvRow) {
+function Vpn(csvRow) {
+
+  // Normalize the VPN name so it can be easily used in a URL
+  this.id = csvRow['VPN SERVICE'].replace(/ /g, '').replace(/\//g, '');
+  this.features = [
+    new VpnFeature('company', 'id', this.id),
+    new VpnFeature('company', 'name', csvRow['VPN SERVICE']),
+    new VpnFeature('activism', 'bitcoin', parseBooleanMaybe(csvRow['ACTIVISM Accepts Bitcoin'])),
+    new VpnFeature('activism', 'anonpayment', parseBooleanMaybe(csvRow['ACTIVISM Anonymous Payment Method'])),
+    new VpnFeature('activism', 'privacytoolsio', parseBooleanMaybe(csvRow['ACTIVISM Meets PrivacyTools IO Criteria'])),
+    new VpnFeature('affiliates', 'fulldisclosure', parseBooleanMaybe(csvRow['AFFILIATES Give Full Disclosure'])),
+    new VpnFeature('affiliates', 'ethicalcopy', parseBooleanMaybe(csvRow['AFFILIATES Practice Ethical Copy'])),
+    new VpnFeature('availability', 'connections', parseInt(csvRow["AVAILABILITY # of Connections"])),
+    new VpnFeature('availability', 'countries', parseInt(csvRow["AVAILABILITY # of Countries"])),
+    new VpnFeature('availability', 'servers', parseInt(csvRow["AVAILABILITY # of Servers"])),
+    // NOTE: 'encryption' is called 'SECURITY' in the CSV
+    new VpnFeature('encryption', 'dataweakest', csvRow["SECURITY Weakest Data Encryption"]),
+    new VpnFeature('encryption', 'datastrongest', csvRow["SECURITY Strongest Data Encryption"]),
+    new VpnFeature('encryption', 'handshakeweakest', csvRow["SECURITY Weakest Handshake Encryption"]),
+    new VpnFeature('encryption', 'handshakestrongest', csvRow["SECURITY Strongest Handshake Encryption"]),
+    new VpnFeature('ethics', 'contradictorylogging', parseBooleanMaybe(csvRow["ETHICS Contradictory Logging Policies"])),
+    new VpnFeature('ethics', 'claim100effective', parseBooleanMaybe(csvRow["ETHICS Falsely Claims 100% Effective"])),
+    new VpnFeature('ethics', 'spamincentive', parseBooleanMaybe(csvRow["ETHICS Incentivizes Social Media Spam"])),
+    new VpnFeature('jurisdiction', 'basedin', csvRow['JURISDICTION Based In (Country)']),
+    new VpnFeature('jurisdiction', 'fourteeneyes', csvRow["JURISDICTION Fourteen Eyes?"]),
+    new VpnFeature('jurisdiction', 'freedomstatus', csvRow["JURISDICTION Freedom Status"]),
+    new VpnFeature('leakprotection', 'dns', parseBooleanMaybe(csvRow["LEAK PROTECTION 1st Party DNS Servers"])),
+    new VpnFeature('leakprotection', 'ipv6', parseBooleanMaybe(csvRow["LEAK PROTECTION IPv6 Supported / Blocked"])),
+    new VpnFeature('leakprotection', 'killswitch', parseBooleanMaybe(csvRow["LEAK PROTECTION Kill Switch"])),
+    new VpnFeature('logging', 'traffic', parseBooleanMaybe(csvRow["LOGGING Logs Traffic"])),
+    new VpnFeature('logging', 'dns', parseBooleanMaybe(csvRow["LOGGING Logs DNS Requests"])),
+    new VpnFeature('logging', 'timestamps', parseBooleanMaybe(csvRow["LOGGING Logs Timestamps"])),
+    new VpnFeature('logging', 'bandwidth', parseBooleanMaybe(csvRow["LOGGING Logs Bandwidth"])),
+    new VpnFeature('logging', 'ip', parseBooleanMaybe(csvRow["LOGGING Logs IP Address"])),
+    new VpnFeature('policies', 'forbidspam', parseBooleanMaybe(csvRow["POLICIES Forbids Spam"])),
+    new VpnFeature('policies', 'ethicalcopy', parseBooleanMaybe(csvRow["POLICIES Requires Ethical Copy"])),
+    new VpnFeature('policies', 'fulldisclosure', parseBooleanMaybe(csvRow["POLICIES Requires Full Disclosure"])),
+    // NOTE: this is the price per month if you buy a whole year)
+    new VpnFeature('pricing', 'permonth', parseFloat(csvRow["PRICING $ / Month (Annual Pricing)"])),
+    new VpnFeature('pricing', 'perconnectionpermonth', parseFloat(csvRow["PRICING $ / Connection / Month"])),
+    new VpnFeature('pricing', 'freetrial', parseBooleanMaybe(csvRow["PRICING Free Trial"])),
+    new VpnFeature('pricing', 'refundperiod', parseInt(csvRow["PRICING Refund Period (Days)"])),
+    new VpnFeature('protocols', 'openvpn', parseBooleanMaybe(csvRow["PROTOCOLS Offers OpenVPN"])),
+    new VpnFeature('website', 'persistentcookies', parseInt(csvRow["WEBSITE # of Persistent Cookies"])),
+    new VpnFeature('website', 'trackers', parseInt(csvRow["WEBSITE # of External Trackers"])),
+    new VpnFeature('website', 'proprietaryapis', parseInt(csvRow["WEBSITE # of Proprietary APIs"])),
+    new VpnFeature('website', 'sslrating', csvRow["WEBSITE Server SSL Rating"]),
+    new VpnFeature('website', 'certcn', csvRow["WEBSITE SSL Cert issued to"])
+  ];
+
+  this.getCategoryList = function(category) {
+    var catList = [];
+    this.features.forEach(function(feat, index, array) {
+      if (! catList.contains(feat.category)) {
+        catList.push(feat.category);
+      }
+    });
+    return catList;
+  };
+
+  this.getFeatureValue = function(category, feature) {
+    function featureFilter(featureObj) {
+      if (featureObj.category == category && featureObj.name == feature) { return true; } else { return false; }
+    }
+    var foundFeature = this.features.filter(featureFilter);
+    if (foundFeature.length == 1) {
+      return foundFeature[0].value;
+    }
+    else {
+      return undefined;
+    }
+  };
+
+  this.getFeaturesForCategory = function(category) {
+    function featureFilter(featureObj) {
+      if (featureObj.category == category) { return true; } else { return false; }
+    }
+    return this.features.filter(featureFilter);
+  };
+
+  return this;
+}
 
 angular.
   module('core.vpn').
@@ -141,7 +160,12 @@ angular.
       $http.get('/vpns/tops.vpns.csv').then(function(response) {
         var rawCsvText = response.data;
         var rawCsvObjs = parseTopsCsv(rawCsvText);
-        var vpnList = convertCsvObjsToVpnObjs(rawCsvObjs);
+
+        var vpnList = [];
+        rawCsvObjs.forEach(function(vpnRow, index, array) {
+          vpnList.push(new Vpn(vpnRow));
+        });
+
         deferredRawCsvString.resolve(rawCsvText);
         deferredRawVpnObjs.resolve(rawCsvObjs);
         deferredVpnList.resolve(vpnList);
@@ -153,7 +177,7 @@ angular.
           var deferredVpn = $q.defer();
           deferredVpnList.promise.then(function(data) {
             function vpnFilterById(vpnEntry) {
-              if (vpnEntry.company.id == vpnId) {return true;} else {return false;}
+              if (vpnEntry.id == vpnId) {return true;} else {return false;}
             }
             var foundVpn = data.filter(vpnFilterById)[0];
             if (foundVpn) {
