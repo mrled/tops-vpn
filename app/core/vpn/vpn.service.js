@@ -21,9 +21,10 @@ function convertCsvObjsToVpnObjs(objects) {
     var vpnId = vpnRow['VPN SERVICE'].replace(/ /g, '').replace(/\//g, '');
 
     vpnList.push({
-      'id': vpnId,
-      'name': vpnRow['VPN SERVICE'],
-
+      'company': {
+        'id': vpnId,
+        'name': vpnRow['VPN SERVICE']
+      },
       'activism': {
         'bitcoin': parseBooleanMaybe(vpnRow['ACTIVISM Accepts Bitcoin']),
         'anonpayment': parseBooleanMaybe(vpnRow['ACTIVISM Anonymous Payment Method']),
@@ -39,14 +40,10 @@ function convertCsvObjsToVpnObjs(objects) {
         'servers': parseInt(vpnRow["AVAILABILITY # of Servers"])
       },
       'encryption': { // this is called 'SECURITY' in the csv
-        'data': {
-          'weakest': vpnRow["SECURITY Weakest Data Encryption"],
-          'strongest': vpnRow["SECURITY Strongest Data Encryption"]
-        },
-        'handshake': {
-          'weakest': vpnRow["SECURITY Weakest Handshake Encryption"],
-          'strongest': vpnRow["SECURITY Strongest Handshake Encryption"]
-        }
+        'dataweakest': vpnRow["SECURITY Weakest Data Encryption"],
+        'datastrongest': vpnRow["SECURITY Strongest Data Encryption"],
+        'handshakeweakest': vpnRow["SECURITY Weakest Handshake Encryption"],
+        'handshakestrongest': vpnRow["SECURITY Strongest Handshake Encryption"]
       },
       'ethics': {
         'contradictorylogging': parseBooleanMaybe(vpnRow["ETHICS Contradictory Logging Policies"]),
@@ -156,7 +153,7 @@ angular.
           var deferredVpn = $q.defer();
           deferredVpnList.promise.then(function(data) {
             function vpnFilterById(vpnEntry) {
-              if (vpnEntry.id == vpnId) {return true;} else {return false;}
+              if (vpnEntry.company.id == vpnId) {return true;} else {return false;}
             }
             var foundVpn = data.filter(vpnFilterById)[0];
             if (foundVpn) {

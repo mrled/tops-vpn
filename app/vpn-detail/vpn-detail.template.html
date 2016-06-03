@@ -1,5 +1,8 @@
 <p>Here's the vpn detail template!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</p>
-<h1><a href="#!/vpns/{{$ctrl.vpn.id}}">{{$ctrl.vpn.name}}</a></h1>
+<h1><a href="#!/vpns/{{$ctrl.vpn.company.id}}">{{$ctrl.vpn.company.name}}</a></h1>
+
+<!-- TODO: Create a custom directive that can display a JS object, and enumerates each of its properties -->
+<!-- TODO: Create a custom directive that can display a single VPN -->
 
 <ul>
   <li ng-repeat="(category, fields) in $ctrl.vpn">

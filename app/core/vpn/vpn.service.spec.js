@@ -48,7 +48,7 @@ describe('VPN', function() {
     Vpn.get("3Monkey").then(function(data) {vpn = data;});
     expect(vpn).toEqual(undefined);
     $httpBackend.flush();
-    expect(vpn.id).toEqual("3Monkey");
+    expect(vpn.company.id).toEqual("3Monkey");
     expect(vpn.jurisdiction.basedin).toEqual("Switzerland");
     expect(vpn.protocols.openvpn).toBe(true);
   });
