@@ -13,7 +13,7 @@ function parseBooleanMaybe(string) {
   }
 }
 
-function convertTopsVpnObjsToVpnObjs(objects) {
+function convertCsvObjsToVpnObjs(objects) {
   var vpnList = [];
   objects.forEach(function(vpnRow, index, array) {
 
@@ -143,10 +143,10 @@ angular.
 
       $http.get('/vpns/tops.vpns.csv').then(function(response) {
         var rawCsvText = response.data;
-        var rawVpnObjs = parseTopsCsv(rawCsvText);
-        var vpnList = convertTopsVpnObjsToVpnObjs(rawVpnObjs);
+        var rawCsvObjs = parseTopsCsv(rawCsvText);
+        var vpnList = convertCsvObjsToVpnObjs(rawCsvObjs);
         deferredRawCsvString.resolve(rawCsvText);
-        deferredRawVpnObjs.resolve(rawVpnObjs);
+        deferredRawVpnObjs.resolve(rawCsvObjs);
         deferredVpnList.resolve(vpnList);
       });
 
