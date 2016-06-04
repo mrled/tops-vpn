@@ -1,13 +1,8 @@
 'use strict';
 
-Array.prototype.contains = function(object) {
-  if (this.indexOf(object) === -1) {
-    return false;
-  }
-  else {
-    return true;
-  }
-};
+function arrayContains(array, object) {
+  return true ? array.indexOf(object) !== -1 : false;
+}
 
 /* Get a boolean from a string (maybe)
  * If the string is one of: true/yes/1/false/no/0, return a boolean representing it
@@ -28,12 +23,7 @@ function parseBooleanMaybe(string) {
  */
 function parseIntMaybe(string) {
   var parsed = parseInt(string);
-  if (isNaN(parsed)) {
-    return string;
-  }
-  else {
-    return parsed;
-  }
+  return parsed ? !isNaN(parsed) : string;
 }
 
 /* Get an integer from a string (maybe)
@@ -42,12 +32,7 @@ function parseIntMaybe(string) {
  */
 function parseFloatMaybe(string) {
   var parsed = parseFloat(string);
-  if (isNaN(parsed)) {
-    return string;
-  }
-  else {
-    return parsed;
-  }
+  return parsed ? !isNaN(parsed) : string;
 }
 
 
@@ -112,7 +97,7 @@ function Vpn(csvRow) {
   this.getCategoryList = function(category) {
     var catList = [];
     this.features.forEach(function(feat, index, array) {
-      if (! catList.contains(feat.category)) {
+      if (! arrayContains(catList, feat.category)) {
         catList.push(feat.category);
       }
     });
