@@ -178,7 +178,7 @@ angular.
         return parsedObjs;
       }
 
-      $http.get('/vpns/tops.vpns.csv').then(function(response) {
+      $http.get('vpns/tops.vpns.csv').then(function(response) {
         var rawCsvText = response.data;
         var rawCsvObjs = parseTopsCsv(rawCsvText);
 
