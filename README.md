@@ -11,3 +11,6 @@ PS it barely works yet, I'm still building it OKAY
 ## TODO
 
  - Instrumentation? Would be nice to know what's slow, initial page load suxx rn
+ - Somehow fix slow vpn-list load, it's several seconds :/
+ - Package all JS/CSS/HTML for prod in deploy2ghpages.py
+ - Design the UI
