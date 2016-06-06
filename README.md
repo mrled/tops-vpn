@@ -7,3 +7,7 @@ Use this by doing all the normal stuff. The Angular stuff. All the normal Angula
     npm start
 
 PS it barely works yet, I'm still building it OKAY
+
+## TODO
+
+ - Instrumentation? Would be nice to know what's slow, initial page load suxx rn

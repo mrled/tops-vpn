@@ -1,10 +1,13 @@
 'use strict';
 
 angular.module('topsVpnApp', [
-  'core',
-  'fCsv',
   'ngResource',
   'ngRoute',
+
+  'fCsv',
+  'ngMaterial',
+
+  'core',
   'vpnDetail',
   'vpnList'
 ]);

@@ -1,5 +1,6 @@
-<p>Here's the vpn detail template!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</p>
-<h1><a href="#!/vpns/{{$ctrl.vpn.company.id}}">{{$ctrl.vpn.company.name}}</a></h1>
+<h1 class="topmost-element">
+  <a href="#!/vpns">TOPS VPN</a> / <a href="#!/vpns/{{$ctrl.vpn.id}}">{{$ctrl.vpn.getFeatureValue('company', 'name')}}</a>
+</h1>
 
 <!-- TODO: Create a custom directive that can display a single VPN -->
 

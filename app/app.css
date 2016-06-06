@@ -28,3 +28,16 @@
   content: "";
   padding: 0;
 }
+
+td, th {
+  text-align: center;
+  padding: 0 1em 0 1em;
+}
+
+body {
+  padding: 2em;
+}
+
+.topmost-element {
+  padding-left: 3.5em;
+}
