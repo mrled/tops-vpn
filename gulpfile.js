@@ -5,9 +5,7 @@
 var concat = require('gulp-concat');
 var del = require('del');
 var gulp = require('gulp');
-var gutil = require('gulp-util');
 var htmlreplace = require('gulp-html-replace');
-var merge2 = require('merge2');
 var pump = require('pump');
 var uglify = require('gulp-uglify');
 
@@ -50,23 +48,13 @@ gulp.task('lib:clean', function () {
   return del([conf.paths.lib]);
 });
 
-gulp.task('mergejs-lib', function (callback) {
-  pump([
-      gulp.src(conf.lib.js, {base: 'app/lib'}),
-      concat('lib.js'),
-      uglify(),
-      gulp.dest('dist/')
-    ],
-    callback
-  );
-});
-gulp.task('mergejs-app', function (callback) {
+gulp.task('mergejs', function (callback) {
   pump([
       gulp.src([
-        'app/**/*.module.js',  // Modules have to be loaded first
-        'app/**/*.js',         // Then load all other code (order doesn't matter for this)
+        'app/lib/**/*.js',     // Libraries (including Angular) have to be loaded first
+        'app/**/*.module.js',  // Module definition files must be loaded before other Angular files
+        'app/**/*.js',         // Now load all other application code (order doesn't matter for this)
         '!**/*.spec.*',        // Exclude tests
-        '!app/lib/**/*',       // Exclude library code
       ]),
       concat('app.js'),
       uglify(),
@@ -75,6 +63,7 @@ gulp.task('mergejs-app', function (callback) {
     callback
   );
 });
+
 gulp.task('mergecss', function (callback) {
   pump([
       gulp.src('app/**/*.css'),
@@ -84,19 +73,20 @@ gulp.task('mergecss', function (callback) {
     callback
   );
 });
+
 gulp.task('copyhtml', function(callback) {
   pump([
       gulp.src('app/**/*.html'),
       htmlreplace({
         'appcss': 'app.css',
-        'appjs': 'app.js',
-        'libjs': 'lib.js'
+        'appjs': 'app.js'
       }),
       gulp.dest('dist/')
     ],
     callback
   );
 });
+
 gulp.task('copydata', function(callback) {
   pump([
       gulp.src('app/vpns/**'),
@@ -110,4 +100,4 @@ gulp.task('package:clean', function () {
   return del(['./dist']);
 });
 
-gulp.task('package', ['mergejs-lib', 'mergejs-app', 'mergecss', 'copyhtml', 'copydata']);
+gulp.task('package', ['mergejs', 'mergecss', 'copyhtml', 'copydata']);
