@@ -13,91 +13,62 @@ var uglify = require('gulp-uglify');
 
 var conf = {
   paths: {
-    assets: './app/assets',
-    // css: './app/css',
     lib: './app/lib',
-    // sdk: './app/sdk',
     wwwroot: './app'
-  },
-  errorHandler: function(title) {
-    return function(err) {
-      gutil.log(gutil.colors.red('[' + title + ']'), err.toString());
-      this.emit('end');
-    };
   },
   lib: {
     base: 'node_modules',
-    list: [
+    css: [
       require.resolve('angular-material/angular-material.css'),
       require.resolve('html5-boilerplate/dist/css/main.css'),
-      require.resolve('html5-boilerplate/dist/css/normalize.css'),
-
+      require.resolve('html5-boilerplate/dist/css/normalize.css')
+    ],
+    js: [
       require.resolve('angular/angular.js'),
       require.resolve("angular-csv-service/angular-csv-service.js"),
       require.resolve("angular-aria/angular-aria.js"),
       require.resolve("angular-animate/angular-animate.js"),
       require.resolve("angular-material/angular-material.js"),
       require.resolve('angular-route/angular-route.js'),
-      require.resolve('angular-resource/angular-resource.js')
-      // require.resolve("html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js")
+      require.resolve('angular-resource/angular-resource.js'),
+      require.resolve("html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js")
     ]
-  },
-  lib2: [
-    // 'node_modules/angular-material/angular-material.css',
-    // 'node_modules/html5-boilerplate/dist/css/main.css',
-    // 'node_modules/html5-boilerplate/dist/css/normalize.css',
-
-    'node_modules/angular/angular.js',
-    'node_modules/angular-csv-service/angular-csv-service.js',
-    'node_modules/angular-aria/angular-aria.js',
-    'node_modules/angular-animate/angular-animate.js',
-    'node_modules/angular-material/angular-material.js',
-    'node_modules/angular-route/angular-route.js',
-    'node_modules/angular-resource/angular-resource.js'
-    // require.resolve("html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js")
-  ]
+  }
 };
 
-gulp.task('lib', ['lib:clean'], function () {
-  return gulp.src(conf.lib.list, { base: conf.lib.base })
-    .pipe(gulp.dest(conf.paths.lib));
+gulp.task('lib', ['lib:clean'], function (callback) {
+  var allLibs = conf.lib.css.concat(conf.lib.js);
+  pump([
+      gulp.src(allLibs, {base: conf.lib.base}),
+      gulp.dest(conf.paths.lib)
+    ],
+    callback
+  );
 });
 
 gulp.task('lib:clean', function () {
   return del([conf.paths.lib]);
 });
 
-gulp.task('mergejs-lib-nouglify', function (callback) {
+gulp.task('mergejs-lib', function (callback) {
   pump([
-      gulp.src(conf.lib2),
+      gulp.src(conf.lib.js, {base: 'app/lib'}),
       concat('lib.js'),
-      // uglify(),
+      uglify(),
       gulp.dest('dist/')
     ],
     callback
   );
 });
-gulp.task('mergejs-app-nouglify', function (callback) {
+gulp.task('mergejs-app', function (callback) {
   pump([
       gulp.src([
         'app/**/*.module.js',  // Modules have to be loaded first
-        'app/core/**/*.js',    // I'd like to be able to just app/**/*.js at this point
-        'app/vpn*/**/*.js',    // ... but lib stuff would get stuck in there too...
-        'app/app*.js',
-        '!**/*.spec.*'         // Exclude tests
+        'app/**/*.js',         // Then load all other code (order doesn't matter for this)
+        '!**/*.spec.*',        // Exclude tests
+        '!app/lib/**/*',       // Exclude library code
       ]),
       concat('app.js'),
-      // uglify(),
-      gulp.dest('dist/')
-    ],
-    callback
-  );
-});
-gulp.task('mergejs', function (callback) {
-  pump([
-      // gulp.src('app/**/*.js'),
-      gulp.src(conf.lib2),
-      concat('lib.js'),
       uglify(),
       gulp.dest('dist/')
     ],
@@ -135,10 +106,8 @@ gulp.task('copydata', function(callback) {
   );
 });
 
-gulp.task('package', ['mergejs-lib-nouglify', 'mergejs-app-nouglify', 'mergecss', 'copyhtml', 'copydata']);
+gulp.task('package:clean', function () {
+  return del(['./dist']);
+});
 
-// gulp.task('default', [
-//   'compress'
-// ]);
-// gulp.task('clean', ['lib:clean']);
-// gulp.task('default', ['lib', 'styles', 'scripts']);
+gulp.task('package', ['mergejs-lib', 'mergejs-app', 'mergecss', 'copyhtml', 'copydata']);
