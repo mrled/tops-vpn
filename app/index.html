@@ -11,22 +11,27 @@
     document.write('<base href="' + document.location + '" />');
   </script>
 
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
-  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+  <!-- build:appcss -->
+  <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/normalize.css">
+  <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/main.css">
+  <link rel="stylesheet" href="lib/angular-material/angular-material.css">
 
   <link rel="stylesheet" href="app.css">
+  <!-- endbuild -->
 
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <!-- build:libjs -->
+  <script src="lib/angular/angular.js"></script>
+  <script src="lib/angular-route/angular-route.js"></script>
+  <script src="lib/angular-resource/angular-resource.js"></script>
 
-  <script src="bower_components/angular-csv-service/angular-csv-service.js"></script>
-  <script src="bower_components/angular-aria/angular-aria.js"></script>
-  <script src="bower_components/angular-animate/angular-animate.js"></script>
-  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
-  <script src="bower_components/angular-material/angular-material.js"></script>
+  <script src="lib/angular-csv-service/angular-csv-service.js"></script>
+  <script src="lib/angular-aria/angular-aria.js"></script>
+  <script src="lib/angular-animate/angular-animate.js"></script>
+  <script src="lib/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+  <script src="lib/angular-material/angular-material.js"></script>
+  <!-- endbuild -->
 
+  <!-- build:appjs -->
   <script src="app.module.js"></script>
   <script src="app.config.js"></script>
   <script src="core/core.module.js"></script>
@@ -36,6 +41,8 @@
   <script src="vpn-list/vpn-list.component.js"></script>
   <script src="vpn-detail/vpn-detail.module.js"></script>
   <script src="vpn-detail/vpn-detail.component.js"></script>
+  <!-- endbuild -->
+
 </head>
 <body>
 

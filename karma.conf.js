@@ -5,12 +5,12 @@ module.exports = function(config) {
     basePath: './app',
 
     files: [
-      'bower_components/angular/angular.js',
-      'bower_components/angular-mocks/angular-mocks.js',
-      'bower_components/angular-route/angular-route.js',
-      'bower_components/angular-resource/angular-resource.js',
+      'lib/angular/angular.js',
+      'lib/angular-mocks/angular-mocks.js',
+      'lib/angular-route/angular-route.js',
+      'lib/angular-resource/angular-resource.js',
 
-      'bower_components/angular-csv-service/angular-csv-service.js',
+      'lib/angular-csv-service/angular-csv-service.js',
 
       'core/vpn/vpn.module.js',
       'core/vpn/vpn.service.js',
