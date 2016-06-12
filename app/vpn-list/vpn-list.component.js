@@ -3,10 +3,10 @@ angular.
   module('vpnList').
   component('vpnList', {
     templateUrl: 'vpn-list/vpn-list.template.html',
-    controller: ['Vpn',
-      function VpnListController(Vpn) {
+    controller: ['VpnData',
+      function VpnListController(VpnData) {
         var self = this;
-        Vpn.query().then(function(data) {
+        VpnData.query().then(function(data) {
           self.vpns = data;
 
           self.categories = [];

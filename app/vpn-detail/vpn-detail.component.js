@@ -3,10 +3,10 @@ angular.
   module('vpnDetail').
   component('vpnDetail', {
     templateUrl: 'vpn-detail/vpn-detail.template.html',
-    controller: ['$routeParams', 'Vpn',
-      function VpnDetailController($routeParams, Vpn) {
+    controller: ['$routeParams', 'VpnData',
+      function VpnDetailController($routeParams, VpnData) {
         var self = this;
-        Vpn.get($routeParams.vpnId).then(function(data) {self.vpn = data;});
+        VpnData.get($routeParams.vpnId).then(function(data) {self.vpn = data;});
       }
     ]
   });

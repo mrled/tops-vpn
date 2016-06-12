@@ -1,6 +1,6 @@
 'use strict';
 
-describe('VPN', function() {
+describe('core.vpndata', function() {
   var $httpBackend;
   var Vpn;
   var rootScope;
@@ -13,7 +13,7 @@ describe('VPN', function() {
     '"ActiVPN","France","Nine","Free","","","","","","Email","Yes","No","No","No","No","Yes","","","","","","","5","13","20","0","0","0","A+","Self","3.34","0.67","No","","","","","No","No","No","",""\r\n' +
     '"AirVPN","Italy","Fourteen","Free","No","","","","","Email","Yes","Yes","Yes","No","Yes","Yes","No","No","AES-256","AES-256","RSA-4096","RSA-4096","3","16","138","3","0","0","A+","Self","4.93","1.64","Yes","3","","","","No","No","No","No","No"\r\n';
 
-  beforeEach(module('core.vpn'));
+  beforeEach(module('core.vpndata'));
 
   beforeEach(inject(function(_$httpBackend_, _Vpn_) {
     $httpBackend = _$httpBackend_;
