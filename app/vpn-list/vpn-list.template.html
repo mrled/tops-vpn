@@ -1,13 +1,15 @@
 <h1 class="topmost-element"><a href="#!/vpns">TOPS VPN</a></h1>
 
-<table border=1>
-  <!-- TODO: Not sure if we can rely on the ordering of $ctrl.categories and $ctrl.fields ?? Hmm-->
-  <tr><th ng-repeat="category in $ctrl.categories" colspan="{{category.fieldcount}}">{{category.name}}</th></tr>
-  <tr><th ng-repeat="field in $ctrl.fields track by $index">{{field}}</th></tr>
-  <tr ng-repeat="vpn in $ctrl.vpns">
-    <td ng-repeat="feature in vpn.features">
-      <span ng-if="feature.name == 'id'"><a href="#!/vpns/{{vpn.id}}">{{feature.value}}</a></span>
-      <span ng-if="feature.name != 'id'">{{feature.value}}</span>
-    </td>
-  </tr>
-</table>
+<div id="vpn-table-container">
+  <table border=1>
+    <!-- TODO: Not sure if we can rely on the ordering of $ctrl.categories and $ctrl.fields ?? Hmm-->
+    <tr><th ng-repeat="category in $ctrl.categories" colspan="{{category.fieldcount}}">{{category.name}}</th></tr>
+    <tr><th ng-repeat="field in $ctrl.fields track by $index">{{field}}</th></tr>
+    <tr ng-repeat="vpn in $ctrl.vpns">
+      <td ng-repeat="feature in vpn.features">
+        <span ng-if="feature.name == 'id'"><a href="#!/vpns/{{vpn.id}}">{{feature.value}}</a></span>
+        <span ng-if="feature.name != 'id'">{{feature.value}}</span>
+      </td>
+    </tr>
+  </table>
+</div>
