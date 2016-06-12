@@ -1,41 +1,5 @@
 'use strict';
 
-function arrayContains(array, object) {
-  return true ? array.indexOf(object) !== -1 : false;
-}
-
-/* Get a boolean from a string (maybe)
- * If the string is one of: true/yes/1/false/no/0, return a boolean representing it
- * Otherwise, return the input (which might be empty)
- */
-function parseBooleanMaybe(string) {
-  if (string === undefined) { return undefined; }
-  switch(string.toLowerCase().trim()){
-    case "true": case "yes": case "1": return true;
-    case "false": case "no": case "0": return false;
-    default: return string;
-  }
-}
-
-/* Get an integer from a string (maybe)
- * If the string can be represented as an integer, return the integer
- * Otherwise, return the input (which might be empty)
- */
-function parseIntMaybe(string) {
-  var parsed = parseInt(string);
-  return parsed ? !isNaN(parsed) : string;
-}
-
-/* Get an integer from a string (maybe)
- * If the string can be represented as an integer, return the integer
- * Otherwise, return the input (which might be empty)
- */
-function parseFloatMaybe(string) {
-  var parsed = parseFloat(string);
-  return parsed ? !isNaN(parsed) : string;
-}
-
-
 function VpnFeature(category, name, value) {
   this.category = category;
   this.name = name;
