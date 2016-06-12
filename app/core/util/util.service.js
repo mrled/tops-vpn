@@ -11,7 +11,7 @@ function arrayContains(array, object) {
  * Otherwise, return the input (which might be empty)
  */
 function parseBooleanMaybe(string) {
-  if (string === undefined) { return undefined; }
+  if (typeof(string) != "string") {return string;}
   switch(string.toLowerCase().trim()){
     case "true": case "yes": case "1": return true;
     case "false": case "no": case "0": return false;
@@ -25,7 +25,7 @@ function parseBooleanMaybe(string) {
  */
 function parseFloatMaybe(string) {
   var parsed = parseFloat(string);
-  return parsed ? !isNaN(parsed) : string;
+  return !isNaN(parsed) ? parsed : string;
 }
 
 /* Get an integer from a string (maybe)
@@ -34,7 +34,7 @@ function parseFloatMaybe(string) {
  */
 function parseIntMaybe(string) {
   var parsed = parseInt(string);
-  return parsed ? !isNaN(parsed) : string;
+  return !isNaN(parsed) ? parsed : string;
 }
 
 /* If a string's first and last characters are a single or double quote, remove them

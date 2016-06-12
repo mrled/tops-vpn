@@ -12,9 +12,16 @@ module.exports = function(config) {
 
       'lib/angular-csv-service/angular-csv-service.js',
 
+      'core/util/util.module.js',
+      'core/util/util.service.js',
+      'core/util/util.service.spec.js',
+
       'core/vpn/vpn.module.js',
       'core/vpn/vpn.service.js',
-      'core/vpn/vpn.service.spec.js',
+
+      'core/vpndata/vpndata.module.js',
+      'core/vpndata/vpndata.service.js',
+      'core/vpndata/vpndata.service.spec.js',
 
       'vpn-list/vpn-list.module.js',
       'vpn-list/vpn-list.component.js',

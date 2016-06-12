@@ -23,6 +23,7 @@ var conf = {
     ],
     js: [
       require.resolve('angular/angular.js'),
+      require.resolve('angular-mocks/angular-mocks.js'),
       require.resolve("angular-csv-service/angular-csv-service.js"),
       require.resolve("angular-aria/angular-aria.js"),
       require.resolve("angular-animate/angular-animate.js"),
