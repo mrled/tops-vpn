@@ -14,6 +14,22 @@ describe('core.util', function() {
     expect(Util.arrayContains([1, 2, 3, 4, 5], 6)).toBe(false);
   });
 
+  it("should contain a working arrayPushUniq()", function() {
+    var testArr = [1, 2, 3];
+    Util.arrayPushUniq(testArr, 4);
+    expect(testArr).toEqual([1, 2, 3, 4]);
+    Util.arrayPushUniq(testArr, 2);
+    expect(testArr).toEqual([1, 2, 3, 4]);
+  });
+
+  it("should contain a working objectSetPropertyIfUnset()", function() {
+    var testObj = {one: 1, two: 2, three: 3};
+    Util.objectSetPropertyIfUnset(testObj, 'four', 4);
+    expect(testObj).toEqual({one: 1, two: 2, three: 3, four: 4});
+    Util.objectSetPropertyIfUnset(testObj, 'four', 4400);
+    expect(testObj).toEqual({one: 1, two: 2, three: 3, four: 4});
+  });
+
   it("should contain a working parseBooleanMaybe()", function() {
     expect(Util.parseBooleanMaybe(undefined)).toBe(undefined);
     expect(Util.parseBooleanMaybe(1)).toBe(1);

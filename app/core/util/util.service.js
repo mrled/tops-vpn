@@ -6,6 +6,22 @@ function arrayContains(array, object) {
   return true ? array.indexOf(object) !== -1 : false;
 }
 
+/* Push an object onto an array IFF the array doesn't already contain the object
+ */
+function arrayPushUniq(array, object) {
+  if (!arrayContains(array, object)) {
+    array.push(object);
+  }
+}
+
+/* Set a property on an object only if the object doesn't have a property set with that name
+ */
+function objectSetPropertyIfUnset(object, property, value) {
+  if (!arrayContains(Object.keys(object), property)) {
+    object[property] = value;
+  }
+}
+
 /* Get a boolean from a string (maybe)
  * If the string is one of: true/yes/1/false/no/0, return a boolean representing it
  * Otherwise, return the input (which might be empty)
@@ -59,6 +75,8 @@ angular.
     function() {
       return {
         'arrayContains': function(array, object) {return arrayContains(array, object);},
+        'arrayPushUniq': function(array, object) {return arrayPushUniq(array, object);},
+        'objectSetPropertyIfUnset': function(object, property, value) {return objectSetPropertyIfUnset(object, property, value);},
         'parseBooleanMaybe': function(string) {return parseBooleanMaybe(string);},
         'parseFloatMaybe': function(string) {return parseFloatMaybe(string);},
         'parseIntMaybe': function(string) {return parseFloatMaybe(string);},
