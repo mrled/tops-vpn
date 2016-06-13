@@ -13,6 +13,9 @@ angular.
         when('/vpns/:vpnId', {
           template: '<vpn-detail></vpn-detail>'
         }).
+        when('/selector', {
+          template: '<vpn-selector></vpn-selector>'
+        }).
         otherwise('/vpns');
     }
   ]);

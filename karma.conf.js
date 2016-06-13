@@ -26,7 +26,9 @@ module.exports = function(config) {
       'vpn-list/vpn-list.module.js',
       'vpn-list/vpn-list.component.js',
       'vpn-detail/vpn-detail.module.js',
-      'vpn-detail/vpn-detail.component.js'
+      'vpn-detail/vpn-detail.component.js',
+      'vpn-selector/vpn-selector.module.js',
+      'vpn-selector/vpn-selector.component.js'
 
     ],
 

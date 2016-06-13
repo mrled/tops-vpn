@@ -8,6 +8,11 @@ Use this by doing all the normal stuff. The Angular stuff. All the normal Angula
 
 PS it barely works yet, I'm still building it OKAY
 
+## UI Ideas
+
+ - Click on any heading, and there's a dropdown for "must/must not be defined", "must/must not be XXXXX" (the user files it in)
+ - A mini language, like wireshark's, exposed in a text box
+
 ## TODO
 
  - Instrumentation? Would be nice to know what's slow, initial page load suxx rn

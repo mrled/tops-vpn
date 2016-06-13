@@ -9,5 +9,6 @@ angular.module('topsVpnApp', [
 
   'core',
   'vpnDetail',
-  'vpnList'
+  'vpnList',
+  'vpnSelector'
 ]);
