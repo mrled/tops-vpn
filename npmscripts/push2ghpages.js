@@ -86,7 +86,7 @@ function pushGhPages(repoPath) {
   }
 
   // NOTE: we "commit --all" in case the user has skipped the check for uncommitted code
-  git(tmpCheckoutDir, 'commit --all --message "AUTOCOMMIT: Adding Bower stuff for deployment"');
+  git(tmpCheckoutDir, 'commit --all --message "AUTOCOMMIT: Adding client dependencies for deployment"');
   git(tmpCheckoutDir, 'push --force origin DEPLOYING-gh-pages:gh-pages');
 
   fsExtra.removeSync(tmpCheckoutDir);
