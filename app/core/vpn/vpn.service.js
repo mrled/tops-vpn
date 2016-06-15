@@ -51,6 +51,8 @@ angular.
               new VpnFeature('policies', 'forbidspam', Util.parseBooleanMaybe(csvRow["POLICIES Forbids Spam"])),
               new VpnFeature('policies', 'ethicalcopy', Util.parseBooleanMaybe(csvRow["POLICIES Requires Ethical Copy"])),
               new VpnFeature('policies', 'fulldisclosure', Util.parseBooleanMaybe(csvRow["POLICIES Requires Full Disclosure"])),
+              new VpnFeature('portblocking', 'authsmtp', Util.parseBooleanMaybe(csvRow["PORT BLOCKING Auth SMTP"])),
+              new VpnFeature('portblocking', 'p2p', Util.parseBooleanMaybe(csvRow["PORT BLOCKING P2P"])),
               // NOTE: this is the price per month if you buy a whole year)
               new VpnFeature('pricing', 'permonth', Util.parseFloatMaybe(csvRow["PRICING $ / Month (Annual Pricing)"])),
               new VpnFeature('pricing', 'perconnectionpermonth', Util.parseFloatMaybe(csvRow["PRICING $ / Connection / Month"])),
@@ -81,7 +83,12 @@ angular.
               return featList;
             };
 
-            this.getFeatureValue = function(category, feature) {
+            /* Return the value of a feature
+             * category: the category the feature is in
+             * feature: the name of the feature
+             * defaultValue: optional: if there is no value for the feature, return this instead
+             */
+            this.getFeatureValue = function(category, feature, defaultValue) {
               function featureFilter(featureObj) {
                 if (featureObj.category == category && featureObj.name == feature) { return true; } else { return false; }
               }
@@ -90,7 +97,7 @@ angular.
                 return foundFeature[0].value;
               }
               else {
-                return undefined;
+                return defaultValue ? defaultValue : undefined;
               }
             };
 

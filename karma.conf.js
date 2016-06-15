@@ -14,22 +14,18 @@ module.exports = function(config) {
 
       'core/util/util.module.js',
       'core/util/util.service.js',
-      'core/util/util.service.spec.js',
-
       'core/vpn/vpn.module.js',
       'core/vpn/vpn.service.js',
-
       'core/vpndata/vpndata.module.js',
       'core/vpndata/vpndata.service.js',
-      'core/vpndata/vpndata.service.spec.js',
-
       'vpn-list/vpn-list.module.js',
       'vpn-list/vpn-list.component.js',
       'vpn-detail/vpn-detail.module.js',
       'vpn-detail/vpn-detail.component.js',
       'vpn-selector/vpn-selector.module.js',
-      'vpn-selector/vpn-selector.component.js'
+      'vpn-selector/vpn-selector.component.js',
 
+      '**/*.spec.js'
     ],
 
     autoWatch: true,
