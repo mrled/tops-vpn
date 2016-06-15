@@ -5,7 +5,7 @@ angular.
   component('vpnSelector', {
     templateUrl: 'vpn-selector/vpn-selector.template.html',
     controller: ['$q', 'VpnData', 'Util',
-      function VpnListController($q, VpnData, Util) {
+      function ($q, VpnData, Util) {
         var self = this;
 
         self.vpns = [];

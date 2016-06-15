@@ -8,6 +8,7 @@ angular.module('topsVpnApp', [
   'ngMaterial',
 
   'core',
+  'topsvpnFeature',
   'vpnDetail',
   'vpnList',
   'vpnSelector'
