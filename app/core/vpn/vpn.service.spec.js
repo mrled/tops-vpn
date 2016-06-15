@@ -70,8 +70,8 @@ describe('core.vpn', function() {
     expect(vpn.getFeatureValue('portblocking', 'authsmtp')).toBe("");
     expect(vpn.getFeatureValue('pricing', 'permonth')).toBe(9.75);
     expect(vpn.getFeatureValue('affiliates', 'fulldisclosure')).toBe("");
-    expect(vpn.getFeatureValue('affiliates', 'fulldisclosure', 'UNDEFINED')).toBe("");
-    expect(vpn.getFeatureValue('nonexistent', 'nonexistent')).toBe(undefined);
-    expect(vpn.getFeatureValue('nonexistent', 'nonexistent', 'UNDEFINED')).toBe("UNDEFINED");
+    expect(vpn.getFeatureValue('affiliates', 'fulldisclosure', 'UNDEFINED')).toBe("UNDEFINED");
+    expect(function(){vpn.getFeatureValue('nonexistent', 'nonexistent');}).toThrow();
+    expect(function(){vpn.getFeatureValue('nonexistent', 'nonexistent', 'UNDEFINED');}).toThrow();
   });
 });

@@ -87,17 +87,23 @@ angular.
              * category: the category the feature is in
              * feature: the name of the feature
              * defaultValue: optional: if there is no value for the feature, return this instead
+             * return value: if there is a value for the feature, return it
+             *               if the value is empty for a feature, return an empty string
+             *               if the value is empty for a feature and defaultValue is passed, return defaultValue
+             *               if a feature does not exist, throw
              */
             this.getFeatureValue = function(category, feature, defaultValue) {
+              if (!defaultValue) {defaultValue = "";}
               function featureFilter(featureObj) {
                 if (featureObj.category == category && featureObj.name == feature) { return true; } else { return false; }
               }
               var foundFeature = this.features.filter(featureFilter);
               if (foundFeature.length == 1) {
-                return foundFeature[0].value;
+                var featVal = foundFeature[0].value;
+                return featVal ? featVal : defaultValue;
               }
               else {
-                return defaultValue ? defaultValue : undefined;
+                throw "No such feature '" + feature + "' in category '" + category + "' for vpn with id '" + this.id + "'";
               }
             };
 
