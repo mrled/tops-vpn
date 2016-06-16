@@ -36,8 +36,8 @@
     "pump": "^1.0.0"
   },
   "scripts": {
-    "postinstall": "gulp lib",
-    "prestart": "npm install; gulp lib",
+    "postinstall": "gulp deps",
+    "prestart": "npm install; gulp deps",
     "start": "http-server -a localhost -p 8000 -c-1 ./app",
     "startdist": "http-server -a localhost -p 8001 -c-1 ./dist",
     "pretest": "npm install",

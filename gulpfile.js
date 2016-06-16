@@ -11,10 +11,10 @@ var uglify = require('gulp-uglify');
 
 var conf = {
   paths: {
-    lib: './app/lib',
+    deps: './app/dependencies',
     wwwroot: './app'
   },
-  lib: {
+  deps: {
     base: 'node_modules',
     css: [
       require.resolve('angular-material/angular-material.css'),
@@ -35,27 +35,27 @@ var conf = {
   }
 };
 
-gulp.task('lib', ['lib:clean'], function (callback) {
-  var allLibs = conf.lib.css.concat(conf.lib.js);
+gulp.task('deps', ['deps:clean'], function (callback) {
+  var allLibs = conf.deps.css.concat(conf.deps.js);
   pump([
-      gulp.src(allLibs, {base: conf.lib.base}),
-      gulp.dest(conf.paths.lib)
+      gulp.src(allLibs, {base: conf.deps.base}),
+      gulp.dest(conf.paths.deps)
     ],
     callback
   );
 });
 
-gulp.task('lib:clean', function () {
-  return del([conf.paths.lib]);
+gulp.task('deps:clean', function () {
+  return del([conf.paths.deps]);
 });
 
 gulp.task('mergejs', function (callback) {
   pump([
       gulp.src([
-        'app/lib/**/*.js',     // Libraries (including Angular) have to be loaded first
-        'app/**/*.module.js',  // Module definition files must be loaded before other Angular files
-        'app/**/*.js',         // Now load all other application code (order doesn't matter for this)
-        '!**/*.spec.*',        // Exclude tests
+        'app/dependencies/**/*.js',     // Libraries (including Angular) have to be loaded first
+        'app/**/*.module.js',           // Module definition files must be loaded before other Angular files
+        'app/**/*.js',                  // Now load all other application code (order doesn't matter for this)
+        '!**/*.spec.*',                 // Exclude tests
       ]),
       concat('app.js'),
       uglify(),

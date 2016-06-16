@@ -5,12 +5,12 @@ module.exports = function(config) {
     basePath: './app',
 
     files: [
-      'lib/angular/angular.js',
-      'lib/angular-mocks/angular-mocks.js',
-      'lib/angular-route/angular-route.js',
-      'lib/angular-resource/angular-resource.js',
+      'dependencies/angular/angular.js',
+      'dependencies/angular-mocks/angular-mocks.js',
+      'dependencies/angular-route/angular-route.js',
+      'dependencies/angular-resource/angular-resource.js',
 
-      'lib/angular-csv-service/angular-csv-service.js',
+      'dependencies/angular-csv-service/angular-csv-service.js',
 
       'core/util/util.module.js',
       'core/util/util.service.js',

@@ -7,9 +7,9 @@
 /*
  * Push the HEAD of whatever's in srcrepodir to the gh-pages branch
  * 1.  Copy the repo to a temp directory
- *     This is so we can add app/lib without fuckin with the src
+ *     This is so we can add app/dependencies without fuckin with the src
  * 2.  Check out a new temp branch
- * 3.  Add app/lib & commit
+ * 3.  Add app/dependencies & commit
  * 4.  Force push to the gh-pages branch
  */
 
@@ -79,10 +79,10 @@ function pushGhPages(repoPath) {
   git(tmpCheckoutDir, 'checkout -b DEPLOYING-gh-pages');
 
   try {
-    git(tmpCheckoutDir, 'add --force app/lib');
+    git(tmpCheckoutDir, 'add --force app/dependencies');
   }
   catch (e) {
-    exitWithError("Couldn't force-add app/lib... make sure to run 'npm run postinstall' before running this");
+    exitWithError("Couldn't force-add app/dependencies... make sure to run 'npm run postinstall' before running this");
   }
 
   // NOTE: we "commit --all" in case the user has skipped the check for uncommitted code
