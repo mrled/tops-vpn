@@ -3,12 +3,13 @@
 <div id="vpn-table-container">
   <table border=1>
     <!-- TODO: Not sure if we can rely on the ordering of $ctrl.categories and $ctrl.fields ?? Hmm-->
-    <tr><th ng-repeat="category in $ctrl.categories" colspan="{{category.fieldcount}}">{{category.name}}</th></tr>
-    <tr><th ng-repeat="field in $ctrl.fields track by $index">{{field}}</th></tr>
-    <tr ng-repeat="vpn in $ctrl.vpns">
+    <!-- <tr><th ng-repeat="category in $ctrl.categories" colspan="{{category.fieldcount}}">{{category.name}}</th></tr> -->
+    <tr><th ng-repeat="category in $ctrl.categories" colspan="{{category.fieldcount}}" ng-bind="category.name"></th></tr>
+    <tr><th ng-repeat="field in $ctrl.fields track by $index" ng-bind="field"></th></tr>
+    <tr ng-repeat="vpn in $ctrl.vpns track by $index">
       <td ng-repeat="feature in vpn.features">
-        <span ng-if="feature.name == 'id'"><a href="#!/vpns/{{vpn.id}}">{{feature.value}}</a></span>
-        <span ng-if="feature.name != 'id'">{{feature.value}}</span>
+        <span ng-if="feature.name == 'id'"><a href="#!/vpns/{{vpn.id}}" ng-bind="feature.value"></a></span>
+        <span ng-if="feature.name != 'id'" ng-bind="feature.value"></span>
       </td>
     </tr>
   </table>
