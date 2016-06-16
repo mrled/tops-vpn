@@ -18,7 +18,7 @@ describe('core.vpndata', function() {
     $httpBackend = _$httpBackend_;
     Util = _Util_;
     VpnData = _VpnData_;
-    $httpBackend.expectGET('vpns/tops.vpns.csv').respond(vpnsCsvMock);
+    $httpBackend.expectGET('datasource/tops.vpns.csv').respond(vpnsCsvMock);
   }));
 
   // Verify that there are no outstanding expectations or requests after each test
