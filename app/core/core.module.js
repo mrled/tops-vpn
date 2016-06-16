@@ -1,2 +1,5 @@
 'use strict';
-angular.module('core', ['core.util', 'core.vpn', 'core.vpndata']);
+angular.module('core', [
+  'core.vpn',
+  'core.vpndata'
+]);

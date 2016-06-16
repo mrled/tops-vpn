@@ -4,8 +4,8 @@ angular.
   module('vpnSelector').
   component('vpnSelector', {
     templateUrl: 'vpn-selector/vpn-selector.template.html',
-    controller: ['$q', 'VpnData', 'Util',
-      function ($q, VpnData, Util) {
+    controller: ['$q', 'LibWrapper', 'VpnData',
+      function ($q, LibWrapper, VpnData) {
         var self = this;
 
         self.vpns = [];
@@ -17,10 +17,10 @@ angular.
           self.vpns = vpns;
           vpns.forEach(function(vpn, vpnIdx, vpnArr) {
             vpn.getCategoryList().forEach(function(category, catIdx, catArr) {
-              Util.objectSetPropertyIfUnset(self.featuresByCategory, category, {});
+              LibWrapper.topsvpnUtil.objectSetPropertyIfUnset(self.featuresByCategory, category, {});
               vpn.getFeaturesForCategory(category).forEach(function(feature, featIdx, featArr) {
-                Util.objectSetPropertyIfUnset(self.featuresByCategory[category], feature.name, []);
-                Util.arrayPushUniq(self.featuresByCategory[category][feature.name], feature.value);
+                LibWrapper.topsvpnUtil.objectSetPropertyIfUnset(self.featuresByCategory[category], feature.name, []);
+                LibWrapper.topsvpnUtil.arrayPushUniq(self.featuresByCategory[category][feature.name], feature.value);
               });
             });
           });

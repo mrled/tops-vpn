@@ -1,8 +1,6 @@
-logs/*
-!.gitkeep
-node_modules/
-app/dependencies
 tmp
 .DS_Store
-.idea
+
+app/libraries/
+node_modules/
 dist/

@@ -7,6 +7,8 @@ angular.module('topsVpnApp', [
   'fCsv',
   'ngMaterial',
 
+  'LibWrapper',
+
   'core',
   'topsvpnFeature',
   'vpnDetail',

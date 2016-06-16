@@ -2,8 +2,8 @@
 
 angular.
   module('core.vpndata').
-  factory('VpnData', ['$http', '$q', 'fCsv', 'Util', 'Vpn',
-    function($http, $q, fCsv, Util, Vpn) {
+  factory('VpnData', ['$http', '$q', 'fCsv', 'LibWrapper', 'Vpn',
+    function($http, $q, fCsv, LibWrapper, Vpn) {
 
       var deferredRawCsvString = $q.defer(),
           deferredRawVpnObjs = $q.defer(),
@@ -19,8 +19,8 @@ angular.
         naiveObjs.forEach(function(obj, index, array) {
           var parsedObj = {};
           for (var prop in obj) {
-            var unquotedKey = Util.unquoteString(prop),
-                unquotedValue = Util.unquoteString(obj[prop]);
+            var unquotedKey = LibWrapper.topsvpnUtil.unquoteString(prop),
+                unquotedValue = LibWrapper.topsvpnUtil.unquoteString(obj[prop]);
             parsedObj[unquotedKey] = unquotedValue;
           }
           parsedObjs.push(parsedObj);

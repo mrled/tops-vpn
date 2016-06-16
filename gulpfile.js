@@ -2,6 +2,8 @@
 
 'use strict';
 
+var path = require('path');
+
 var concat = require('gulp-concat');
 var del = require('del');
 var gulp = require('gulp');
@@ -11,48 +13,67 @@ var uglify = require('gulp-uglify');
 
 var conf = {
   paths: {
-    deps: './app/dependencies',
     wwwroot: './app'
   },
-  deps: {
+  nodemods: {
     base: 'node_modules',
     css: [
-      require.resolve('angular-material/angular-material.css'),
-      require.resolve('html5-boilerplate/dist/css/main.css'),
-      require.resolve('html5-boilerplate/dist/css/normalize.css')
+      'node_modules/angular-material/angular-material.css',
+      'node_modules/html5-boilerplate/dist/css/main.css',
+      'node_modules/html5-boilerplate/dist/css/normalize.css'
     ],
     js: [
-      require.resolve('angular/angular.js'),
-      require.resolve('angular-mocks/angular-mocks.js'),
-      require.resolve("angular-csv-service/angular-csv-service.js"),
-      require.resolve("angular-aria/angular-aria.js"),
-      require.resolve("angular-animate/angular-animate.js"),
-      require.resolve("angular-material/angular-material.js"),
-      require.resolve('angular-route/angular-route.js'),
-      require.resolve('angular-resource/angular-resource.js'),
-      require.resolve("html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js")
+      'node_modules/angular/angular.js',
+      'node_modules/angular-mocks/angular-mocks.js',
+      'node_modules/angular-csv-service/angular-csv-service.js',
+      'node_modules/angular-aria/angular-aria.js',
+      'node_modules/angular-animate/angular-animate.js',
+      'node_modules/angular-material/angular-material.js',
+      'node_modules/angular-route/angular-route.js',
+      'node_modules/angular-resource/angular-resource.js',
+      'node_modules/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js'
+    ]
+  },
+  libs: {
+    base: 'libraries',
+    js: [
+      'libraries/topsvpn-util/topsvpn-util.js'
     ]
   }
 };
 
-gulp.task('deps', ['deps:clean'], function (callback) {
-  var allLibs = conf.deps.css.concat(conf.deps.js);
+gulp.task('nodemods', ['nodemods:clean'], function (callback) {
+  var allDeps = conf.nodemods.css.concat(conf.nodemods.js);
   pump([
-      gulp.src(allLibs, {base: conf.deps.base}),
-      gulp.dest(conf.paths.deps)
+      gulp.src(allDeps, {base: '.'}),
+      gulp.dest(conf.paths.wwwroot)
     ],
     callback
   );
 });
-
-gulp.task('deps:clean', function () {
-  return del([conf.paths.deps]);
+gulp.task('nodemods:clean', function () {
+  return del([path.join(conf.paths.wwwroot, conf.nodemods.base)]);
 });
+
+gulp.task('libs', ['libs:clean'], function (callback) {
+  pump([
+      gulp.src(conf.libs.js, {base: '.'}),
+      gulp.dest(conf.paths.wwwroot)
+    ],
+    callback
+  );
+});
+gulp.task('libs:clean', function () {
+  return del([path.join(conf.paths.wwwroot, conf.nodemods.base)]);
+});
+
+gulp.task('copydependencies', ['nodemods', 'libs']);
 
 gulp.task('mergejs', function (callback) {
   pump([
       gulp.src([
-        'app/dependencies/**/*.js',     // Libraries (including Angular) have to be loaded first
+        'app/dependencies/**/*.js',     // Dependencies (including Angular) have to be loaded first
+        'app/libraries/**/*.js',        // Then our own libraries
         'app/**/*.module.js',           // Module definition files must be loaded before other Angular files
         'app/**/*.js',                  // Now load all other application code (order doesn't matter for this)
         '!**/*.spec.*',                 // Exclude tests

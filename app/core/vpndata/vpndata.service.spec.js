@@ -2,7 +2,7 @@
 
 describe('core.vpndata', function() {
   var $httpBackend;
-  var Util;
+  var LibWrapper;
   var VpnData;
 
   var vpnsCsvMock =
@@ -14,9 +14,9 @@ describe('core.vpndata', function() {
 
   beforeEach(module('core.vpndata'));
 
-  beforeEach(inject(function(_$httpBackend_, _Util_, _VpnData_) {
+  beforeEach(inject(function(_$httpBackend_, _LibWrapper_, _VpnData_) {
     $httpBackend = _$httpBackend_;
-    Util = _Util_;
+    LibWrapper = _LibWrapper_;
     VpnData = _VpnData_;
     $httpBackend.expectGET('datasource/tops.vpns.csv').respond(vpnsCsvMock);
   }));
@@ -51,7 +51,7 @@ describe('core.vpndata', function() {
     expect(vpn.id).toEqual("3Monkey");
     expect(vpn.getFeatureValue('jurisdiction', 'basedin')).toEqual("Switzerland");
     expect(vpn.getFeatureValue('protocols', 'openvpn')).toEqual(true);
-    expect(Util.arrayContains(vpn.getCategoryList(), 'website')).toBe(true);
+    expect(LibWrapper.topsvpnUtil.arrayContains(vpn.getCategoryList(), 'website')).toBe(true);
   });
 
 });

@@ -2,30 +2,37 @@
 module.exports = function(config) {
   config.set({
 
-    basePath: './app',
-
     files: [
-      'dependencies/angular/angular.js',
-      'dependencies/angular-mocks/angular-mocks.js',
-      'dependencies/angular-route/angular-route.js',
-      'dependencies/angular-resource/angular-resource.js',
+      'app/node_modules/angular/angular.js',
+      'app/node_modules/angular-mocks/angular-mocks.js',
+      'app/node_modules/angular-route/angular-route.js',
+      'app/node_modules/angular-resource/angular-resource.js',
 
-      'dependencies/angular-csv-service/angular-csv-service.js',
+      'app/node_modules/angular-csv-service/angular-csv-service.js',
 
-      'core/util/util.module.js',
-      'core/util/util.service.js',
-      'core/vpn/vpn.module.js',
-      'core/vpn/vpn.service.js',
-      'core/vpndata/vpndata.module.js',
-      'core/vpndata/vpndata.service.js',
-      'vpn-list/vpn-list.module.js',
-      'vpn-list/vpn-list.component.js',
-      'vpn-detail/vpn-detail.module.js',
-      'vpn-detail/vpn-detail.component.js',
-      'vpn-selector/vpn-selector.module.js',
-      'vpn-selector/vpn-selector.component.js',
+      'app/libraries/topsvpn-util/topsvpn-util.js',
 
-      '**/*.spec.js'
+      'app/libwrapper/libwrapper.module.js',
+      'app/libwrapper/libwrapper.service.js',
+
+      'app/core/util/util.module.js',
+      'app/core/util/util.service.js',
+      'app/core/vpn/vpn.module.js',
+      'app/core/vpn/vpn.service.js',
+      'app/core/vpndata/vpndata.module.js',
+      'app/core/vpndata/vpndata.service.js',
+      'app/vpn-list/vpn-list.module.js',
+      'app/vpn-list/vpn-list.component.js',
+      'app/vpn-detail/vpn-detail.module.js',
+      'app/vpn-detail/vpn-detail.component.js',
+      'app/vpn-selector/vpn-selector.module.js',
+      'app/vpn-selector/vpn-selector.component.js',
+
+      // Note: there are .spec.js files in libraries/ that will NOT be copied to app/libraries,
+      // so we have to include them here:
+      'libraries/**/*.spec.js',
+
+      'app/**/*.spec.js'
     ],
 
     autoWatch: true,

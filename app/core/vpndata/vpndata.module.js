@@ -2,6 +2,6 @@
 angular.module('core.vpndata', [
   'fCsv',
   'ngResource',
-  'core.util',
+  'LibWrapper',
   'core.vpn'
 ]);

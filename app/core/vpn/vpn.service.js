@@ -9,8 +9,8 @@ function VpnFeature(category, name, value) {
 
 angular.
   module('core.vpn').
-  factory('Vpn', ['Util',
-    function(Util) {
+  factory('Vpn', ['LibWrapper',
+    function(LibWrapper) {
       return {
         'Vpn': function(csvRow) {
 
@@ -21,47 +21,47 @@ angular.
             this.features = [
               new VpnFeature('company', 'id', this.id),
               new VpnFeature('company', 'name', csvRow['VPN SERVICE']),
-              new VpnFeature('activism', 'bitcoin', Util.parseBooleanMaybe(csvRow['ACTIVISM Accepts Bitcoin'])),
-              new VpnFeature('activism', 'anonpayment', Util.parseBooleanMaybe(csvRow['ACTIVISM Anonymous Payment Method'])),
-              new VpnFeature('activism', 'privacytoolsio', Util.parseBooleanMaybe(csvRow['ACTIVISM Meets PrivacyTools IO Criteria'])),
-              new VpnFeature('affiliates', 'fulldisclosure', Util.parseBooleanMaybe(csvRow['AFFILIATES Give Full Disclosure'])),
-              new VpnFeature('affiliates', 'ethicalcopy', Util.parseBooleanMaybe(csvRow['AFFILIATES Practice Ethical Copy'])),
-              new VpnFeature('availability', 'connections', Util.parseIntMaybe(csvRow["AVAILABILITY # of Connections"])),
-              new VpnFeature('availability', 'countries', Util.parseIntMaybe(csvRow["AVAILABILITY # of Countries"])),
-              new VpnFeature('availability', 'servers', Util.parseIntMaybe(csvRow["AVAILABILITY # of Servers"])),
+              new VpnFeature('activism', 'bitcoin', LibWrapper.topsvpnUtil.parseBooleanMaybe(csvRow['ACTIVISM Accepts Bitcoin'])),
+              new VpnFeature('activism', 'anonpayment', LibWrapper.topsvpnUtil.parseBooleanMaybe(csvRow['ACTIVISM Anonymous Payment Method'])),
+              new VpnFeature('activism', 'privacytoolsio', LibWrapper.topsvpnUtil.parseBooleanMaybe(csvRow['ACTIVISM Meets PrivacyTools IO Criteria'])),
+              new VpnFeature('affiliates', 'fulldisclosure', LibWrapper.topsvpnUtil.parseBooleanMaybe(csvRow['AFFILIATES Give Full Disclosure'])),
+              new VpnFeature('affiliates', 'ethicalcopy', LibWrapper.topsvpnUtil.parseBooleanMaybe(csvRow['AFFILIATES Practice Ethical Copy'])),
+              new VpnFeature('availability', 'connections', LibWrapper.topsvpnUtil.parseIntMaybe(csvRow["AVAILABILITY # of Connections"])),
+              new VpnFeature('availability', 'countries', LibWrapper.topsvpnUtil.parseIntMaybe(csvRow["AVAILABILITY # of Countries"])),
+              new VpnFeature('availability', 'servers', LibWrapper.topsvpnUtil.parseIntMaybe(csvRow["AVAILABILITY # of Servers"])),
               // NOTE: 'encryption' is called 'SECURITY' in the CSV
               new VpnFeature('encryption', 'dataweakest', csvRow["SECURITY Weakest Data Encryption"]),
               new VpnFeature('encryption', 'datastrongest', csvRow["SECURITY Strongest Data Encryption"]),
               new VpnFeature('encryption', 'handshakeweakest', csvRow["SECURITY Weakest Handshake Encryption"]),
               new VpnFeature('encryption', 'handshakestrongest', csvRow["SECURITY Strongest Handshake Encryption"]),
-              new VpnFeature('ethics', 'contradictorylogging', Util.parseBooleanMaybe(csvRow["ETHICS Contradictory Logging Policies"])),
-              new VpnFeature('ethics', 'claim100effective', Util.parseBooleanMaybe(csvRow["ETHICS Falsely Claims 100% Effective"])),
-              new VpnFeature('ethics', 'spamincentive', Util.parseBooleanMaybe(csvRow["ETHICS Incentivizes Social Media Spam"])),
+              new VpnFeature('ethics', 'contradictorylogging', LibWrapper.topsvpnUtil.parseBooleanMaybe(csvRow["ETHICS Contradictory Logging Policies"])),
+              new VpnFeature('ethics', 'claim100effective', LibWrapper.topsvpnUtil.parseBooleanMaybe(csvRow["ETHICS Falsely Claims 100% Effective"])),
+              new VpnFeature('ethics', 'spamincentive', LibWrapper.topsvpnUtil.parseBooleanMaybe(csvRow["ETHICS Incentivizes Social Media Spam"])),
               new VpnFeature('jurisdiction', 'basedin', csvRow['JURISDICTION Based In (Country)']),
               new VpnFeature('jurisdiction', 'fourteeneyes', csvRow["JURISDICTION Fourteen Eyes?"]),
               new VpnFeature('jurisdiction', 'freedomstatus', csvRow["JURISDICTION Freedom Status"]),
-              new VpnFeature('leakprotection', 'dns', Util.parseBooleanMaybe(csvRow["LEAK PROTECTION 1st Party DNS Servers"])),
-              new VpnFeature('leakprotection', 'ipv6', Util.parseBooleanMaybe(csvRow["LEAK PROTECTION IPv6 Supported / Blocked"])),
-              new VpnFeature('leakprotection', 'killswitch', Util.parseBooleanMaybe(csvRow["LEAK PROTECTION Kill Switch"])),
-              new VpnFeature('logging', 'traffic', Util.parseBooleanMaybe(csvRow["LOGGING Logs Traffic"])),
-              new VpnFeature('logging', 'dns', Util.parseBooleanMaybe(csvRow["LOGGING Logs DNS Requests"])),
-              new VpnFeature('logging', 'timestamps', Util.parseBooleanMaybe(csvRow["LOGGING Logs Timestamps"])),
-              new VpnFeature('logging', 'bandwidth', Util.parseBooleanMaybe(csvRow["LOGGING Logs Bandwidth"])),
-              new VpnFeature('logging', 'ip', Util.parseBooleanMaybe(csvRow["LOGGING Logs IP Address"])),
-              new VpnFeature('policies', 'forbidspam', Util.parseBooleanMaybe(csvRow["POLICIES Forbids Spam"])),
-              new VpnFeature('policies', 'ethicalcopy', Util.parseBooleanMaybe(csvRow["POLICIES Requires Ethical Copy"])),
-              new VpnFeature('policies', 'fulldisclosure', Util.parseBooleanMaybe(csvRow["POLICIES Requires Full Disclosure"])),
-              new VpnFeature('portblocking', 'authsmtp', Util.parseBooleanMaybe(csvRow["PORT BLOCKING Auth SMTP"])),
-              new VpnFeature('portblocking', 'p2p', Util.parseBooleanMaybe(csvRow["PORT BLOCKING P2P"])),
+              new VpnFeature('leakprotection', 'dns', LibWrapper.topsvpnUtil.parseBooleanMaybe(csvRow["LEAK PROTECTION 1st Party DNS Servers"])),
+              new VpnFeature('leakprotection', 'ipv6', LibWrapper.topsvpnUtil.parseBooleanMaybe(csvRow["LEAK PROTECTION IPv6 Supported / Blocked"])),
+              new VpnFeature('leakprotection', 'killswitch', LibWrapper.topsvpnUtil.parseBooleanMaybe(csvRow["LEAK PROTECTION Kill Switch"])),
+              new VpnFeature('logging', 'traffic', LibWrapper.topsvpnUtil.parseBooleanMaybe(csvRow["LOGGING Logs Traffic"])),
+              new VpnFeature('logging', 'dns', LibWrapper.topsvpnUtil.parseBooleanMaybe(csvRow["LOGGING Logs DNS Requests"])),
+              new VpnFeature('logging', 'timestamps', LibWrapper.topsvpnUtil.parseBooleanMaybe(csvRow["LOGGING Logs Timestamps"])),
+              new VpnFeature('logging', 'bandwidth', LibWrapper.topsvpnUtil.parseBooleanMaybe(csvRow["LOGGING Logs Bandwidth"])),
+              new VpnFeature('logging', 'ip', LibWrapper.topsvpnUtil.parseBooleanMaybe(csvRow["LOGGING Logs IP Address"])),
+              new VpnFeature('policies', 'forbidspam', LibWrapper.topsvpnUtil.parseBooleanMaybe(csvRow["POLICIES Forbids Spam"])),
+              new VpnFeature('policies', 'ethicalcopy', LibWrapper.topsvpnUtil.parseBooleanMaybe(csvRow["POLICIES Requires Ethical Copy"])),
+              new VpnFeature('policies', 'fulldisclosure', LibWrapper.topsvpnUtil.parseBooleanMaybe(csvRow["POLICIES Requires Full Disclosure"])),
+              new VpnFeature('portblocking', 'authsmtp', LibWrapper.topsvpnUtil.parseBooleanMaybe(csvRow["PORT BLOCKING Auth SMTP"])),
+              new VpnFeature('portblocking', 'p2p', LibWrapper.topsvpnUtil.parseBooleanMaybe(csvRow["PORT BLOCKING P2P"])),
               // NOTE: this is the price per month if you buy a whole year)
-              new VpnFeature('pricing', 'permonth', Util.parseFloatMaybe(csvRow["PRICING $ / Month (Annual Pricing)"])),
-              new VpnFeature('pricing', 'perconnectionpermonth', Util.parseFloatMaybe(csvRow["PRICING $ / Connection / Month"])),
-              new VpnFeature('pricing', 'freetrial', Util.parseBooleanMaybe(csvRow["PRICING Free Trial"])),
-              new VpnFeature('pricing', 'refundperiod', Util.parseIntMaybe(csvRow["PRICING Refund Period (Days)"])),
-              new VpnFeature('protocols', 'openvpn', Util.parseBooleanMaybe(csvRow["PROTOCOLS Offers OpenVPN"])),
-              new VpnFeature('website', 'persistentcookies', Util.parseIntMaybe(csvRow["WEBSITE # of Persistent Cookies"])),
-              new VpnFeature('website', 'trackers', Util.parseIntMaybe(csvRow["WEBSITE # of External Trackers"])),
-              new VpnFeature('website', 'proprietaryapis', Util.parseIntMaybe(csvRow["WEBSITE # of Proprietary APIs"])),
+              new VpnFeature('pricing', 'permonth', LibWrapper.topsvpnUtil.parseFloatMaybe(csvRow["PRICING $ / Month (Annual Pricing)"])),
+              new VpnFeature('pricing', 'perconnectionpermonth', LibWrapper.topsvpnUtil.parseFloatMaybe(csvRow["PRICING $ / Connection / Month"])),
+              new VpnFeature('pricing', 'freetrial', LibWrapper.topsvpnUtil.parseBooleanMaybe(csvRow["PRICING Free Trial"])),
+              new VpnFeature('pricing', 'refundperiod', LibWrapper.topsvpnUtil.parseIntMaybe(csvRow["PRICING Refund Period (Days)"])),
+              new VpnFeature('protocols', 'openvpn', LibWrapper.topsvpnUtil.parseBooleanMaybe(csvRow["PROTOCOLS Offers OpenVPN"])),
+              new VpnFeature('website', 'persistentcookies', LibWrapper.topsvpnUtil.parseIntMaybe(csvRow["WEBSITE # of Persistent Cookies"])),
+              new VpnFeature('website', 'trackers', LibWrapper.topsvpnUtil.parseIntMaybe(csvRow["WEBSITE # of External Trackers"])),
+              new VpnFeature('website', 'proprietaryapis', LibWrapper.topsvpnUtil.parseIntMaybe(csvRow["WEBSITE # of Proprietary APIs"])),
               new VpnFeature('website', 'sslrating', csvRow["WEBSITE Server SSL Rating"]),
               new VpnFeature('website', 'certcn', csvRow["WEBSITE SSL Cert issued to"])
             ];
@@ -69,7 +69,7 @@ angular.
             this.getCategoryList = function(category) {
               var catList = [];
               this.features.forEach(function(feat, index, array) {
-                if (! Util.arrayContains(catList, feat.category)) {
+                if (! LibWrapper.topsvpnUtil.arrayContains(catList, feat.category)) {
                   catList.push(feat.category);
                 }
               });

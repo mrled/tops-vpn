@@ -1,5 +1,5 @@
 'use strict';
 angular.module('topsvpnFeature', [
-  'core.util',
+  'LibWrapper',
   'core.vpn'
 ]);

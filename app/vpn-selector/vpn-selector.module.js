@@ -1,5 +1,5 @@
 'use strict';
 angular.module('vpnSelector', [
-  'core.util',
+  'LibWrapper',
   'core.vpndata'
 ]);
