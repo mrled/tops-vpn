@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "argp": "~1.0.0",
+    "csv-parse": "~1.1.0",
     "del": "^2.0.2",
     "fs-extra": "~0.30.0",
     "gulp": "^3.9.1",

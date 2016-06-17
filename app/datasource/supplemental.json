@@ -1,0 +1,482 @@
+{
+  '3Monkey': {
+    homepage: 'http://www.3monkey.me'
+  },
+  'AceVPN': {
+    homepage: 'https://www.acevpn.com'
+  },
+  'ActiVPN': {
+    homepage: 'https://activpn.com'
+  },
+  'AirVPN': {
+    homepage: 'https://airvpn.org'
+  },
+  'Anonine': {
+    homepage: 'https://anonine.com'
+  },
+  'Anonymizer': {
+    homepage: 'https://anonymizer.com'
+  },
+  'Astrill': {
+    homepage: 'https://www.astrill.com'
+  },
+  'AutisticiInventati': {
+    homepage: 'http://www.autistici.org'
+  },
+  'AvastSecureline': {
+    homepage: 'https://www.avast.com/secureline-vpn'
+  },
+  'AzireVPN': {
+    homepage: 'https://www.azirevpn.com'
+  },
+  'BeeVPN': {
+    homepage: ''
+  },
+  'BlackVPN': {
+    homepage: ''
+  },
+  'Blockless': {
+    homepage: ''
+  },
+  'BolehVPN': {
+    homepage: ''
+  },
+  'Boxpn': {
+    homepage: ''
+  },
+  'BTGuard': {
+    homepage: ''
+  },
+  'Buffered': {
+    homepage: ''
+  },
+  'CactusVPN': {
+    homepage: ''
+  },
+  'Celo': {
+    homepage: ''
+  },
+  'ChillGlobal': {
+    homepage: ''
+  },
+  'Cloak': {
+    homepage: ''
+  },
+  'CryptoHippie': {
+    homepage: ''
+  },
+  'CryptoStorm': {
+    homepage: ''
+  },
+  'CyberGhost': {
+    homepage: ''
+  },
+  'DathoVPN': {
+    homepage: ''
+  },
+  'DissembleVPN': {
+    homepage: ''
+  },
+  'DotVPN': {
+    homepage: ''
+  },
+  'Doublehop'.me: {
+    homepage: ''
+  },
+  'EarthVPN': {
+    homepage: ''
+  },
+  'ExpressVPN': {
+    homepage: ''
+  },
+  'Faceless'.ME: {
+    homepage: ''
+  },
+  'FinchVPN': {
+    homepage: ''
+  },
+  'FlowVPN': {
+    homepage: ''
+  },
+  'FlyVPN': {
+    homepage: ''
+  },
+  'Freedom'-IP: {
+    homepage: ''
+  },
+  'Freedome': {
+    homepage: ''
+  },
+  'FreeVPNNinja': {
+    homepage: ''
+  },
+  'FrootVPN': {
+    homepage: ''
+  },
+  'FrostVPN': {
+    homepage: ''
+  },
+  'GetFlix': {
+    homepage: ''
+  },
+  'GoTrusted': {
+    homepage: ''
+  },
+  'GoVPN': {
+    homepage: ''
+  },
+  'Hide'.me: {
+    homepage: ''
+  },
+  'HideIPVPN': {
+    homepage: ''
+  },
+  'HideMyAss': {
+    homepage: ''
+  },
+  'Hola'!VPN: {
+    homepage: ''
+  },
+  'HotspotShield': {
+    homepage: ''
+  },
+  'HotVPN': {
+    homepage: ''
+  },
+  'IBVPN': {
+    homepage: ''
+  },
+  'IncognitoVPN': {
+    homepage: ''
+  },
+  'In'-Disguise: {
+    homepage: ''
+  },
+  'Insorg': {
+    homepage: ''
+  },
+  'Integrity'.st: {
+    homepage: ''
+  },
+  'Internetz'.me: {
+    homepage: ''
+  },
+  'IPinator': {
+    homepage: ''
+  },
+  'IPredator': {
+    homepage: ''
+  },
+  'IPVanish': {
+    homepage: ''
+  },
+  'Ironsocket': {
+    homepage: ''
+  },
+  'Ivacy': {
+    homepage: ''
+  },
+  'IVPN': {
+    homepage: ''
+  },
+  'Kepard': {
+    homepage: ''
+  },
+  'LeVPN': {
+    homepage: ''
+  },
+  'LibertyShield': {
+    homepage: ''
+  },
+  'LibertyVPN': {
+    homepage: ''
+  },
+  'LimeVPN': {
+    homepage: ''
+  },
+  'LiquidVPN': {
+    homepage: ''
+  },
+  'Lokun': {
+    homepage: ''
+  },
+  'Mullvad': {
+    homepage: ''
+  },
+  'MyExpatNetwork': {
+    homepage: ''
+  },
+  'MyIP'.io: {
+    homepage: ''
+  },
+  'MyPrivateNetwork': {
+    homepage: ''
+  },
+  'MyVPN'.Pro: {
+    homepage: ''
+  },
+  'Newshosting': {
+    homepage: ''
+  },
+  'NEXTGenVPN': {
+    homepage: ''
+  },
+  'NolimitVPN': {
+    homepage: ''
+  },
+  'NordVPN': {
+    homepage: ''
+  },
+  'NVPN': {
+    homepage: ''
+  },
+  'OctaneVPN': {
+    homepage: ''
+  },
+  'Opera'(Browser)VPN: {
+    homepage: ''
+  },
+  'OverPlay': {
+    homepage: ''
+  },
+  'oVPN'.se: {
+    homepage: ''
+  },
+  'oVPN'.to: {
+    homepage: ''
+  },
+  'PerfectPrivacy': {
+    homepage: ''
+  },
+  'PirateParty'.ca: {
+    homepage: ''
+  },
+  'PrivateInternetAccess': {
+    homepage: ''
+  },
+  'PrivatePackets'.io: {
+    homepage: ''
+  },
+  'PrivateTunnel': {
+    homepage: ''
+  },
+  'PrivateVPN': {
+    homepage: ''
+  },
+  'Privatoria'.net: {
+    homepage: ''
+  },
+  'Proxy'.sh: {
+    homepage: ''
+  },
+  'ProXPN': {
+    homepage: ''
+  },
+  'PRQ': {
+    homepage: ''
+  },
+  'PureVPN': {
+    homepage: ''
+  },
+  'RA4WVPN': {
+    homepage: ''
+  },
+  'RiseupVPN': {
+    homepage: ''
+  },
+  'SaferVPN': {
+    homepage: ''
+  },
+  'SecureVPN'.com: {
+    homepage: ''
+  },
+  'SecureVPN'.to: {
+    homepage: ''
+  },
+  'SecurityKISS': {
+    homepage: ''
+  },
+  'Seed4me': {
+    homepage: ''
+  },
+  'Seedboxes'.cc: {
+    homepage: ''
+  },
+  'ShadeYou': {
+    homepage: ''
+  },
+  'SlickVPN': {
+    homepage: ''
+  },
+  'SmartDNSProxy': {
+    homepage: ''
+  },
+  'Sonic'.net: {
+    homepage: ''
+  },
+  'Steganos': {
+    homepage: ''
+  },
+  'StrongVPN': {
+    homepage: ''
+  },
+  'SwitchVPN': {
+    homepage: ''
+  },
+  'SumRando': {
+    homepage: ''
+  },
+  'SunVPN': {
+    homepage: ''
+  },
+  'SuperVPN': {
+    homepage: ''
+  },
+  'SurfEasy': {
+    homepage: ''
+  },
+  'TigerVPN': {
+    homepage: ''
+  },
+  'Torguard': {
+    homepage: ''
+  },
+  'TorrentPrivacy': {
+    homepage: ''
+  },
+  'TorVPN': {
+    homepage: ''
+  },
+  'TotalVPN': {
+    homepage: ''
+  },
+  'Trust'.Zone: {
+    homepage: ''
+  },
+  'TunnelBear': {
+    homepage: ''
+  },
+  'Tunnelr': {
+    homepage: ''
+  },
+  'TVWhenAway': {
+    homepage: ''
+  },
+  'Unblock'-Us: {
+    homepage: ''
+  },
+  'UnblockVPN': {
+    homepage: ''
+  },
+  'Unlocator': {
+    homepage: ''
+  },
+  'UnoTelly': {
+    homepage: ''
+  },
+  'Unspyable': {
+    homepage: ''
+  },
+  'VikingVPN': {
+    homepage: ''
+  },
+  'VIP72': {
+    homepage: ''
+  },
+  'VPN4All': {
+    homepage: ''
+  },
+  'VPNGate': {
+    homepage: ''
+  },
+  'VPNGhost': {
+    homepage: ''
+  },
+  'VPNLand': {
+    homepage: ''
+  },
+  'VPNMaster': {
+    homepage: ''
+  },
+  'VPNShield': {
+    homepage: ''
+  },
+  'VPNUnlimited': {
+    homepage: ''
+  },
+  'VPN'.ac: {
+    homepage: ''
+  },
+  'VPN'.Asia: {
+    homepage: ''
+  },
+  'VPN'.cc: {
+    homepage: ''
+  },
+  'VPN'.ht: {
+    homepage: ''
+  },
+  'VPN'.sh: {
+    homepage: ''
+  },
+  'VPNArea': {
+    homepage: ''
+  },
+  'VPNAUS': {
+    homepage: ''
+  },
+  'VPNBaron': {
+    homepage: ''
+  },
+  'VPNJack': {
+    homepage: ''
+  },
+  'VPNMe': {
+    homepage: ''
+  },
+  'VPNSecure': {
+    homepage: ''
+  },
+  'VPNShazam': {
+    homepage: ''
+  },
+  'VPNTraffic': {
+    homepage: ''
+  },
+  'VPNTunnel': {
+    homepage: ''
+  },
+  'VyprVPN': {
+    homepage: ''
+  },
+  'WASELPro': {
+    homepage: ''
+  },
+  'WifiMask': {
+    homepage: ''
+  },
+  'WindScribe': {
+    homepage: ''
+  },
+  'WiTopia': {
+    homepage: ''
+  },
+  'WorldVPN': {
+    homepage: ''
+  },
+  'Zenmate': {
+    homepage: ''
+  },
+  'ZoogTV': {
+    homepage: ''
+  },
+  'ZorroVPN': {
+    homepage: ''
+  },
+  'ZPN': {
+    homepage: ''
+  },
+  'SmartVPN': {
+    homepage: ''
+  },
+}
