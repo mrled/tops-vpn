@@ -1,21 +1,13 @@
 <h1 class="topmost-element"><a href="#!/vpns">TOPS VPN</a></h1>
 
-<ul>
-  <li>Companies: <span ng-repeat="vpn in $ctrl.vpns"><a href="vpns/{{vpn.id}}">{{vpn.getFeatureValue("company", "name")}}</a> </span></li>
-  <!-- <li>activism<ul>
-    <li>bitcoin: <span ng-repeat="vpn in $ctrl.vpns">{{vpn.getFeatureValue("activism", "bitcoin")}} </span></li>
-    <li>anonpayment: <span ng-repeat="vpn in $ctrl.vpns">{{vpn.getFeatureValue("activism", "anonpayment")}} </span></li>
-    <li>privacytoolsio: <span ng-repeat="vpn in $ctrl.vpns">{{vpn.getFeatureValue("activism", "privacytoolsio")}} </span></li>
-  </ul></li> -->
-  <li>affiliates<ul>
-    <li><topsvpn-feature category="affiliates" feature="fulldisclosure"></topsvpn-feature></li>
-    <li><topsvpn-feature category="affiliates" feature="ethicalcopy"></topsvpn-feature></li>
-  </ul></li>
-  <li>pricing<ul>
-    <li><topsvpn-feature category="pricing" feature="permonth"></topsvpn-feature></li>
-    <li><topsvpn-feature category="pricing" feature="perconnectionpermonth"></topsvpn-feature></li>
-    <li><topsvpn-feature category="pricing" feature="freetrial"></topsvpn-feature></li>
-    <li><topsvpn-feature category="pricing" feature="refundperiod"></topsvpn-feature></li>
-  </ul></li>
-  <li>
-</ul>
+<div class="vpnSelectorList">
+  <div class="vpnSelectorCompanyList">
+    Companies: <span ng-repeat="vpn in $ctrl.vpns"><a href="vpns/{{vpn.id}}">{{vpn.getFeatureValue("company", "name")}}</a> </span>
+  </div>
+  <div ng-repeat="(categoryName, featureName) in $ctrl.featuresByCategory" class="vpnSelectorCategory">
+    <h2>{{categoryName}}</h2>
+    <topsvpn-feature
+     ng-repeat="featureName in $ctrl.featuresByCategory[categoryName]"
+     category="{{categoryName}}" feature="{{featureName}}"></topsvpn-feature>
+  </div>
+</div>

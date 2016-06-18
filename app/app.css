@@ -1,33 +1,9 @@
 /* app css stylesheet */
 
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
-}
-
-.menu:before {
-  content: "[";
-}
-
-.menu:after {
-  content: "]";
-}
-
-.menu > li {
-  display: inline;
-}
-
-.menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
-}
-
-.menu > li:nth-child(1):before {
-  content: "";
-  padding: 0;
-}
+/* Color scheme
+ * http://paletton.com/#uid=63-0u0kuu++iA+toB+XMn+VZCJw
+ * http://paletton.com/#uid=63-0h1kuu++00YSoB+XMn+V++d1kuu++00YSoB+XMn+V++d1kuu++00YSoB+XMn+V++d1kuu++00YSoB+XMn+V++d1
+ */
 
 td, th {
   text-align: center;
@@ -36,6 +12,8 @@ td, th {
 
 body {
   padding: 2em;
+  background-color: white;
+  color: #1e90ff;
 }
 
 .topmost-element {
@@ -44,4 +22,35 @@ body {
 
 #vpn-table-container {
   overflow: scroll;
+}
+
+.topsvpnFeature {
+  overflow: hidden;
+  height: auto;
+  background-color: #1e90ff;
+  color: white;
+  border: 1px solid white;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+  color: #1e90ff;
+  border-bottom: 2px solid #1e90ff;
+}
+a:hover, a:active {
+  text-decoration: none;
+  color: #1e90ff;
+  border-bottom: 5px solid #1e90ff;
+}
+
+.topsvpnFeatureTitleAndControl {
+  max-width: 20%;
+  float: left;
+}
+.topsvpnFeatureTitleAndControl h3 {
+  text-align: center;
+}
+.topsvpnFeatureValueList {
+  max-width: 70%;
+  float: right;
 }

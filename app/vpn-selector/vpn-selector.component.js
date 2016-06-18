@@ -10,19 +10,14 @@ angular.
 
         self.vpns = [];
 
-        // A dictionary where keys are categories and values are (dictionaries where keys are feature names and values are an array of feature values)
+        // An object where the keys are category names, and the values are feature names
         self.featuresByCategory = {};
 
         VpnData.query().then(function(vpns) {
           self.vpns = vpns;
-          vpns.forEach(function(vpn, vpnIdx, vpnArr) {
-            vpn.getCategoryList().forEach(function(category, catIdx, catArr) {
-              Util.objectSetPropertyIfUnset(self.featuresByCategory, category, {});
-              vpn.getFeaturesForCategory(category).forEach(function(feature, featIdx, featArr) {
-                Util.objectSetPropertyIfUnset(self.featuresByCategory[category], feature.name, []);
-                Util.arrayPushUniq(self.featuresByCategory[category][feature.name], feature.value);
-              });
-            });
+          self.vpns[0].getCategoryList().forEach(function(category){
+            self.featuresByCategory[category] =
+              self.vpns[0].getFeaturesForCategory(category).map(function(feature){return feature.name;});
           });
         });
 
