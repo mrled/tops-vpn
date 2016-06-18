@@ -1,9 +1,9 @@
 'use strict';
 
-describe('core.util', function() {
+describe('topsutil', function() {
   var Util;
 
-  beforeEach(module('core.util'));
+  beforeEach(module('topsutil'));
 
   beforeEach(inject(function(_Util_) {
     Util = _Util_;

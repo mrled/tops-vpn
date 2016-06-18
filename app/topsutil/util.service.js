@@ -70,7 +70,7 @@ function unquoteString(string) {
 }
 
 angular.
-  module('core.util').
+  module('topsutil').
   factory('Util', [
     function() {
       return {

@@ -6,8 +6,8 @@
   </div>
   <div ng-repeat="(categoryName, featureName) in $ctrl.featuresByCategory" class="vpnSelectorCategory">
     <h2>{{categoryName}}</h2>
-    <topsvpn-feature
+    <vpn-feature
      ng-repeat="featureName in $ctrl.featuresByCategory[categoryName]"
-     category="{{categoryName}}" feature="{{featureName}}"></topsvpn-feature>
+     category="{{categoryName}}" feature="{{featureName}}"></vpn-feature>
   </div>
 </div>

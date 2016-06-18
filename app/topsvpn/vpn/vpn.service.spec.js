@@ -1,6 +1,6 @@
 'use strict';
 
-describe('core.vpn', function() {
+describe('vpn', function() {
   var Vpn;
 
   var csvRowMock = {
@@ -51,7 +51,7 @@ describe('core.vpn', function() {
   // +1 because the service name gets parsed into 2 features: name and id
   var parsedFeatureCount = Object.keys(csvRowMock).length +1;
 
-  beforeEach(module('core.vpn'));
+  beforeEach(module('topsvpn'));
 
   beforeEach(inject(function(_Vpn_) {
     Vpn = _Vpn_;

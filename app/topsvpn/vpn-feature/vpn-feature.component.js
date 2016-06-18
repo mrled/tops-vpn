@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('topsvpnFeature').
-  component('topsvpnFeature', {
-    templateUrl: 'topsvpn-feature/topsvpn-feature.template.html',
+angular.module('topsvpn').
+  component('vpnFeature', {
+    templateUrl: 'topsvpn/vpn-feature/vpn-feature.template.html',
     controller: ['Util', 'VpnData', function(Util, VpnData) {
         var self = this;
         self.featureValues = [];

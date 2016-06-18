@@ -6,24 +6,21 @@ module.exports = function(config) {
 
     files: [
       'dependencies/angular/angular.js',
+
+      'dependencies/angular-animate/angular-animate.js',
+      'dependencies/angular-aria/angular-aria.js',
+      'dependencies/angular-csv-service/angular-csv-service.js',
+      'dependencies/angular-material/angular-material.js',
       'dependencies/angular-mocks/angular-mocks.js',
       'dependencies/angular-route/angular-route.js',
       'dependencies/angular-resource/angular-resource.js',
 
-      'dependencies/angular-csv-service/angular-csv-service.js',
+      'topsutil/util.module.js',
+      'topsutil/util.service.js',
 
-      'core/util/util.module.js',
-      'core/util/util.service.js',
-      'core/vpn/vpn.module.js',
-      'core/vpn/vpn.service.js',
-      'core/vpndata/vpndata.module.js',
-      'core/vpndata/vpndata.service.js',
-      'vpn-list/vpn-list.module.js',
-      'vpn-list/vpn-list.component.js',
-      'vpn-detail/vpn-detail.module.js',
-      'vpn-detail/vpn-detail.component.js',
-      'vpn-selector/vpn-selector.module.js',
-      'vpn-selector/vpn-selector.component.js',
+      'topsvpn/topsvpn.module.js',
+      'topsvpn/vpn/vpn.service.js',
+      'topsvpn/vpndata/vpndata.service.js',
 
       '**/*.spec.js'
     ],

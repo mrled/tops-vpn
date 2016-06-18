@@ -8,7 +8,7 @@ function VpnFeature(category, name, value) {
 }
 
 angular.
-  module('core.vpn').
+  module('topsvpn').
   factory('Vpn', ['Util',
     function(Util) {
       return {

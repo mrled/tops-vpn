@@ -1,5 +1,7 @@
 /* app css stylesheet */
 
+/* TODO: Modularize this */
+
 /* Color scheme
  * http://paletton.com/#uid=63-0u0kuu++iA+toB+XMn+VZCJw
  * http://paletton.com/#uid=63-0h1kuu++00YSoB+XMn+V++d1kuu++00YSoB+XMn+V++d1kuu++00YSoB+XMn+V++d1kuu++00YSoB+XMn+V++d1
@@ -24,14 +26,6 @@ body {
   overflow: scroll;
 }
 
-.topsvpnFeature {
-  overflow: hidden;
-  height: auto;
-  background-color: #1e90ff;
-  color: white;
-  border: 1px solid white;
-}
-
 a:link, a:visited {
   text-decoration: none;
   color: #1e90ff;
@@ -43,14 +37,21 @@ a:hover, a:active {
   border-bottom: 5px solid #1e90ff;
 }
 
-.topsvpnFeatureTitleAndControl {
+.vpnFeature {
+  overflow: hidden;
+  height: auto;
+  background-color: #1e90ff;
+  color: white;
+  border: 1px solid white;
+}
+.vpnFeatureTitleAndControl {
   max-width: 20%;
   float: left;
 }
-.topsvpnFeatureTitleAndControl h3 {
+.vpnFeatureTitleAndControl h3 {
   text-align: center;
 }
-.topsvpnFeatureValueList {
+.vpnFeatureValueList {
   max-width: 70%;
   float: right;
 }

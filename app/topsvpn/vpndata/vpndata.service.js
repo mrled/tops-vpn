@@ -1,7 +1,7 @@
 'use strict';
 
 angular.
-  module('core.vpndata').
+  module('topsvpn').
   factory('VpnData', ['$http', '$q', 'fCsv', 'Util', 'Vpn',
     function($http, $q, fCsv, Util, Vpn) {
 

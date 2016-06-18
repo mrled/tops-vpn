@@ -1,9 +1,9 @@
 'use strict';
 
 angular.
-  module('vpnSelector').
+  module('topsvpn').
   component('vpnSelector', {
-    templateUrl: 'vpn-selector/vpn-selector.template.html',
+    templateUrl: 'topsvpn/vpn-selector/vpn-selector.template.html',
     controller: ['$q', 'VpnData', 'Util',
       function ($q, VpnData, Util) {
         var self = this;
