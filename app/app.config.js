@@ -8,13 +8,13 @@ angular.
 
       $routeProvider.
         when('/vpns', {
-          template: '<vpn-list></vpn-list>'
+          template: '<vpn-selector></vpn-selector>'
         }).
         when('/vpns/:vpnId', {
           template: '<vpn-detail></vpn-detail>'
         }).
-        when('/selector', {
-          template: '<vpn-selector></vpn-selector>'
+        when('/table', {
+          template: '<vpn-list></vpn-list>'
         }).
         otherwise('/vpns');
     }
