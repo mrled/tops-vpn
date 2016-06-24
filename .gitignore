@@ -1,5 +1,6 @@
 logs/*
 !.gitkeep
+app/libraries/
 node_modules/
 app/dependencies
 tmp

@@ -2,27 +2,31 @@
 module.exports = function(config) {
   config.set({
 
-    basePath: './app',
+    // basePath: './app',
 
     files: [
-      'dependencies/angular/angular.js',
+      './app/node_modules/angular/angular.js',
 
-      'dependencies/angular-animate/angular-animate.js',
-      'dependencies/angular-aria/angular-aria.js',
-      'dependencies/angular-csv-service/angular-csv-service.js',
-      'dependencies/angular-material/angular-material.js',
-      'dependencies/angular-mocks/angular-mocks.js',
-      'dependencies/angular-route/angular-route.js',
-      'dependencies/angular-resource/angular-resource.js',
+      './app/node_modules/angular-animate/angular-animate.js',
+      './app/node_modules/angular-aria/angular-aria.js',
+      './app/node_modules/angular-csv-service/angular-csv-service.js',
+      './app/node_modules/angular-material/angular-material.js',
+      './app/node_modules/angular-mocks/angular-mocks.js',
+      './app/node_modules/angular-route/angular-route.js',
+      './app/node_modules/angular-resource/angular-resource.js',
 
-      'topsutil/util.module.js',
-      'topsutil/util.service.js',
+      './libraries/mrl-util/mrl-util.js',
 
-      'topsvpn/topsvpn.module.js',
-      'topsvpn/vpn/vpn.service.js',
-      'topsvpn/vpndata/vpndata.service.js',
+      './app/topsvpn/topsvpn.module.js',
 
-      '**/*.spec.js'
+      './app/topsutil/util.module.js',
+      './app/topsutil/util.service.js',
+
+      './app/topsvpn/vpn/vpn.service.js',
+      './app/topsvpn/vpndata/vpndata.service.js',
+
+      'libraries/**/*.spec.js',
+      'app/**/*.spec.js'
     ],
 
     autoWatch: true,
