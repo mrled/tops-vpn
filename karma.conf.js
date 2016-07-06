@@ -16,6 +16,7 @@ module.exports = function(config) {
       './app/node_modules/angular-resource/angular-resource.js',
 
       './libraries/mrl-util/mrl-util.js',
+      './libraries/topsvpn/topsvpn.js',
 
       './app/topsvpn/topsvpn.module.js',
 

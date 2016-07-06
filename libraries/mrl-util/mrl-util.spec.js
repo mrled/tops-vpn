@@ -3,7 +3,7 @@
 /* jshint node: true */
 
 // var mrlUtil = require('./mrl-util.js');
-var mrlUtil = window.mrlUtil; // jslint ignore:line 
+var mrlUtil = window.mrlUtil;  // jshint ignore:line
 
 describe('mrlUtil', function() {
   it("should contain a working arrayContains()", function() {
