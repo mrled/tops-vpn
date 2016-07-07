@@ -79,7 +79,7 @@ function pushGhPages(repoPath) {
   git(tmpCheckoutDir, 'checkout -b DEPLOYING-gh-pages');
 
   try {
-    git(tmpCheckoutDir, 'add --force app/dependencies');
+    git(tmpCheckoutDir, 'add --force app/libraries app/node_modules');
   }
   catch (e) {
     exitWithError("Couldn't force-add app/dependencies... make sure to run 'npm run postinstall' before running this");
@@ -96,8 +96,6 @@ function pushGhPages(repoPath) {
 var argv = argp.createParser()
   .description("Push this project to GitHub Pages")
   .body()
-    //The object and argument definitions and the text of the --help message
-    //are configured at the same time
     .text(" Options:")
     .option({
       short: "s", long: "skip",

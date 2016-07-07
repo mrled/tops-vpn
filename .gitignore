@@ -2,7 +2,6 @@ logs/*
 !.gitkeep
 app/libraries/
 node_modules/
-app/dependencies
 tmp
 .DS_Store
 .idea
