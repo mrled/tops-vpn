@@ -65,7 +65,16 @@ describe('TopsVpn', function() {
     ];
     var testVpnFeaturesCount = 3;
     var testVpn = new TopsVpn.Vpn('test / Vpn', testVpnFeatures);
-    it('should return a valid VPN based on the constructor', function() {
+    var testOptionsA = {
+      name: 'test A',
+      id: 'testA',
+      features: testVpnFeatures
+    };
+    it('should create a valid VPN from an options object', function() {
+      expect((new TopsVpn.Vpn(testOptionsA)).name).toBe(testOptionsA.name);
+      expect((new TopsVpn.Vpn(testOptionsA)).features.length).toBe(testVpnFeaturesCount +2); // +2 for name and id
+    });
+    it('should return a valid VPN from a name and list of features', function() {
       expect(testVpn.name).toBe('test / Vpn');
       expect(testVpn.id).toBe('testVpn');
       expect(typeof testVpn.features).toBe('object');

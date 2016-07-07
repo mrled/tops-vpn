@@ -32,7 +32,8 @@ var dependencies = {
   },
   libraries: {
     js: [
-      'libraries/mrl-util/mrl-util.js'
+      'libraries/mrl-util/mrl-util.js',
+      'libraries/topsvpn/topsvpn.js'
     ]
   }
 };

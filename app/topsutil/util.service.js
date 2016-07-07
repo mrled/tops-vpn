@@ -4,7 +4,7 @@ var mrlUtil = window.mrlUtil; // jshint ignore:line
 
 angular.
   module('topsutil').
-  factory('Util', [
+  factory('MrlUtil', [
     function() {
       return {
         'arrayContains': function(array, object) {return mrlUtil.arrayContains(array, object);},

@@ -4,8 +4,8 @@ angular.
   module('topsvpn').
   component('vpnSelector', {
     templateUrl: 'topsvpn/vpn-selector/vpn-selector.template.html',
-    controller: ['$q', 'VpnData', 'Util',
-      function ($q, VpnData, Util) {
+    controller: ['$q', 'VpnData',
+      function ($q, VpnData) {
         var self = this;
 
         self.vpns = [];

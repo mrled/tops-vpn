@@ -2,44 +2,21 @@
 
 angular.
   module('topsvpn').
-  factory('VpnData', ['$http', '$q', 'fCsv', 'Util', 'Vpn',
-    function($http, $q, fCsv, Util, Vpn) {
+  factory('VpnData', ['$http', '$q', 'MrlUtil', 'Vpn',
+    function($http, $q, MrlUtil, Vpn) {
 
-      var deferredRawCsvString = $q.defer(),
-          deferredRawVpnObjs = $q.defer(),
+      var deferredDeserializedJson = $q.defer(),
           deferredVpnList = $q.defer();
 
-      function parseTopsCsv(csvText) {
-
-        // This will have double quotes surrounding keys and values
-        // For instance: {'"VPN SERVICE"': '"3Monkey"'}
-        var naiveObjs = angular.fromJson(fCsv.toJson(csvText));
-
-        var parsedObjs = [];
-        naiveObjs.forEach(function(obj, index, array) {
-          var parsedObj = {};
-          for (var prop in obj) {
-            var unquotedKey = Util.unquoteString(prop),
-                unquotedValue = Util.unquoteString(obj[prop]);
-            parsedObj[unquotedKey] = unquotedValue;
-          }
-          parsedObjs.push(parsedObj);
-        });
-
-        return parsedObjs;
-      }
-
-      $http.get('datasource/tops.vpns.csv').then(function(response) {
-        var rawCsvText = response.data;
-        var rawCsvObjs = parseTopsCsv(rawCsvText);
+      $http.get('datasource/tops.vpns.min.js').then(function(response) {
+        var deserializedJson = response.data;
 
         var vpnList = [];
-        rawCsvObjs.forEach(function(vpnRow, index, array) {
-          vpnList.push(Vpn.Vpn(vpnRow));
+        deserializedJson.forEach(function(naiveObj) {
+          vpnList.push(new Vpn.Vpn(naiveObj));
         });
 
-        deferredRawCsvString.resolve(rawCsvText);
-        deferredRawVpnObjs.resolve(rawCsvObjs);
+        deferredDeserializedJson.resolve(deserializedJson);
         deferredVpnList.resolve(vpnList);
       });
 
@@ -62,9 +39,9 @@ angular.
           return deferredVpn.promise;
         },
 
-        'queryRawCsv': function() {return deferredRawCsvString.promise;},
-        'queryRawVpnObjs': function() {return deferredRawVpnObjs.promise;},
-        'query': function() {return deferredVpnList.promise;}
+        'query': function() {return deferredVpnList.promise;},
+
+        'queryDeserializedJson': function() {return deferredDeserializedJson.promise;}
       };
     }
   ]);

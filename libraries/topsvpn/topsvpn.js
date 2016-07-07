@@ -52,21 +52,66 @@ function VpnFeature(category, name, value, type) {
   }
 }
 
-function Vpn(name, features) {
+/* Return a VPN object
+ * options:
+ *   If this is a string, treat it as the name
+ *   Otherwise, treat it as a serialized JSON version of a VPN
+ *   (that is, it will have the properties, but not the methods, of a VPN object)
+ * features:
+ *   An optional list of features to add to the VPN
+ *   NOTE: If options.features exists and is not empty, this parameter is ignored
+ */
+function Vpn(options, features) {
   var self = this;
-  self.id = idNormalize(name);
-  self.name = name;
-  self.features = features || [];
-  self.features.push(
-    new VpnFeature('company', 'id', self.id),
-    new VpnFeature('company', 'name', self.name)
-  );
-  self.metadataErrors = [];
+  var featuresStage;
+
+  if (typeof options === 'object') {
+    self.name = options.name;
+    self.id = options.id;
+    featuresStage = options.features || features || [];
+    self.metadataErrors = options.metadataErrors || [];
+  }
+  else if (typeof options === 'string') {
+    self.name = options;
+    self.id = idNormalize(self.name);
+    featuresStage = features || [];
+    self.metadataErrors = [];
+  }
+  else {
+    throw "Invalid arguments to Vpn constructor";
+  }
+
+  self.features = [];
+  featuresStage.forEach(function(feature) {
+    if (feature.category && feature.name && feature.type) {
+      self.features.push(feature);
+    }
+  });
+
+  self.addOrUpdateFeature = addOrUpdateFeature;
   self.getCategoryList = getCategoryList;
   self.getFeatureList = getFeatureList;
+  self.getFeature = getFeature;
   self.getFeatureValue = getFeatureValue;
   self.getFeaturesForCategory = getFeaturesForCategory;
   self.toString = toString;
+
+  self.addOrUpdateFeature(new VpnFeature('company', 'id', self.id));
+  self.addOrUpdateFeature(new VpnFeature('company', 'name', self.name));
+
+  /* Add or uodate a feature
+   * If a feature with this category and name doesn't exist, add it
+   * Otherwise, modify the existing feature
+   */
+  function addOrUpdateFeature(feature) {
+    try {
+      var foundFeature = getFeature(feature.category, feature.name);
+      foundFeature.value = feature.value;
+    }
+    catch (err) {
+      self.features.push(feature);
+    }
+  }
 
   /* Get a list of feature categories
    */
@@ -91,6 +136,24 @@ function Vpn(name, features) {
     return featList;
   }
 
+  /* Return a feature
+   * category: the category the feature is in
+   * feature: the name of the feature
+   * return value: if the feature exists, return it; otherwise, throw
+   */
+  function getFeature(category, feature) {
+    function featureFilter(featureObj) {
+      if (featureObj.category == category && featureObj.name == feature) { return true; } else { return false; }
+    }
+    var foundFeature = self.features.filter(featureFilter);
+    if (foundFeature.length == 1) {
+      return foundFeature[0];
+    }
+    else {
+      throw (new Error("No such feature '" + feature + "' in category '" + category + "' for vpn with id '" + self.id + "'"));
+    }
+  }
+
   /* Return the value of a feature
    * category: the category the feature is in
    * feature: the name of the feature
@@ -102,17 +165,8 @@ function Vpn(name, features) {
    */
   function getFeatureValue(category, feature, defaultValue) {
     if (!defaultValue) {defaultValue = "";}
-    function featureFilter(featureObj) {
-      if (featureObj.category == category && featureObj.name == feature) { return true; } else { return false; }
-    }
-    var foundFeature = self.features.filter(featureFilter);
-    if (foundFeature.length == 1) {
-      var featVal = foundFeature[0].value;
-      return featVal ? featVal : defaultValue;
-    }
-    else {
-      throw "No such feature '" + feature + "' in category '" + category + "' for vpn with id '" + self.id + "'";
-    }
+    var featVal = self.getFeature(category, feature).value;
+    return featVal ? featVal : defaultValue;
   }
 
   /* Return all feature objects for a given category

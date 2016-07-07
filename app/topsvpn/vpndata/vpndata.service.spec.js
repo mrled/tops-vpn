@@ -2,23 +2,19 @@
 
 describe('vpndata', function() {
   var $httpBackend;
-  var Util;
+  var MrlUtil;
   var VpnData;
 
-  var vpnsCsvMock =
-    '"VPN SERVICE","JURISDICTION Based In (Country)","JURISDICTION Fourteen Eyes?","JURISDICTION Freedom Status","LOGGING Logs Traffic","LOGGING Logs DNS Requests","LOGGING Logs Timestamps","LOGGING Logs Bandwidth","LOGGING Logs IP Address","ACTIVISM Anonymous Payment Method","ACTIVISM Accepts Bitcoin","ACTIVISM Meets PrivacyTools IO Criteria","LEAK PROTECTION 1st Party DNS Servers","LEAK PROTECTION IPv6 Supported / Blocked","LEAK PROTECTION Kill Switch","PROTOCOLS Offers OpenVPN","PORT BLOCKING Auth SMTP","PORT BLOCKING P2P","SECURITY Weakest Data Encryption","SECURITY Strongest Data Encryption","SECURITY Weakest Handshake Encryption","SECURITY Strongest Handshake Encryption","AVAILABILITY # of Connections","AVAILABILITY # of Countries","AVAILABILITY # of Servers","WEBSITE # of Persistent Cookies","WEBSITE # of External Trackers","WEBSITE # of Proprietary APIs","WEBSITE Server SSL Rating","WEBSITE SSL Cert issued to","PRICING $ / Month (Annual Pricing)","PRICING $ / Connection / Month","PRICING Free Trial","PRICING Refund Period (Days)","ETHICS Contradictory Logging Policies","ETHICS Falsely Claims 100% Effective","ETHICS Incentivizes Social Media Spam","POLICIES Forbids Spam","POLICIES Requires Ethical Copy","POLICIES Requires Full Disclosure","AFFILIATES Practice Ethical Copy","AFFILIATES Give Full Disclosure"`\r`\n' +
-    '"3Monkey","Switzerland","No","Free","No","","Yes","Yes","Yes","No","No","No","No","No","No","Yes","","","","","","","1","20","325","2","2","5","B","No SSL Cert","7.07","7.07","Yes","0","","","","No","No","No","",""\r\n' +
-    '"AceVPN","USA","Five","Free","","","Yes","","Yes","No","No","No","No","No","No","Yes","Yes","Some","","","","","2","22","","4","1","10","A","Self","4.59","2.30","No","7","Yes","Yes","","No","No","No","",""\r\n' +
-    '"ActiVPN","France","Nine","Free","","","","","","Email","Yes","No","No","No","No","Yes","","","","","","","5","13","20","0","0","0","A+","Self","3.34","0.67","No","","","","","No","No","No","",""\r\n' +
-    '"AirVPN","Italy","Fourteen","Free","No","","","","","Email","Yes","Yes","Yes","No","Yes","Yes","No","No","AES-256","AES-256","RSA-4096","RSA-4096","3","16","138","3","0","0","A+","Self","4.93","1.64","Yes","3","","","","No","No","No","No","No"\r\n';
+  var vpnJsonStringMock = '[{"id":"3Monkey","name":"3Monkey","features":[{"category":"activism","name":"bitcoin","type":"string","value":"No"},"bool",{"category":"activism","name":"anonpayment","type":"bool","value":false},{"category":"activism","name":"privacytoolsio","type":"bool","value":false},{"category":"affiliates","name":"fulldisclosure","type":"bool","value":""},{"category":"affiliates","name":"ethicalcopy","type":"bool","value":""},{"category":"availability","name":"connections","type":"int","value":1},{"category":"availability","name":"countries","type":"int","value":20},{"category":"availability","name":"servers","type":"int","value":325},{"category":"encryption","name":"dataweakest","type":"string","value":""},{"category":"encryption","name":"datastrongest","type":"string","value":""},{"category":"encryption","name":"handshakeweakest","type":"string","value":""},{"category":"encryption","name":"handshakestrongest","type":"string","value":""},{"category":"ethics","name":"contradictorylogging","type":"bool","value":""},{"category":"ethics","name":"claim100effective","type":"bool","value":""},{"category":"ethics","name":"spamincentive","type":"bool","value":""},{"category":"jurisdiction","name":"basedin","type":"string","value":"Switzerland"},{"category":"jurisdiction","name":"fourteeneyes","type":"string","value":"No"},{"category":"jurisdiction","name":"freedomstatus","type":"string","value":"Free"},{"category":"leakprotection","name":"dns","type":"bool","value":false},{"category":"leakprotection","name":"ipv6","type":"bool","value":false},{"category":"leakprotection","name":"killswitch","type":"bool","value":false},{"category":"logging","name":"traffic","type":"bool","value":false},{"category":"logging","name":"dns","type":"bool","value":""},{"category":"logging","name":"timestamps","type":"bool","value":true},{"category":"logging","name":"bandwidth","type":"bool","value":true},{"category":"logging","name":"ip","type":"bool","value":true},{"category":"policies","name":"forbidspam","type":"bool","value":false},{"category":"policies","name":"ethicalcopy","type":"bool","value":false},{"category":"policies","name":"fulldisclosure","type":"bool","value":false},{"category":"portblocking","name":"authsmtp","type":"bool","value":""},{"category":"portblocking","name":"p2p","type":"bool","value":""},{"category":"pricing","name":"permonth","type":"float","value":7.07},{"category":"pricing","name":"perconnectionpermonth","type":"float","value":7.07},{"category":"pricing","name":"freetrial","type":"bool","value":true},{"category":"pricing","name":"refundperiod","type":"int","value":0},{"category":"protocols","name":"openvpn","type":"bool","value":true},{"category":"website","name":"persistentcookies","type":"int","value":2},{"category":"website","name":"trackers","type":"int","value":2},{"category":"website","name":"proprietaryapis","type":"int","value":5},{"category":"website","name":"sslrating","type":"string","value":"B"},{"category":"website","name":"certcn","type":"string","value":"No SSL Cert"},{"category":"company","name":"id","type":"string","value":"3Monkey"},{"category":"company","name":"name","type":"string","value":"3Monkey"},{"category":"company","name":"url","type":"string","value":"http://www.3monkey.me/"},{"category":"company","name":"headtitle","type":"string","value":"3monkey.me | New VPN Product"},{"category":"company","name":"metadescription","type":"string","value":"The Return of Privacy. Smart VPN for everyone."},{"category":"company","name":"ogtitle","type":"string","value":"3monkey.me"},{"category":"company","name":"ogdescription","type":"string","value":"The Return of Privacy. Smart VPN for everyone."}],"metadataErrors":[]},{"id":"AceVPN","name":"AceVPN","features":[{"category":"activism","name":"bitcoin","type":"string","value":"No"},"bool",{"category":"activism","name":"anonpayment","type":"bool","value":false},{"category":"activism","name":"privacytoolsio","type":"bool","value":false},{"category":"affiliates","name":"fulldisclosure","type":"bool","value":""},{"category":"affiliates","name":"ethicalcopy","type":"bool","value":""},{"category":"availability","name":"connections","type":"int","value":2},{"category":"availability","name":"countries","type":"int","value":22},{"category":"availability","name":"servers","type":"int","value":""},{"category":"encryption","name":"dataweakest","type":"string","value":""},{"category":"encryption","name":"datastrongest","type":"string","value":""},{"category":"encryption","name":"handshakeweakest","type":"string","value":""},{"category":"encryption","name":"handshakestrongest","type":"string","value":""},{"category":"ethics","name":"contradictorylogging","type":"bool","value":true},{"category":"ethics","name":"claim100effective","type":"bool","value":true},{"category":"ethics","name":"spamincentive","type":"bool","value":""},{"category":"jurisdiction","name":"basedin","type":"string","value":"USA"},{"category":"jurisdiction","name":"fourteeneyes","type":"string","value":"Five"},{"category":"jurisdiction","name":"freedomstatus","type":"string","value":"Free"},{"category":"leakprotection","name":"dns","type":"bool","value":false},{"category":"leakprotection","name":"ipv6","type":"bool","value":false},{"category":"leakprotection","name":"killswitch","type":"bool","value":false},{"category":"logging","name":"traffic","type":"bool","value":""},{"category":"logging","name":"dns","type":"bool","value":""},{"category":"logging","name":"timestamps","type":"bool","value":true},{"category":"logging","name":"bandwidth","type":"bool","value":""},{"category":"logging","name":"ip","type":"bool","value":true},{"category":"policies","name":"forbidspam","type":"bool","value":false},{"category":"policies","name":"ethicalcopy","type":"bool","value":false},{"category":"policies","name":"fulldisclosure","type":"bool","value":false},{"category":"portblocking","name":"authsmtp","type":"bool","value":true},{"category":"portblocking","name":"p2p","type":"bool","value":"Some"},{"category":"pricing","name":"permonth","type":"float","value":4.59},{"category":"pricing","name":"perconnectionpermonth","type":"float","value":2.3},{"category":"pricing","name":"freetrial","type":"bool","value":false},{"category":"pricing","name":"refundperiod","type":"int","value":7},{"category":"protocols","name":"openvpn","type":"bool","value":true},{"category":"website","name":"persistentcookies","type":"int","value":4},{"category":"website","name":"trackers","type":"int","value":1},{"category":"website","name":"proprietaryapis","type":"int","value":10},{"category":"website","name":"sslrating","type":"string","value":"A"},{"category":"website","name":"certcn","type":"string","value":"Self"},{"category":"company","name":"id","type":"string","value":"AceVPN"},{"category":"company","name":"name","type":"string","value":"AceVPN"},{"category":"company","name":"url","type":"string","value":"http://www.acevpn.com/"},{"category":"company","name":"headtitle","type":"string","value":""},{"category":"company","name":"metadescription","type":"string"},{"category":"company","name":"ogtitle","type":"string"},{"category":"company","name":"ogdescription","type":"string"}],"metadataErrors":[]}]';
+  var queryDeserializedJsonMock = angular.fromJson(vpnJsonStringMock);
 
   beforeEach(module('topsvpn'));
 
-  beforeEach(inject(function(_$httpBackend_, _Util_, _VpnData_) {
+  beforeEach(inject(function(_$httpBackend_, _MrlUtil_, _VpnData_) {
     $httpBackend = _$httpBackend_;
-    Util = _Util_;
+    MrlUtil = _MrlUtil_;
     VpnData = _VpnData_;
-    $httpBackend.expectGET('datasource/tops.vpns.csv').respond(vpnsCsvMock);
+    $httpBackend.expectGET('datasource/tops.vpns.min.js').respond(vpnJsonStringMock);
   }));
 
   // Verify that there are no outstanding expectations or requests after each test
@@ -27,20 +23,12 @@ describe('vpndata', function() {
     $httpBackend.verifyNoOutstandingRequest();
   });
 
-  it("should get raw CSV data", function() {
-    var rawCsvString;
-    VpnData.queryRawCsv().then(function(data) {rawCsvString = data;});
-    expect(rawCsvString).toEqual(undefined);
+  it("should get the JSON data", function() {
+    var deserializedJson;
+      VpnData.queryDeserializedJson().then(function(data) {deserializedJson = data;});
+    expect(deserializedJson).toEqual(undefined);
     $httpBackend.flush();
-    expect(rawCsvString.substring(0,100)).toEqual(vpnsCsvMock.substring(0,100));
-  });
-
-  it("should convert the CSV string into JS objects", function() {
-    var rawCsvObj;
-    VpnData.queryRawVpnObjs().then(function(data) {rawCsvObj = data;});
-    expect(rawCsvObj).toEqual(undefined);
-    $httpBackend.flush();
-    expect(rawCsvObj[0]['VPN SERVICE']).toEqual('3Monkey');
+    expect(deserializedJson[0].id).toEqual(queryDeserializedJsonMock[0].id);
   });
 
   it("should get a single VPN by id", function() {
@@ -51,7 +39,7 @@ describe('vpndata', function() {
     expect(vpn.id).toEqual("3Monkey");
     expect(vpn.getFeatureValue('jurisdiction', 'basedin')).toEqual("Switzerland");
     expect(vpn.getFeatureValue('protocols', 'openvpn')).toEqual(true);
-    expect(Util.arrayContains(vpn.getCategoryList(), 'website')).toBe(true);
+    expect(MrlUtil.arrayContains(vpn.getCategoryList(), 'website')).toBe(true);
   });
 
 });

@@ -2,7 +2,7 @@
 
 <div class="vpnSelectorList">
   <div class="vpnSelectorCompanyList">
-    Companies: <span ng-repeat="vpn in $ctrl.vpns"><a href="vpns/{{vpn.id}}">{{vpn.getFeatureValue("company", "name")}}</a> </span>
+    Companies: <span ng-repeat="vpn in $ctrl.vpns"><a href="#!/vpns/{{vpn.id}}">{{vpn.getFeatureValue("company", "name")}}</a> </span>
   </div>
   <div ng-repeat="(categoryName, featureName) in $ctrl.featuresByCategory" class="vpnSelectorCategory">
     <h2>{{categoryName}}</h2>
