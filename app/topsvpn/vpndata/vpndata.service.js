@@ -100,33 +100,33 @@ angular.
 
       /* Return an object where the object's keys are category IDs and the object's values
        * are arrays of feature IDs in each category.
+       * NOTE: We assume that all VPNs in our data set have the same set of features
        */
-      // function mapCategoriesToFeatureIds() {
-      //   getVpns().then(function(vpnList) {
-      //     var categoriesToFeatureIdsMap;
-      //     vpnList.forEach(function(vpn) {
-      //       vpn.feature.forEach(function(feature) {
-      //         if (MrlUtil.objectContainsKey(categoriesToFeatureIdsMap, feature.category)) {
-      //           MrlUtil.arrayPushUniq(featureId)
-      //         }
-      //       });
-      //     });
-      //   });
-      //   return deferredFeaturesByCategory.promise;
-      // }
+      function mapCategoriesToFeatureIds() {
+        getVpns().then(function(vpnList) {
+          var exemplarVpn = vpnList[0];
+          var categoriesToFeatureIdsMap = {};
+          exemplarVpn.features.forEach(function(feature) {
+            if (MrlUtil.objectContainsKey(categoriesToFeatureIdsMap, feature.category)) {
+              MrlUtil.arrayPushUniq(categoriesToFeatureIdsMap[feature.category], feature.id);
+            }
+            else {
+              categoriesToFeatureIdsMap[feature.category] = [feature.id];
+            }
+          });
+          deferredFeaturesByCategory.resolve(categoriesToFeatureIdsMap);
+        });
+        return deferredFeaturesByCategory.promise;
+      }
 
       /* Get a list of feature IDs for a given category
        * NOTE: We assume that all VPNs in our data set have the same set of features
        */
       function getFeatureIds(category) {
         var deferredReturnValue = $q.defer();
-        getVpns().then(function(vpnList) {
-          var exemplarVpn = vpnList[0];
-          var featureList = exemplarVpn.getFeaturesForCategory(category);
-          if (featureList) {
-            var featureIds = [];
-            featureList.forEach(function(feature) {featureIds.push(feature.id);});
-            deferredReturnValue.resolve(featureIds);
+        mapCategoriesToFeatureIds().then(function(categoriesToFeatureIdsMap) {
+          if (categoriesToFeatureIdsMap[category]) {
+            deferredReturnValue.resolve(categoriesToFeatureIdsMap[category]);
           }
           else {
             deferredReturnValue.reject("No such category ID");
@@ -144,7 +144,7 @@ angular.
         mapFeatureIdsToValues: mapFeatureIdsToValues,
         getFeatureValues: getFeatureValues,
 
-        // mapCategoriesToFeatureIds: mapCategoriesToFeatureIds,
+        mapCategoriesToFeatureIds: mapCategoriesToFeatureIds,
         getFeatureIds: getFeatureIds
       };
 

@@ -69,13 +69,13 @@ describe('vpndata', function() {
     expect(featureIdList).toEqual([7.07, 4.59]);
   });
 
-  // it('should map categories to feature ids', function() {
-  //   var categoryToFeatureIdMap;
-  //   VpnData.mapCategoriesToFeatureIds().then(function(data){categoryToFeatureIdMap=data;});
-  //   expect(categoryToFeatureIdMap).toEqual(undefined);
-  //   $httpBackend.flush();
-  //   expect(categoryToFeatureIdMap).toEqual(false);
-  // });
+  it('should map categories to feature ids', function() {
+    var categoryToFeatureIdMap;
+    VpnData.mapCategoriesToFeatureIds().then(function(data){categoryToFeatureIdMap=data;});
+    expect(categoryToFeatureIdMap).toEqual(undefined);
+    $httpBackend.flush();
+    expect(categoryToFeatureIdMap.leakprotection).toEqual(['leakprotection/dns', 'leakprotection/ipv6', 'leakprotection/killswitch']);
+  });
 
   it('get a list of feature ids from a category', function() {
     var featureIds;
