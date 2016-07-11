@@ -19,6 +19,12 @@ describe('mrlUtil', function() {
     expect(testArr).toEqual([1, 2, 3, 4]);
   });
 
+  it("should contain a working objectContainsKey()", function() {
+    var testObj = {one: 1, two: 2, three: 3};
+    expect(mrlUtil.objectContainsKey(testObj, 'one')).toBe(true);
+    expect(mrlUtil.objectContainsKey(testObj, 'four')).toBe(false);
+  });
+
   it("should contain a working objectSetPropertyIfUnset()", function() {
     var testObj = {one: 1, two: 2, three: 3};
     mrlUtil.objectSetPropertyIfUnset(testObj, 'four', 4);

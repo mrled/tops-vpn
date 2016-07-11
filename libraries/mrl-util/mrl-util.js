@@ -55,6 +55,12 @@ function jsonStringifyCircs(object, space) {
   return jsonString;
 }
 
+/* Determine whether an object has a property of a certain name
+ */
+function objectContainsKey(obj, key) {
+  return true ? arrayContains(Object.keys(obj), key) : false;
+}
+
 /* Set a property on an object only if the object doesn't have a property set with that name
  */
 function objectSetPropertyIfUnset(object, property, value) {
@@ -114,6 +120,7 @@ return {
   arrayContains: arrayContains,
   arrayPushUniq: arrayPushUniq,
   jsonStringifyCircs: jsonStringifyCircs,
+  objectContainsKey: objectContainsKey,
   objectSetPropertyIfUnset: objectSetPropertyIfUnset,
   parseBooleanMaybe: parseBooleanMaybe,
   parseFloatMaybe: parseFloatMaybe,
