@@ -26,6 +26,10 @@ describe('TopsVpn', function() {
       expect( function(){new TopsVpn.VpnFeature('', 'testCat') ;} ).toThrow();
       expect( function(){new TopsVpn.VpnFeature('testName', '');} ).toThrow();
     });
+    it('should generate a predictable id', function() {
+      expect(testFeatureA.id).toBe('testCategoryA/testNameA');
+      expect(testFeatureB.id).toBe('testCategoryB/testNameB');
+    });
     it('should set a default type to string', function() {
       expect(testFeatureA.type).toBe('string');
       expect(testFeatureB.type).toBe('string');

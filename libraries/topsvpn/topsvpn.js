@@ -26,31 +26,57 @@ function idNormalize(string) {
   return string.replace(/[^a-zA-Z0-9]/g, '');
 }
 
-function VpnFeature(category, name, value, type) {
-  if (!category) {throw "Category is required";}
-  if (!name) {throw "Name is required";}
-
+/* Return a VpnFeature object
+ * options:
+ *   If this is a string, treat it as the feature category
+ *   Otherwise, treat it as a serialized JSON version of a VPN
+ *   (that is, it will have the properties, but not the methods, of a VPN object)
+ * features:
+ *   An optional list of features to add to the VPN
+ *   NOTE: If options.features exists and is not empty, this parameter is ignored
+ */
+function VpnFeature(options, name, value, type) {
   var self = this;
-  self.category = category;
-  self.name = name;
-  self.type = type ? type : 'string';
-  self.value = '';
+  var valueStage, typeStage;
+  if (typeof options === 'object') {
+    self.category = options.category;
+    self.name = options.name || name;
+    valueStage = options.value || value;
+    typeStage = options.type || type;
+  }
+  else if (typeof options === 'string') {
+    self.category = options;
+    self.name = name;
+    valueStage = value;
+    typeStage = type;
+  }
+  else {
+    throw "Invalid arguments to VpnFeature constructor";
+  }
+
+  if (!self.category) {throw "Category is required";}
+  if (!self.name) {throw "Name is required";}
+
+  self.type = typeStage ? typeStage : 'string';
+  self.value = undefined;
+  self.id = self.category + '/' + self.name;
   self.toString = toString;
 
   switch (self.type) {
-    case 'bool':   self.value = mrlUtil.parseBooleanMaybe(value); break;
-    case 'int':    self.value = mrlUtil.parseIntMaybe(value); break;
-    case 'float':  self.value = mrlUtil.parseFloatMaybe(value); break;
-    case 'string': self.value = value; break;
+    case 'bool':   self.value = mrlUtil.parseBooleanMaybe(valueStage); break;
+    case 'int':    self.value = mrlUtil.parseIntMaybe(valueStage); break;
+    case 'float':  self.value = mrlUtil.parseFloatMaybe(valueStage); break;
+    case 'string': self.value = valueStage; break;
     default:       throw "No such type: " + self.type;
   }
 
   return self;
 
   function toString() {
-    return self.category + "::" + self.name + "::" + self.value + "<" + self.type + ">";
+    return "VpnFeature(" + self.id + " = " + self.value + " <" + self.type + ">)";
   }
 }
+
 
 /* Return a VPN object
  * options:
@@ -82,9 +108,14 @@ function Vpn(options, features) {
   }
 
   self.features = [];
-  featuresStage.forEach(function(feature) {
-    if (feature.category && feature.name && feature.type) {
-      self.features.push(feature);
+  featuresStage.forEach(function(featureOptions) {
+    if (typeof featureOptions !== 'object') {
+      // This means the source data is bad; not sure what caused this yet
+      // TODO: fix source data!
+      // console.log("Got a non-object feature for some reason: '" + featureOptions + "' of type '" + (typeof featureOptions) + "'");
+    }
+    else {
+      self.features.push(new VpnFeature(featureOptions));
     }
   });
 
