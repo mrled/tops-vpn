@@ -68,7 +68,6 @@ angular.
           var featureIdToValueMap = {};
           vpnList.forEach(function(vpn) {
             vpn.features.forEach(function(feature) {
-              // console.log(feature.featureId);
               if (MrlUtil.objectContainsKey(featureIdToValueMap, feature.id)) {
                 MrlUtil.arrayPushUniq(featureIdToValueMap[feature.id], feature.value);
               }
@@ -77,7 +76,6 @@ angular.
               }
             });
           });
-          // console.log(featureIdToValueMap);
           deferredFeatureIdToValueMap.resolve(featureIdToValueMap);
         });
         return deferredFeatureIdToValueMap.promise;
