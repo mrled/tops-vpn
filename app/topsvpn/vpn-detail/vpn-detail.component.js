@@ -6,7 +6,9 @@ angular.
     controller: ['$routeParams', 'VpnData',
       function VpnDetailController($routeParams, VpnData) {
         var self = this;
-        VpnData.get($routeParams.vpnId).then(function(data) {self.vpn = data;});
+        VpnData.getVpn($routeParams.vpnId).then(function(vpn) {
+          self.vpn = vpn;
+        });
       }
     ]
   });
