@@ -1,6 +1,11 @@
-<h1 class="topmost-element">
-  <a href="#!/vpns">TOPS VPN</a> / <a href="#!/vpns/{{$ctrl.vpn.id}}">{{$ctrl.vpn.getFeatureValue('company', 'name')}}</a>
-</h1>
+<md-toolbar layout="row">
+  <md-button href="#!/vpns" aria-label="TOPS VPN home page">
+    TOPS VPN
+  </md-button>
+  <md-button href="#!/vpns/{{$ctrl.vpn.name}}" aria-label="{{$ctrl.vpn.name}}">
+    {{$ctrl.vpn.getFeatureValue('company', 'name')}}
+  </md-button>
+</md-toolbar>
 
 <!-- TODO: Create a custom directive that can display a single VPN -->
 
