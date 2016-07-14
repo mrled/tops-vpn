@@ -2,8 +2,13 @@
 
 angular.
   module('topsVpnApp').
-  config(['$locationProvider', '$routeProvider',
-    function config($locationProvider, $routeProvider) {
+  config(['$locationProvider', '$routeProvider', '$mdThemingProvider',
+    function config($locationProvider, $routeProvider, $mdThemingProvider) {
+
+      $mdThemingProvider.theme('default')
+        .primaryPalette('indigo')
+        .accentPalette('green');
+
       $locationProvider.hashPrefix('!');
 
       $routeProvider.
