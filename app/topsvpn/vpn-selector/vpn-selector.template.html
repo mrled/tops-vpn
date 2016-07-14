@@ -4,28 +4,33 @@
 </md-toolbar>
 
 <div flex layout="row">
-  <md-content flex id="content">
 
-    <md-chips ng-model="$ctrl.vpns" readonly="true">
-      <md-chip-template>
-        {{$chip.name}}
-        <a href="#!/vpns/{{$chip.id}}"><md-icon md-font-set="material-icons">vpn_lock</md-icon></a>
-      </md-chip-template>
-    </md-chips>
-
+  <md-content flex>
+    <md-subheader><h2>VPN features</h2></md-subheader>
     <md-list flex="">
       <div ng-repeat="(categoryName, featureIdList) in $ctrl.featuresByCategory">
-        <md-subheader class="md-no-sticky">
-          <h2>{{categoryName}}</h2>
-        </md-subheader>
+        <md-subheader class="md-no-sticky"><h3>{{categoryName}}</h3></md-subheader>
         <md-list-item class="md-2-line" ng-repeat="featureId in featureIdList" ng-click="null">
           <div class="md-list-item-text" layout="column">
-            <h3>{{featureId}}</h3>
+            <h4>{{featureId}}</h4>
             <p>{{$ctrl.featureValuesById[featureId]}}</p>
           </div>
         </md-list-item>
       </div>
     </md-list>
-
   </md-content>
+
+  <md-content flex>
+    <md-subheader><h2>Matching VPNs</h2></md-subheader>
+    <md-list flex>
+      <md-list-item class="md-3-line" ng-repeat="vpn in $ctrl.vpns" ng-click="navigateToVpn(vpn.id)">
+        <div class="md-list-item-text" layout="column">
+          <h4>{{vpn.name}}</h4>
+          <p>{{vpn.getFeatureValue('company', 'ogtitle') || vpn.getFeatureValue('company', 'headtitle') || "[No title]"}}</p>
+          <p>{{vpn.getFeatureValue('company', 'ogdescription') || vpn.getFeatureValue('company', 'metadescription') || "[No description]"}}</p>
+        </div>
+      </md-list-item>
+    </md-list>
+  </md-content>
+
 </div>
