@@ -18,6 +18,16 @@
   // jshint ignore: end
 })(function (mrlUtil, logger) {
 
+/* Return the name and category of a feature, based on its id
+ */
+function getFeatureIdNameCategory(featureId) {
+  var splitId = featureId.split('/');
+  return {
+    category: splitId[0],
+    name: splitId[1]
+  };
+}
+
 /* Return a normalized string
  * The string should be suitable for use as an id
  * It should also be usable in a URL and on a filesystem without escaping
@@ -217,6 +227,7 @@ function Vpn(options, features) {
 }
 
 return {
+  getFeatureIdNameCategory: getFeatureIdNameCategory,
   idNormalize: idNormalize,
   Vpn: Vpn,
   VpnFeature: VpnFeature
