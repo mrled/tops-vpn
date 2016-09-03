@@ -1,9 +1,4 @@
 <div class="vpnFeature">
-  <div class="vpnFeatureTitleAndControl">
-    <h3>{{$ctrl.featureId}}</h3>
-    <img src="http://placehold.it/180x60" alt="placeholder for control (like slider/combobox/whatever)" />
-  </div>
-  <div class="vpnFeatureValueList">
-    <span ng-repeat="featVal in $ctrl.featureValues"><code>"{{featVal}}"</code>, </span>
-  </div>
+  <h4>{{$ctrl.featureName}}</h4>
+  <p>{{$ctrl.featureValues}}</p>
 </div>
