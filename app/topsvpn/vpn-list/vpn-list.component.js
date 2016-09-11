@@ -6,7 +6,7 @@ angular.
     controller: ['VpnData',
       function VpnListController(VpnData) {
         var self = this;
-        VpnData.query().then(function(data) {
+        VpnData.getVpns().then(function(data) {
           self.vpns = data;
 
           self.categories = [];
