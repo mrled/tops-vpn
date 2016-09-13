@@ -26,6 +26,8 @@ module.exports = function(config) {
       './app/topsvpn/vpn/vpn.service.js',
       './app/topsvpn/vpndata/vpndata.service.js',
 
+      './app/topsvpn/matches-feature/matches-feature.filter.js',
+
       'libraries/**/*.spec.js',
       'app/**/*.spec.js'
     ],
