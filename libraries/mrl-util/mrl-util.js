@@ -36,6 +36,18 @@ function arrayPushUniq(array, object) {
   }
 }
 
+/* Fucking print a fucking message
+ * Maybe in 20 years when fucking people adopt fucking ECMAScript 6 I can use fucking string interpolation
+ */
+function fuckingPrint() {
+  var message = "";
+  for (var i=0; i<arguments.length; i++) {
+    message += arguments[i];
+    // if (i !== arguments.length - 1) { message += " "; }
+  }
+  console.log(message);
+}
+
 /* Convert an object to a JSON string
  * If there are circular references in the object, replace them with "cirular: fieldName" instead
  * The 'space' parameter is passed directly to JSON.stringify()
@@ -119,6 +131,7 @@ function unquoteString(string) {
 return {
   arrayContains: arrayContains,
   arrayPushUniq: arrayPushUniq,
+  fuckingPrint: fuckingPrint,
   jsonStringifyCircs: jsonStringifyCircs,
   objectContainsKey: objectContainsKey,
   objectSetPropertyIfUnset: objectSetPropertyIfUnset,
