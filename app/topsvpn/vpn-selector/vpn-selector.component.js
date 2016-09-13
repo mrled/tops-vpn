@@ -25,6 +25,7 @@ angular.
         VpnData.mapCategoriesToFeatureIds().then(function(categoriesToFeatureIdsMap) {
           // TODO: clean up source data, so that I can do something more generic here
           // It is probably not useful to be able to filter on company names/URLs/etc
+          // TODO: would be useful to have a search box for searching name/title/description
           delete categoriesToFeatureIdsMap.company;
           self.featuresByCategory = categoriesToFeatureIdsMap;
         });
