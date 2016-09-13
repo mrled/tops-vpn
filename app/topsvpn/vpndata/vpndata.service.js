@@ -1,8 +1,8 @@
 'use strict';
 
-angular.
-  module('topsvpn').
-  factory('VpnData', ['$http', '$q', 'MrlUtil', 'Vpn',
+angular
+  .module('topsvpn')
+  .factory('VpnData', ['$http', '$q', 'MrlUtil', 'Vpn',
     function($http, $q, MrlUtil, Vpn) {
 
       var

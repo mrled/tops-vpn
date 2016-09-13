@@ -1,7 +1,7 @@
 'use strict';
-angular.
-  module('topsvpn').
-  component('vpnList', {
+angular
+  .module('topsvpn')
+  .component('vpnList', {
     templateUrl: 'topsvpn/vpn-list/vpn-list.template.html',
     controller: ['VpnData',
       function VpnListController(VpnData) {

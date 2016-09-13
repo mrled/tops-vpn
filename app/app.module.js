@@ -1,8 +1,10 @@
 'use strict';
 
-angular.module('topsVpnApp', [
-  'ngRoute',
+angular
+  .module('topsVpnApp', [
+    'ngRoute',
 
-  'topsvpn',
-  'topsutil'
-]);
+    'topsvpn',
+    'topsutil'
+  ]
+);

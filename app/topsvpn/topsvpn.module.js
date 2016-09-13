@@ -1,9 +1,11 @@
 'use strict';
 
-angular.module('topsvpn', [
-  'fCsv',
-  'ngMaterial',
-  'ngResource',
+angular
+  .module('topsvpn', [
+    'fCsv',
+    'ngMaterial',
+    'ngResource',
 
-  'topsutil'
-]);
+    'topsutil'
+  ]
+);

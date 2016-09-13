@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('topsvpn')
+angular
+  .module('topsvpn')
   .filter('matchesFeature', ['MrlUtil', function(MrlUtil) {
     /* matchesFeature: filter input VPNs based on feature values
      * vpnList:
@@ -45,9 +46,6 @@ angular.module('topsvpn')
       });
 
       return filteredVpnList;
-
-
-
     };
   }]
 );

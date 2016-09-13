@@ -1,8 +1,8 @@
 'use strict';
 
-angular.
-  module('topsVpnApp').
-  config(['$locationProvider', '$routeProvider', '$mdThemingProvider',
+angular
+  .module('topsVpnApp')
+  .config(['$locationProvider', '$routeProvider', '$mdThemingProvider',
     function config($locationProvider, $routeProvider, $mdThemingProvider) {
 
       $mdThemingProvider.theme('default')
